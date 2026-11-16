@@ -1,0 +1,327 @@
+{
+  "uid": "1000000001",
+  "server": "prod_gf_jp",
+  "session": "connected",
+  "connection": "idle",
+  "sections": {
+    "showcase": {
+      "state": "ready",
+      "at": 1794798000000,
+      "data": {
+        "PlayerInfo": {
+          "SocialDetail": {
+            "ProfileDetail": {
+              "Nickname": "Proxy",
+              "Level": 60
+            }
+          },
+          "ShowcaseDetail": {
+            "AvatarList": [
+              {
+                "Id": 1401,
+                "Level": 60,
+                "TalentLevel": 0,
+                "Weapon": {
+                  "Id": 14140,
+                  "Level": 60,
+                  "UpgradeLevel": 1
+                },
+                "EquippedList": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    "roster": {
+      "state": "ready",
+      "at": 1794798000000,
+      "data": {
+        "avatar_list": [
+          {
+            "id": 1211,
+            "name_mi18n": "Rina",
+            "level": 60,
+            "rank": 0,
+            "rarity": "S"
+          },
+          {
+            "id": 1611,
+            "name_mi18n": "Claret",
+            "level": 60,
+            "rank": 0,
+            "rarity": "S"
+          },
+          {
+            "id": 1101,
+            "name_mi18n": "Koleda",
+            "level": 60,
+            "rank": 0,
+            "rarity": "S"
+          },
+          {
+            "id": 1401,
+            "name_mi18n": "Alice",
+            "level": 60,
+            "rank": 0,
+            "rarity": "S"
+          },
+          {
+            "id": 1411,
+            "name_mi18n": "Yuzuha",
+            "level": 60,
+            "rank": 0,
+            "rarity": "S"
+          },
+          {
+            "id": 1331,
+            "name_mi18n": "Vivian",
+            "level": 60,
+            "rank": 0,
+            "rarity": "S"
+          },
+          {
+            "id": 1201,
+            "name_mi18n": "Harumasa",
+            "level": 60,
+            "rank": 0,
+            "rarity": "S"
+          },
+          {
+            "id": 1191,
+            "name_mi18n": "Ellen",
+            "level": 60,
+            "rank": 0,
+            "rarity": "S"
+          }
+        ]
+      }
+    },
+    "notes": {
+      "state": "ready",
+      "at": 1794798000000,
+      "data": {
+        "energy": {
+          "progress": {
+            "current": 180,
+            "max": 240
+          },
+          "restore": 21600
+        },
+        "vitality": {
+          "current": 200,
+          "max": 400
+        },
+        "card_sign": "CardSignDone",
+        "vhs_sale": {
+          "sale_state": "SaleStateDoing"
+        },
+        "weekly_task": {
+          "cur_point": 700,
+          "max_point": 2100,
+          "refresh_time": 86400
+        },
+        "bounty_commission": {
+          "num": 2000,
+          "total": 8000
+        },
+        "temple_running": {
+          "expedition_state": "ExpeditionStateInProgress"
+        }
+      }
+    },
+    "bangboos": {
+      "state": "ready",
+      "at": 1794798000000,
+      "data": {
+        "list": []
+      }
+    },
+    "account": {
+      "state": "ready",
+      "at": 1794798000000,
+      "data": {
+        "stats": {
+          "achievement_count": 128
+        },
+        "area_collections": [
+          {
+            "name": "Example District",
+            "collection_progress": 65,
+            "is_lock": false
+          }
+        ]
+      }
+    },
+    "lostvoid": {
+      "state": "ready",
+      "at": 1794798000000,
+      "data": {
+        "abyss_level": {
+          "cur_level": 5,
+          "max_level": 10
+        },
+        "abyss_collect": [
+          {
+            "type": 3,
+            "cur_collect": 20,
+            "max_collect": 30
+          }
+        ]
+      }
+    },
+    "shiyu": {
+      "state": "ready",
+      "at": 1794798000000,
+      "data": {
+        "hadal_info_v2": {
+          "brief": {
+            "cur_period_zone_layer_count": 3,
+            "score": 12000
+          },
+          "avatar_list": [
+            {
+              "id": 1211,
+              "level": 60
+            },
+            {
+              "id": 1611,
+              "level": 60
+            },
+            {
+              "id": 1101,
+              "level": 60
+            }
+          ]
+        }
+      }
+    },
+    "events": {
+      "state": "ready",
+      "at": 1794798000000,
+      "data": {
+        "activity_list": [
+          {
+            "name": "Example City Event",
+            "start_ts": 1794369600,
+            "end_ts": 1796108399,
+            "monochrome_cnt": 300,
+            "monochrome_got_cnt": 100
+          }
+        ]
+      }
+    },
+    "banners": {
+      "state": "ready",
+      "at": 1794798000000,
+      "data": {
+        "avatar_gacha_schedule_list": [
+          {
+            "gacha_type": "GACHA_TYPE_CHARACTER_UP",
+            "start_ts": 1794369600,
+            "end_ts": 1796108399,
+            "avatar_list": [
+              {
+                "avatar_id": 1631,
+                "avatar_name": "Severian",
+                "rarity": "S"
+              },
+              {
+                "avatar_id": 1571,
+                "avatar_name": "Norma",
+                "rarity": "S"
+              }
+            ]
+          }
+        ],
+        "weapon_gacha_schedule_list": []
+      }
+    },
+    "earnings": {
+      "state": "ready",
+      "at": 1794798000000,
+      "data": {
+        "data_month": "202611",
+        "optional_month": [
+          "202611"
+        ],
+        "month_data": {
+          "list": [
+            {
+              "count": 1890,
+              "data_name": "Polychromes",
+              "data_type": "PolychromesData"
+            },
+            {
+              "count": 12,
+              "data_name": "Master Tapes",
+              "data_type": "MatserTapeData"
+            },
+            {
+              "count": 8,
+              "data_name": "Boopons",
+              "data_type": "BooponsData"
+            }
+          ],
+          "income_components": [
+            {
+              "action": "event_rewards",
+              "num": 900,
+              "percent": 48
+            },
+            {
+              "action": "daily_activity",
+              "num": 600,
+              "percent": 32
+            },
+            {
+              "action": "other",
+              "num": 390,
+              "percent": 20
+            }
+          ]
+        }
+      }
+    },
+    "gacha": {
+      "state": "ready",
+      "at": 1794798000000,
+      "data": {
+        "record_show_gachas": [
+          "GACHA_TYPE_CHARACTER_UP"
+        ],
+        "tickets": [
+          {
+            "ticket_type": "GACHA_TICKET_TYPE_ENCRYPTED_MASTER_TAPE",
+            "ticket_cnt": 12
+          },
+          {
+            "ticket_type": "GACHA_TICKET_TYPE_POLYCHROME",
+            "ticket_cnt": 5120
+          }
+        ],
+        "gacha_info_list": [
+          {
+            "gacha_type": "GACHA_TYPE_CHARACTER_UP",
+            "more_s_need_cnt": 40,
+            "up_s_item_list": [
+              {
+                "avatar": {
+                  "avatar_id": 1631,
+                  "avatar_name": "Severian"
+                }
+              },
+              {
+                "avatar": {
+                  "avatar_id": 1571,
+                  "avatar_name": "Norma"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "appVersion": "2.4.2"
+}

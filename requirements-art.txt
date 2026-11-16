@@ -1,0 +1,4 @@
+Pillow==11.3.0
+numpy==2.2.6
+fonttools[woff]==4.60.2
+brotli==1.2.0

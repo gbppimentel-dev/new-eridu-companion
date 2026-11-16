@@ -1,0 +1,25 @@
+{
+  "PlayerInfo": {
+    "SocialDetail": {
+      "ProfileDetail": {
+        "Nickname": "Proxy",
+        "Level": 60
+      }
+    },
+    "ShowcaseDetail": {
+      "AvatarList": [
+        {
+          "Id": 1401,
+          "Level": 60,
+          "TalentLevel": 0,
+          "Weapon": {
+            "Id": 14140,
+            "Level": 60,
+            "UpgradeLevel": 1
+          },
+          "EquippedList": []
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "release": "v2.4.2",
+  "status": "development-preview",
+  "publicBuildDeviceValidated": false,
+  "sourceExport": "Developer UID defaults and local signing/private fixture references removed. Thor installation unchanged.",
+  "hardwareEvidenceFromDevelopmentLine": [
+    "Home preserved the ZZZ companion task",
+    "Paired Home returned both physical screens to Cocoon",
+    "Existing-task resume repair restored main app and companion without process restart"
+  ],
+  "notCertified": [
+    "Exact current public APK on physical Thor",
+    "Fresh-account end-to-end setup",
+    "All-agent/costume live recognition",
+    "Live Quit of an active game"
+  ],
+  "documentationImages": "Synthetic UI fixtures; not recognition evidence",
+  "hostChecks": [
+    "57 synthetic UI/data/session/arrangement checks",
+    "25 authentication routing/import checks",
+    "3 scoped-auth recovery checks",
+    "9 sync checks",
+    "9 context policy checks",
+    "6 HUD checks",
+    "7 FPS checks",
+    "9 companion lifecycle checks",
+    "10 temporal squad checks",
+    "8 paired-session policy checks",
+    "16 rendered synthetic views with no overflow/broken local assets/JavaScript errors",
+    "Portable unsigned companion and helper Android builds",
+    "Public source/credential boundary audit",
+    "Signed candidate APKs verified locally; signing key excluded from source and CI"
+  ]
+}

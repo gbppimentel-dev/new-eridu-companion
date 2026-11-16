@@ -1,0 +1,9 @@
+package dev.gbppimentel.zzz;
+import org.json.*;
+public final class SquadTrackerTest {
+ static JSONArray squad(String a,String b,String c)throws Exception{return new JSONArray().put(new JSONObject().put("id",a).put("slot",0)).put(new JSONObject().put("id",b).put("slot",1)).put(new JSONObject().put("id",c).put("slot",2));}
+ static String active(JSONArray a)throws Exception{for(int i=0;i<a.length();i++)if(a.getJSONObject(i).getInt("slot")==0)return a.getJSONObject(i).getString("id");return "";}
+ public static void main(String[] args)throws Exception{int n=0;SquadTracker t=new SquadTracker();JSONArray a=squad("1211","1611","1101");if(t.update(a,100).length()!=0||t.update(a,200).length()!=0)throw new AssertionError("Unstable matches must not be shown");n++;if(t.update(a,300).length()!=3)throw new AssertionError("Repeated complete squad");n++;
+ for(String[] team:new String[][]{{"1101","1211","1611"},{"1611","1101","1211"},{"1211","1101","1611"},{"1501","1511","1491"},{"1491","1501","1511"},{"1511","1491","1501"}}){JSONArray b=squad(team[0],team[1],team[2]);JSONArray switching=t.update(b,400);if(switching.length()!=3||!active(switching).isEmpty())throw new AssertionError("Retain full squad but no stale on-field label during switch");t.update(b,500);JSONArray confirmed=t.update(b,600);if(confirmed.length()!=3||!active(confirmed).equals(team[0]))throw new AssertionError("Confirm arbitrary squad/order");n++;}
+ JSONArray hidden=t.update(new JSONArray(),700);if(hidden.length()!=3||!active(hidden).isEmpty())throw new AssertionError("Occlusion retains all three without on-field claim");n++;t.update(a,800);t.update(squad("1101","1211","1611"),900);if(!active(t.update(a,1000)).isEmpty())throw new AssertionError("Alternating matches cannot become current");n++;System.out.println(n+" temporal squad checks passed");}
+}

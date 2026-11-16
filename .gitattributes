@@ -1,0 +1,19 @@
+* text=auto
+*.sh text eol=lf
+*.py text eol=lf
+*.java text eol=lf
+*.js text eol=lf
+*.cjs text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.lua text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.webp binary
+*.png binary
+*.ttf binary
+*.exe binary
+
+# Preserve upstream font notices verbatim.
+assets/fonts/*-OFL.txt -whitespace

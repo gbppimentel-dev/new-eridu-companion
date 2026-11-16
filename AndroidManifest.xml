@@ -1,0 +1,16 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="dev.gbppimentel.zzz" android:versionCode="12" android:versionName="2.4.2">
+ <uses-sdk android:minSdkVersion="30" android:targetSdkVersion="32"/>
+ <uses-permission android:name="android.permission.INTERNET"/>
+ <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+ <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+ <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+ <queries><package android:name="com.HoYoverse.Nap"/></queries>
+ <application android:label="New Eridu Companion" android:icon="@drawable/icon" android:theme="@style/CompanionTheme" android:allowBackup="false" android:usesCleartextTraffic="false">
+  <activity android:name=".MainActivity" android:exported="true" android:resizeableActivity="true" android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden|keyboard|navigation|density" android:launchMode="singleTask">
+   <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>
+  </activity>
+  <activity android:name=".LoginActivity" android:exported="false" android:resizeableActivity="true" android:configChanges="orientation|screenSize|keyboardHidden"/>
+  <receiver android:name=".ReminderReceiver" android:exported="false"/>
+  <receiver android:name=".BootReceiver" android:exported="true"><intent-filter><action android:name="android.intent.action.BOOT_COMPLETED"/></intent-filter></receiver>
+ </application>
+</manifest>

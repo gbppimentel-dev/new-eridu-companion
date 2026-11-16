@@ -1,0 +1,30 @@
+name: compatibility report
+description: document a tested Thor, firmware, Android or game configuration.
+title: "[compatibility] "
+labels: [compatibility]
+body:
+  - type: textarea
+    id: versions
+    attributes:
+      label: exact versions
+      description: list the companion, Thor model/firmware, Android, Cocoon, ZZZ package/version, region and AYN service availability.
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: result
+      options:
+        - working
+        - setup refused
+        - account connected but data or observations missing
+        - crash or other issue
+    validations:
+      required: true
+  - type: textarea
+    id: checks
+    attributes:
+      label: checks performed and messages
+      description: describe setup, live data, controller input, Home/resume behavior and any exact error. do not upload game binaries or saves.
+    validations:
+      required: true

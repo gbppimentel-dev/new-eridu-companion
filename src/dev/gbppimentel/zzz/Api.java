@@ -1,0 +1,33 @@
+package dev.gbppimentel.zzz;
+import android.content.*;import org.json.*;import java.net.*;import java.io.*;import java.security.*;import java.util.*;
+final class Api {
+ static final String RECORD="https://sg-act-public-api.hoyolab.com/event/game_record_zzz/api/zzz/";
+ static final String CULTIVATE="https://sg-act-public-api.hoyolab.com/event/nap_cultivate_tool/";
+ final Context context; final String uid,server;String cookies,sessionBase;boolean persistCookies=true;
+ Api(Context c,String u,String s){context=c;uid=u;server=s;cookies=Vault.get(c);sessionBase=cookies;}
+ static final SyncPolicy LIMITS=new SyncPolicy();
+ static class Failure extends IOException{final int code;final long retryAfter;Failure(int c,String m){this(c,m,0);}Failure(int c,String m,long r){super(m);code=c;retryAfter=r;}}
+ static String encode(String s)throws Exception{return URLEncoder.encode(s,"UTF-8");}
+ static String ds()throws Exception{String t=""+(System.currentTimeMillis()/1000),r=UUID.randomUUID().toString().substring(0,6);byte[] bytes=MessageDigest.getInstance("MD5").digest(("salt=6s25p5ox5y14umn1p61aqyyvbvvl3lrt&t="+t+"&r="+r).getBytes("UTF-8"));StringBuilder h=new StringBuilder();for(byte b:bytes)h.append(String.format("%02x",b&255));return t+","+r+","+h;}
+ JSONObject request(String address,JSONObject body,boolean auth)throws Exception{
+  if(auth&&!LIMITS.allowed(System.currentTimeMillis()))throw new Failure(429,"Automatic refresh paused. Wait for the service cooldown, or reconnect after account verification.",Math.max(0,LIMITS.blockedUntil-System.currentTimeMillis()));
+  URL url=new URL(address);String host=url.getHost();if(!"https".equals(url.getProtocol())||!(host.equals("enka.network")||host.equals("sg-act-public-api.hoyolab.com")||host.equals("sg-public-api.hoyolab.com")||host.equals("api-account-os.hoyolab.com")))throw new IOException("Unrecognized data source");
+  HttpURLConnection c=(HttpURLConnection)url.openConnection();c.setInstanceFollowRedirects(false);c.setConnectTimeout(15000);c.setReadTimeout(20000);c.setRequestProperty("User-Agent","NewEriduCompanion/2.0 (personal Android companion)");c.setRequestProperty("Accept","application/json");
+  if(auth){c.setRequestProperty("Cookie",cookies);c.setRequestProperty("DS",ds());c.setRequestProperty("x-rpc-app_version","1.5.0");c.setRequestProperty("x-rpc-client_type","5");c.setRequestProperty("x-rpc-language","en-us");c.setRequestProperty("x-rpc-lang","en-us");c.setRequestProperty("Referer","https://act.hoyolab.com/");c.setRequestProperty("Origin","https://act.hoyolab.com");}
+  try{if(body!=null){c.setRequestMethod("POST");c.setDoOutput(true);c.setRequestProperty("Content-Type","application/json");try(OutputStream out=c.getOutputStream()){out.write(body.toString().getBytes("UTF-8"));}}
+   int status=c.getResponseCode();long retry=SyncPolicy.retryAfter(c.getHeaderField("Retry-After"),System.currentTimeMillis());if(status!=200){if(auth)LIMITS.failure(System.currentTimeMillis(),status,retry);throw new Failure(status,status==429?"Refresh limited. Please wait before trying again.":status==424||status==503?"Game service is updating. Try again later.":"Service returned HTTP "+status,retry);}
+   ByteArrayOutputStream bytes=new ByteArrayOutputStream();try(InputStream in=c.getInputStream()){byte[] buf=new byte[8192];int n;while((n=in.read(buf))!=-1){if(bytes.size()+n>8000000)throw new IOException("Response too large");bytes.write(buf,0,n);}}
+   JSONObject j=new JSONObject(new String(bytes.toByteArray(),"UTF-8"));if(j.has("retcode")&&j.optInt("retcode")!=0){int code=j.optInt("retcode");if(auth&&(code==1034||code==10035||code==5003))LIMITS.failure(System.currentTimeMillis(),code,0);throw new Failure(code,code==-100||code==10001||code==10002?"Sign in to HoYoLAB again.":code==10102?"Enable Battle Records / real-time notes in HoYoLAB to view this section.":code==1034||code==10035||code==5003?"HoYoLAB needs account verification. Open account tools to continue.":j.optString("message","Data unavailable"));}
+   if(auth){List<String> set=c.getHeaderFields().get("Set-Cookie");if(set==null)set=c.getHeaderFields().get("set-cookie");if(set!=null){LinkedHashMap<String,String> jar=new LinkedHashMap<>();for(String part:cookies.split(";")){int k=part.indexOf('=');if(k>0)jar.put(part.substring(0,k).trim(),part.substring(k+1));}for(String line:set){String part=line.split(";",2)[0];int k=part.indexOf('=');if(k>0)jar.put(part.substring(0,k).trim(),part.substring(k+1));}StringBuilder all=new StringBuilder();for(Map.Entry<String,String> e:jar.entrySet())all.append(e.getKey()).append('=').append(e.getValue()).append("; ");cookies=all.toString();if(persistCookies){if(Vault.replace(context,sessionBase,cookies))sessionBase=cookies;else{cookies=Vault.get(context);sessionBase=cookies;}}}}
+   return j.has("retcode")?j.optJSONObject("data")==null?new JSONObject():j.getJSONObject("data"):j;
+  }finally{c.disconnect();}
+ }
+ JSONObject profile()throws Exception{return request("https://enka.network/api/zzz/uid/"+uid+"/",null,false);}
+ JSONObject roles()throws Exception{return request("https://api-account-os.hoyolab.com/binding/api/getUserGameRolesByCookie?game_biz=nap_global",null,true);}
+ String params(boolean alt)throws Exception{return (alt?"uid=":"role_id=")+uid+(alt?"&region=":"&server=")+encode(server);}
+ JSONObject record(String path,boolean alt,String extra)throws Exception{String address=RECORD+path+"?"+params(alt)+(extra.isEmpty()?"":"&"+extra);try{return request(address,null,true);}catch(Failure f){if(!(path.equals("cur_gacha_detail")||path.equals("gacha_record"))||!authFailure(f.code))throw f;badge(true);return request(address,null,true);}}
+ static boolean authFailure(int code){return AuthRecovery.expired(code);}
+ JSONObject ledger(String path,String extra)throws Exception{return request("https://sg-public-api.hoyolab.com/event/nap_ledger/"+path+"?"+params(true)+"&"+extra,null,true);}
+ void badge(boolean force)throws Exception{if(!force&&cookies.contains("e_nap_token="))return;if(force){cookies=AuthRecovery.freshBadgeCookies(cookies);}request("https://sg-act-public-api.hoyolab.com/common/badge/v1/login/account",new JSONObject().put("game_biz","nap_global").put("lang","en-us").put("region",server).put("uid",uid),true);}
+ JSONObject guide(String id)throws Exception{badge(false);JSONObject b=new JSONObject().put("avatar_list",new JSONArray().put(new JSONObject().put("avatar_id",Integer.parseInt(id)).put("is_teaser",false).put("teaser_need_weapon",false).put("teaser_sp_skill",false)));try{return request(CULTIVATE+"user/batch_avatar_detail_v2?"+params(true),b,true);}catch(Failure f){if(f.code!=-100)throw f;badge(true);return request(CULTIVATE+"user/batch_avatar_detail_v2?"+params(true),b,true);}}
+}

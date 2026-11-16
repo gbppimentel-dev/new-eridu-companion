@@ -1,0 +1,9 @@
+Tesseract4Android 4.9.0 — https://github.com/adaptech-cz/Tesseract4Android
+Apache License 2.0; includes wrapper code based on tess-two / Tesseract Tools for Android.
+Tesseract 5.5.1 — https://github.com/tesseract-ocr/tesseract — Apache License 2.0.
+English model — https://github.com/tesseract-ocr/tessdata_fast — Apache License 2.0.
+Leptonica 1.85.0 — http://www.leptonica.org — BSD 2-Clause license.
+libjpeg v9f — https://www.ijg.org — Independent JPEG Group license.
+libpng 1.6.48 — http://www.libpng.org — libpng license.
+The runtime is used only for local processing of visible game text.
+No account cookies, game frames or OCR input are sent to these projects.

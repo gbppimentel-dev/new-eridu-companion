@@ -1,0 +1,8 @@
+package dev.gbppimentel.zzz;
+import android.content.*;import android.security.keystore.*;import android.util.Base64;import java.security.*;import javax.crypto.*;import javax.crypto.spec.GCMParameterSpec;
+final class Vault {
+ static synchronized void put(Context c,String value)throws Exception{KeyStore ks=KeyStore.getInstance("AndroidKeyStore");ks.load(null);if(!ks.containsAlias("eridu-session")){KeyGenerator g=KeyGenerator.getInstance("AES","AndroidKeyStore");g.init(new KeyGenParameterSpec.Builder("eridu-session",KeyProperties.PURPOSE_ENCRYPT|KeyProperties.PURPOSE_DECRYPT).setBlockModes("GCM").setEncryptionPaddings("NoPadding").build());g.generateKey();}Cipher cipher=Cipher.getInstance("AES/GCM/NoPadding");cipher.init(Cipher.ENCRYPT_MODE,ks.getKey("eridu-session",null));c.getSharedPreferences("vault",0).edit().putString("iv",Base64.encodeToString(cipher.getIV(),2)).putString("body",Base64.encodeToString(cipher.doFinal(value.getBytes("UTF-8")),2)).commit();}
+ static synchronized String get(Context c){try{android.content.SharedPreferences p=c.getSharedPreferences("vault",0);if(!p.contains("body"))return "";KeyStore ks=KeyStore.getInstance("AndroidKeyStore");ks.load(null);Cipher cipher=Cipher.getInstance("AES/GCM/NoPadding");cipher.init(Cipher.DECRYPT_MODE,ks.getKey("eridu-session",null),new GCMParameterSpec(128,Base64.decode(p.getString("iv",""),2)));return new String(cipher.doFinal(Base64.decode(p.getString("body",""),2)),"UTF-8");}catch(Exception e){return "";}}
+ static synchronized boolean replace(Context c,String expected,String value)throws Exception{if(!get(c).equals(expected))return false;put(c,value);return true;}
+ static synchronized void clear(Context c){c.getSharedPreferences("vault",0).edit().clear().commit();}
+}

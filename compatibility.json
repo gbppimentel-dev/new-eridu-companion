@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "application": {
+    "name": "New Eridu Companion",
+    "package": "dev.gbppimentel.zzz",
+    "version": "2.4.2",
+    "versionCode": 12,
+    "minAndroidApi": 30
+  },
+  "toolchain": {
+    "androidPlatform": 36,
+    "androidBuildTools": "36.0.0",
+    "java": 21,
+    "node": 24,
+    "python": "3.12"
+  },
+  "developmentBaseline": {
+    "device": "AYN Thor",
+    "android": "13",
+    "primaryAndroidUserOnly": true,
+    "gamePackage": "com.HoYoverse.Nap",
+    "gameDisplay": 0,
+    "companionDisplay": 4,
+    "lowerViewport": [
+      538,
+      468
+    ],
+    "cocoon": "3.11",
+    "wayfinder": "1.4.1",
+    "privilegedService": "PServerBinder"
+  },
+  "publicCandidate": {
+    "status": "host-validated development preview",
+    "deviceInstallValidated": false
+  },
+  "unverified": [
+    "Fresh-account onboarding on another Thor",
+    "Every agent, costume and team",
+    "Live paired Quit",
+    "Other firmware and display arrangements"
+  ],
+  "unavailable": [
+    "Exact engine telemetry",
+    "Exact enemy totals"
+  ]
+}

@@ -1,0 +1,1115 @@
+{
+  "ui": "Original ZZZ Battle Records web interface assets and fonts",
+  "ui_sources": {
+    "Impact": {
+      "file": "Impact.woff2",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/fonts/Impact.woff2"
+    },
+    "zzz-us": {
+      "file": "zzz-us.woff2",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/fonts/zzz-us.woff2"
+    },
+    "attribute-electric-icon": {
+      "file": "attribute-electric-icon.ad4c441f.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/attribute-electric-icon.ad4c441f.png"
+    },
+    "attribute-ether-icon": {
+      "file": "attribute-ether-icon.9a1e42a1.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/attribute-ether-icon.9a1e42a1.png"
+    },
+    "attribute-fire-icon": {
+      "file": "attribute-fire-icon.aeddecee.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/attribute-fire-icon.aeddecee.png"
+    },
+    "attribute-ice-icon": {
+      "file": "attribute-ice-icon.5c85742d.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/attribute-ice-icon.5c85742d.png"
+    },
+    "attribute-light-icon": {
+      "file": "attribute-light-icon.3434f5b5.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/attribute-light-icon.3434f5b5.png"
+    },
+    "attribute-physical-icon": {
+      "file": "attribute-physical-icon.a657c07a.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/attribute-physical-icon.a657c07a.png"
+    },
+    "attribute-wind-icon": {
+      "file": "attribute-wind-icon.c5358f7e.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/attribute-wind-icon.c5358f7e.png"
+    },
+    "avatar_loading@2x": {
+      "file": "avatar_loading@2x.a7fa6076.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/avatar_loading@2x.a7fa6076.png"
+    },
+    "back-icon-m-sea": {
+      "file": "back-icon-m-sea.ce9b0ad1.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/back-icon-m-sea.ce9b0ad1.png"
+    },
+    "home-bg-pc": {
+      "file": "home-bg-pc.4165948d.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/home-bg-pc.4165948d.png"
+    },
+    "hoyolab_logo": {
+      "file": "hoyolab_logo.6652500b.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/hoyolab_logo.6652500b.png"
+    },
+    "m-logo": {
+      "file": "m-logo.ce84518e.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/m-logo.ce84518e.png"
+    },
+    "pamu": {
+      "file": "pamu.7a1ba3ab.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/pamu.7a1ba3ab.png"
+    },
+    "profession-anomaly-icon": {
+      "file": "profession-anomaly-icon.cd1b1573.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/profession-anomaly-icon.cd1b1573.png"
+    },
+    "profession-attack-icon": {
+      "file": "profession-attack-icon.3c2a053f.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/profession-attack-icon.3c2a053f.png"
+    },
+    "profession-breakthrough-icon": {
+      "file": "profession-breakthrough-icon.84a7f20a.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/profession-breakthrough-icon.84a7f20a.png"
+    },
+    "profession-defensive-icon": {
+      "file": "profession-defensive-icon.9bd60af4.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/profession-defensive-icon.9bd60af4.png"
+    },
+    "profession-support-icon": {
+      "file": "profession-support-icon.9cf39df7.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/profession-support-icon.9cf39df7.png"
+    },
+    "rarity-a-icon": {
+      "file": "rarity-a-icon.c9179f22.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/rarity-a-icon.c9179f22.png"
+    },
+    "rarity-a": {
+      "file": "rarity-a.2e7c7c47.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/rarity-a.2e7c7c47.png"
+    },
+    "rarity-b-icon": {
+      "file": "rarity-b-icon.5b68d51c.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/rarity-b-icon.5b68d51c.png"
+    },
+    "rarity-b": {
+      "file": "rarity-b.7e53884c.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/rarity-b.7e53884c.png"
+    },
+    "rarity-s-icon": {
+      "file": "rarity-s-icon.3e8ac292.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/rarity-s-icon.3e8ac292.png"
+    },
+    "rarity-s": {
+      "file": "rarity-s.57a8823c.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/rarity-s.57a8823c.png"
+    },
+    "attribute-auricink-icon": {
+      "file": "attribute-auricink-icon.bb80b050.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/attribute-auricink-icon.bb80b050.png"
+    },
+    "attribute-frost-icon": {
+      "file": "attribute-frost-icon.8de86b8f.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/attribute-frost-icon.8de86b8f.png"
+    },
+    "attribute-honededge-icon": {
+      "file": "attribute-honededge-icon.5c0ed0be.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/attribute-honededge-icon.5c0ed0be.png"
+    },
+    "battery-icon-pc": {
+      "file": "battery-icon-pc.e09cdb50.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/battery-icon-pc.e09cdb50.png"
+    },
+    "block-bg-bottom": {
+      "file": "block-bg-bottom.90c48843.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/block-bg-bottom.90c48843.png"
+    },
+    "block-bg-center": {
+      "file": "block-bg-center.518f802e.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/block-bg-center.518f802e.png"
+    },
+    "block-bg-top": {
+      "file": "block-bg-top.49516e39.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/block-bg-top.49516e39.png"
+    },
+    "bottom-bg": {
+      "file": "bottom-bg.3a0aa436.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/bottom-bg.3a0aa436.png"
+    },
+    "challenge-tab-bg": {
+      "file": "challenge-tab-bg.3c3a048c.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/challenge-tab-bg.3c3a048c.png"
+    },
+    "detail-logo": {
+      "file": "detail-logo.cff62426.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/detail-logo.cff62426.png"
+    },
+    "equip-bg-left-A": {
+      "file": "equip-bg-left-A.754222be.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/equip-bg-left-A.754222be.png"
+    },
+    "equip-bg-left-B": {
+      "file": "equip-bg-left-B.bacce720.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/equip-bg-left-B.bacce720.png"
+    },
+    "equip-bg-left-S": {
+      "file": "equip-bg-left-S.dbbcb2de.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/equip-bg-left-S.dbbcb2de.png"
+    },
+    "equip-bg-right-A": {
+      "file": "equip-bg-right-A.66cbf22f.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/equip-bg-right-A.66cbf22f.png"
+    },
+    "equip-bg-right-B": {
+      "file": "equip-bg-right-B.612450b6.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/equip-bg-right-B.612450b6.png"
+    },
+    "equip-bg-right-S": {
+      "file": "equip-bg-right-S.6aad8fa3.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/equip-bg-right-S.6aad8fa3.png"
+    },
+    "equip-disable-bg": {
+      "file": "equip-disable-bg.2efb63e8.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/equip-disable-bg.2efb63e8.png"
+    },
+    "external-tab-bg": {
+      "file": "external-tab-bg.8ad23fea.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/external-tab-bg.8ad23fea.png"
+    },
+    "finished-icon": {
+      "file": "finished-icon.bf303d99.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/finished-icon.bf303d99.png"
+    },
+    "gacha-bangboo-icon": {
+      "file": "gacha-bangboo-icon.8796791e.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/gacha-bangboo-icon.8796791e.png"
+    },
+    "gacha-film-colorless-icon": {
+      "file": "gacha-film-colorless-icon.fecf1fa5.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/gacha-film-colorless-icon.fecf1fa5.png"
+    },
+    "gacha-film-icon": {
+      "file": "gacha-film-icon.96781cc2.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/gacha-film-icon.96781cc2.png"
+    },
+    "gacha-master-icon": {
+      "file": "gacha-master-icon.aceae997.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/gacha-master-icon.aceae997.png"
+    },
+    "gacha-origin-master-icon": {
+      "file": "gacha-origin-master-icon.7fce88a7.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/gacha-origin-master-icon.7fce88a7.png"
+    },
+    "home-icon": {
+      "file": "home-icon.5d0ae563.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/home-icon.5d0ae563.png"
+    },
+    "icon-bangboo-large": {
+      "file": "icon-bangboo-large.64cec503.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-bangboo-large.64cec503.png"
+    },
+    "icon-bangboo-summary": {
+      "file": "icon-bangboo-summary.3b54ed6e.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-bangboo-summary.3b54ed6e.png"
+    },
+    "icon-bangboo": {
+      "file": "icon-bangboo.b04108e6.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-bangboo.b04108e6.png"
+    },
+    "icon-climbing-s2": {
+      "file": "icon-climbing-s2.87bfba98.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-climbing-s2.87bfba98.png"
+    },
+    "icon-encrypted-master": {
+      "file": "icon-encrypted-master.728d9443.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-encrypted-master.728d9443.png"
+    },
+    "icon-feilin-large": {
+      "file": "icon-feilin-large.7850ba22.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-feilin-large.7850ba22.png"
+    },
+    "icon-feilin-summary": {
+      "file": "icon-feilin-summary.8643ebfe.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-feilin-summary.8643ebfe.png"
+    },
+    "icon-feilin": {
+      "file": "icon-feilin.a3d8b035.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-feilin.a3d8b035.png"
+    },
+    "icon-film-summary": {
+      "file": "icon-film-summary.06b22800.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-film-summary.06b22800.png"
+    },
+    "icon-fund": {
+      "file": "icon-fund.4ff64536.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-fund.4ff64536.png"
+    },
+    "icon-lock": {
+      "file": "icon-lock.d8b3339b.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-lock.d8b3339b.png"
+    },
+    "icon-master-large": {
+      "file": "icon-master-large.38031dca.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-master-large.38031dca.png"
+    },
+    "icon-origin-master": {
+      "file": "icon-origin-master.1b749a67.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-origin-master.1b749a67.png"
+    },
+    "icon-purple": {
+      "file": "icon-purple.9491a5a3.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-purple.9491a5a3.png"
+    },
+    "icon-question-v2": {
+      "file": "icon-question-v2.56b2af9c.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-question-v2.56b2af9c.png"
+    },
+    "icon-red": {
+      "file": "icon-red.59da563b.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-red.59da563b.png"
+    },
+    "icon-season-coins": {
+      "file": "icon-season-coins.8fb93ad4.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-season-coins.8fb93ad4.png"
+    },
+    "icon-top": {
+      "file": "icon-top.140345aa.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/icon-top.140345aa.png"
+    },
+    "index-share-top-logo-sea": {
+      "file": "index-share-top-logo-sea.681ffcfd.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/index-share-top-logo-sea.681ffcfd.png"
+    },
+    "pc-bg-1": {
+      "file": "pc-bg-1.d0f09b7c.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/pc-bg-1.d0f09b7c.png"
+    },
+    "pc-bg-2": {
+      "file": "pc-bg-2.6cb80ea0.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/pc-bg-2.6cb80ea0.png"
+    },
+    "pc-bg-4": {
+      "file": "pc-bg-4.e3a7dbf4.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/pc-bg-4.e3a7dbf4.png"
+    },
+    "pc-bg-5-expand": {
+      "file": "pc-bg-5-expand.b286fe5e.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/pc-bg-5-expand.b286fe5e.png"
+    },
+    "pc-bg-5": {
+      "file": "pc-bg-5.416b3d2b.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/pc-bg-5.416b3d2b.png"
+    },
+    "pc-rating-bg-a": {
+      "file": "pc-rating-bg-a.2a94c558.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/pc-rating-bg-a.2a94c558.png"
+    },
+    "pc-rating-bg-b": {
+      "file": "pc-rating-bg-b.4bcfafab.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/pc-rating-bg-b.4bcfafab.png"
+    },
+    "pc-rating-bg-s": {
+      "file": "pc-rating-bg-s.4c4eac50.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/pc-rating-bg-s.4c4eac50.png"
+    },
+    "pc-rating-bg-s_plus": {
+      "file": "pc-rating-bg-s_plus.2180e33b.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/pc-rating-bg-s_plus.2180e33b.png"
+    },
+    "profession-fengyu-icon": {
+      "file": "profession-fengyu-icon.00032c58.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/profession-fengyu-icon.00032c58.png"
+    },
+    "profession-rupture-icon": {
+      "file": "profession-rupture-icon.4668f112.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/profession-rupture-icon.4668f112.png"
+    },
+    "prop-accumulation-icon": {
+      "file": "prop-accumulation-icon.37c5e8fe.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-accumulation-icon.37c5e8fe.png"
+    },
+    "prop-anomaly-mastery-icon": {
+      "file": "prop-anomaly-mastery-icon.f4fc5970.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-anomaly-mastery-icon.f4fc5970.png"
+    },
+    "prop-anomaly-proficiency-icon": {
+      "file": "prop-anomaly-proficiency-icon.38adc36b.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-anomaly-proficiency-icon.38adc36b.png"
+    },
+    "prop-atk-icon": {
+      "file": "prop-atk-icon.7e5f0cb6.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-atk-icon.7e5f0cb6.png"
+    },
+    "prop-crit-dmg-icon": {
+      "file": "prop-crit-dmg-icon.b896fc9e.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-crit-dmg-icon.b896fc9e.png"
+    },
+    "prop-crit-rate-icon": {
+      "file": "prop-crit-rate-icon.810d1d8e.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-crit-rate-icon.810d1d8e.png"
+    },
+    "prop-def-icon": {
+      "file": "prop-def-icon.a927965c.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-def-icon.a927965c.png"
+    },
+    "prop-electric-icon": {
+      "file": "prop-electric-icon.ad4c441f.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-electric-icon.ad4c441f.png"
+    },
+    "prop-energy-regen-icon": {
+      "file": "prop-energy-regen-icon.2ec55369.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-energy-regen-icon.2ec55369.png"
+    },
+    "prop-energyaccumulation-icon": {
+      "file": "prop-energyaccumulation-icon.00b2ae57.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-energyaccumulation-icon.00b2ae57.png"
+    },
+    "prop-ether-icon": {
+      "file": "prop-ether-icon.9a1e42a1.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-ether-icon.9a1e42a1.png"
+    },
+    "prop-fire-icon": {
+      "file": "prop-fire-icon.aeddecee.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-fire-icon.aeddecee.png"
+    },
+    "prop-hp-icon": {
+      "file": "prop-hp-icon.59cb16ef.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-hp-icon.59cb16ef.png"
+    },
+    "prop-ice-icon": {
+      "file": "prop-ice-icon.5c85742d.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-ice-icon.5c85742d.png"
+    },
+    "prop-impact-icon": {
+      "file": "prop-impact-icon.6d9c9282.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-impact-icon.6d9c9282.png"
+    },
+    "prop-pen-ratio-icon": {
+      "file": "prop-pen-ratio-icon.90bc6385.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-pen-ratio-icon.90bc6385.png"
+    },
+    "prop-pen-value-icon": {
+      "file": "prop-pen-value-icon.7646b67f.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-pen-value-icon.7646b67f.png"
+    },
+    "prop-perforation-icon": {
+      "file": "prop-perforation-icon.a38cc4d9.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-perforation-icon.a38cc4d9.png"
+    },
+    "prop-physical-icon": {
+      "file": "prop-physical-icon.a657c07a.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-physical-icon.a657c07a.png"
+    },
+    "prop-sharp-icon": {
+      "file": "prop-sharp-icon.704f0fa0.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-sharp-icon.704f0fa0.png"
+    },
+    "prop-wind-icon": {
+      "file": "prop-wind-icon.c5358f7e.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/prop-wind-icon.c5358f7e.png"
+    },
+    "rating-bg-a": {
+      "file": "rating-bg-a.f03bbf87.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/rating-bg-a.f03bbf87.png"
+    },
+    "rating-bg-b": {
+      "file": "rating-bg-b.36054580.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/rating-bg-b.36054580.png"
+    },
+    "rating-bg-s": {
+      "file": "rating-bg-s.47f65ee9.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/rating-bg-s.47f65ee9.png"
+    },
+    "rating-bg-s_plus": {
+      "file": "rating-bg-s_plus.0f4ceae4.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/rating-bg-s_plus.0f4ceae4.png"
+    },
+    "score-bg": {
+      "file": "score-bg.de99b8e9.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/score-bg.de99b8e9.png"
+    },
+    "share-icon-hover": {
+      "file": "share-icon-hover.3ecdc24c.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/share-icon-hover.3ecdc24c.png"
+    },
+    "share-icon-m-sea": {
+      "file": "share-icon-m-sea.5c85ef1c.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/share-icon-m-sea.5c85ef1c.png"
+    },
+    "share-icon-pc-hover": {
+      "file": "share-icon-pc-hover.6c22b51a.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/share-icon-pc-hover.6c22b51a.png"
+    },
+    "share-icon-pc-v2": {
+      "file": "share-icon-pc-v2.be4390ec.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/share-icon-pc-v2.be4390ec.png"
+    },
+    "share-icon-pc": {
+      "file": "share-icon-pc.71d4ba80.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/share-icon-pc.71d4ba80.png"
+    },
+    "skill-icon-0": {
+      "file": "skill-icon-0.0d9692b6.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/skill-icon-0.0d9692b6.png"
+    },
+    "skill-icon-1": {
+      "file": "skill-icon-1.e2f84ffb.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/skill-icon-1.e2f84ffb.png"
+    },
+    "skill-icon-2": {
+      "file": "skill-icon-2.d863591b.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/skill-icon-2.d863591b.png"
+    },
+    "skill-icon-3": {
+      "file": "skill-icon-3.afdb8abe.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/skill-icon-3.afdb8abe.png"
+    },
+    "skill-icon-5": {
+      "file": "skill-icon-5.3d486da1.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/skill-icon-5.3d486da1.png"
+    },
+    "skill-icon-6": {
+      "file": "skill-icon-6.3fc55b66.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/skill-icon-6.3fc55b66.png"
+    },
+    "star-icon-hard": {
+      "file": "star-icon-hard.13c9ee51.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/star-icon-hard.13c9ee51.png"
+    },
+    "star-icon-light": {
+      "file": "star-icon-light.5a286c6d.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/star-icon-light.5a286c6d.png"
+    },
+    "tab-bg": {
+      "file": "tab-bg.11a979ed.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/tab-bg.11a979ed.png"
+    },
+    "tab-container-bg": {
+      "file": "tab-container-bg.8e547a9d.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/tab-container-bg.8e547a9d.png"
+    },
+    "time-icon": {
+      "file": "time-icon.37f859cd.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/time-icon.37f859cd.png"
+    },
+    "title-icon": {
+      "file": "title-icon.0b3eeb69.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/title-icon.0b3eeb69.png"
+    },
+    "tower_s1_bg": {
+      "file": "tower_s1_bg.a8dee1d9.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/tower_s1_bg.a8dee1d9.png"
+    },
+    "tower_s1_bg_pc": {
+      "file": "tower_s1_bg_pc.c124367b.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/tower_s1_bg_pc.c124367b.png"
+    },
+    "tower_s2_bg": {
+      "file": "tower_s2_bg.43c112b1.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/tower_s2_bg.43c112b1.png"
+    },
+    "tower_s2_bg_pc": {
+      "file": "tower_s2_bg_pc.0f5c744a.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/tower_s2_bg_pc.0f5c744a.png"
+    },
+    "tower_s4_bg": {
+      "file": "tower_s4_bg.90ed18ac.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/tower_s4_bg.90ed18ac.png"
+    },
+    "tower_s4_bg_pc": {
+      "file": "tower_s4_bg_pc.6716b666.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/tower_s4_bg_pc.6716b666.png"
+    },
+    "weapon-bg-A": {
+      "file": "weapon-bg-A.986239fe.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/weapon-bg-A.986239fe.png"
+    },
+    "weapon-bg-B": {
+      "file": "weapon-bg-B.dc3c1733.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/weapon-bg-B.dc3c1733.png"
+    },
+    "weapon-bg-S": {
+      "file": "weapon-bg-S.c5c5eac9.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/weapon-bg-S.c5c5eac9.png"
+    },
+    "weapon-popup-icon-bg-A": {
+      "file": "weapon-popup-icon-bg-A.cec79767.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/weapon-popup-icon-bg-A.cec79767.png"
+    },
+    "weapon-popup-icon-bg-B": {
+      "file": "weapon-popup-icon-bg-B.45fb55ad.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/weapon-popup-icon-bg-B.45fb55ad.png"
+    },
+    "weapon-popup-icon-bg-S": {
+      "file": "weapon-popup-icon-bg-S.c1b88155.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/weapon-popup-icon-bg-S.c1b88155.png"
+    },
+    "weapon-suit-icon": {
+      "file": "weapon-suit-icon.f75f0d28.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/weapon-suit-icon.f75f0d28.png"
+    },
+    "weekly-task-done-icon": {
+      "file": "weekly-task-done-icon.fb2d4135.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/weekly-task-done-icon.fb2d4135.png"
+    },
+    "zero-bg-bottom--pc": {
+      "file": "zero-bg-bottom--pc.6e73fe00.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/zero-bg-bottom--pc.6e73fe00.png"
+    },
+    "zero-bg-top--pc": {
+      "file": "zero-bg-top--pc.2d9b3a73.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/zero-bg-top--pc.2d9b3a73.png"
+    },
+    "zero-top-icon-right": {
+      "file": "zero-top-icon-right.314c0c84.webp",
+      "url": "https://act.hoyolab.com/app/zzz-game-record/images/zero-top-icon-right.314c0c84.png"
+    }
+  },
+  "equipment": {
+    "Weapon_B_Common_02": {
+      "source": "/ui/zzz/Weapon_B_Common_02.png",
+      "file": "gear/Weapon_B_Common_02.webp"
+    },
+    "Weapon_A_Common_13": {
+      "source": "/ui/zzz/Weapon_A_Common_13.png",
+      "file": "gear/Weapon_A_Common_13.webp"
+    },
+    "Weapon_A_1271": {
+      "source": "/ui/zzz/Weapon_A_1271.png",
+      "file": "gear/Weapon_A_1271.webp"
+    },
+    "Weapon_S_1501": {
+      "source": "/ui/zzz/Weapon_S_1501.png",
+      "file": "gear/Weapon_S_1501.webp"
+    },
+    "SuitProtoPunk": {
+      "source": "/ui/zzz/SuitProtoPunk.png",
+      "file": "gear/SuitProtoPunk.webp"
+    },
+    "Weapon_S_1521": {
+      "source": "/ui/zzz/Weapon_S_1521.png",
+      "file": "gear/Weapon_S_1521.webp"
+    },
+    "Weapon_A_Common_09": {
+      "source": "/ui/zzz/Weapon_A_Common_09.png",
+      "file": "gear/Weapon_A_Common_09.webp"
+    },
+    "Weapon_A_1081": {
+      "source": "/ui/zzz/Weapon_A_1081.png",
+      "file": "gear/Weapon_A_1081.webp"
+    },
+    "Weapon_B_Common_07": {
+      "source": "/ui/zzz/Weapon_B_Common_07.png",
+      "file": "gear/Weapon_B_Common_07.webp"
+    },
+    "SuitWhiteWaterBallad": {
+      "source": "/ui/zzz/SuitWhiteWaterBallad.png",
+      "file": "gear/SuitWhiteWaterBallad.webp"
+    },
+    "SuitThunderMetal": {
+      "source": "/ui/zzz/SuitThunderMetal.png",
+      "file": "gear/SuitThunderMetal.webp"
+    },
+    "Weapon_S_1481": {
+      "source": "/ui/zzz/Weapon_S_1481.png",
+      "file": "gear/Weapon_S_1481.webp"
+    },
+    "Weapon_S_1241": {
+      "source": "/ui/zzz/Weapon_S_1241.png",
+      "file": "gear/Weapon_S_1241.webp"
+    },
+    "Weapon_A_Common_14": {
+      "source": "/ui/zzz/Weapon_A_Common_14.png",
+      "file": "gear/Weapon_A_Common_14.webp"
+    },
+    "Weapon_A_Common_17": {
+      "source": "/ui/zzz/Weapon_A_Common_17.png",
+      "file": "gear/Weapon_A_Common_17.webp"
+    },
+    "Weapon_S_1451": {
+      "source": "/ui/zzz/Weapon_S_1451.png",
+      "file": "gear/Weapon_S_1451.webp"
+    },
+    "Weapon_A_Common_07": {
+      "source": "/ui/zzz/Weapon_A_Common_07.png",
+      "file": "gear/Weapon_A_Common_07.webp"
+    },
+    "Weapon_S_1611": {
+      "source": "/ui/zzz/Weapon_S_1611.png",
+      "file": "gear/Weapon_S_1611.webp"
+    },
+    "Weapon_S_1101": {
+      "source": "/ui/zzz/Weapon_S_1101.png",
+      "file": "gear/Weapon_S_1101.webp"
+    },
+    "Weapon_A_Common_18": {
+      "source": "/ui/zzz/Weapon_A_Common_18.png",
+      "file": "gear/Weapon_A_Common_18.webp"
+    },
+    "SuitShadow": {
+      "source": "/ui/zzz/SuitShadow.png",
+      "file": "gear/SuitShadow.webp"
+    },
+    "SuitYunkuiTales": {
+      "source": "/ui/zzz/SuitYunkuiTales.png",
+      "file": "gear/SuitYunkuiTales.webp"
+    },
+    "SuitFreedomBlues": {
+      "source": "/ui/zzz/SuitFreedomBlues.png",
+      "file": "gear/SuitFreedomBlues.webp"
+    },
+    "SuitPufferElectro": {
+      "source": "/ui/zzz/SuitPufferElectro.png",
+      "file": "gear/SuitPufferElectro.webp"
+    },
+    "Weapon_S_1091": {
+      "source": "/ui/zzz/Weapon_S_1091.png",
+      "file": "gear/Weapon_S_1091.webp"
+    },
+    "SuitChaosMetal": {
+      "source": "/ui/zzz/SuitChaosMetal.png",
+      "file": "gear/SuitChaosMetal.webp"
+    },
+    "SuitMoonlightLullaby": {
+      "source": "/ui/zzz/SuitMoonlightLullaby.png",
+      "file": "gear/SuitMoonlightLullaby.webp"
+    },
+    "SuitAstralVoice": {
+      "source": "/ui/zzz/SuitAstralVoice.png",
+      "file": "gear/SuitAstralVoice.webp"
+    },
+    "Weapon_A_Common_16": {
+      "source": "/ui/zzz/Weapon_A_Common_16.png",
+      "file": "gear/Weapon_A_Common_16.webp"
+    },
+    "Weapon_S_1201": {
+      "source": "/ui/zzz/Weapon_S_1201.png",
+      "file": "gear/Weapon_S_1201.webp"
+    },
+    "Weapon_S_1341": {
+      "source": "/ui/zzz/Weapon_S_1341.png",
+      "file": "gear/Weapon_S_1341.webp"
+    },
+    "Weapon_S_1371": {
+      "source": "/ui/zzz/Weapon_S_1371.png",
+      "file": "gear/Weapon_S_1371.webp"
+    },
+    "Weapon_B_Common_10": {
+      "source": "/ui/zzz/Weapon_B_Common_10.png",
+      "file": "gear/Weapon_B_Common_10.webp"
+    },
+    "Weapon_B_Common_16": {
+      "source": "/ui/zzz/Weapon_B_Common_16.png",
+      "file": "gear/Weapon_B_Common_16.webp"
+    },
+    "Weapon_B_Common_09": {
+      "source": "/ui/zzz/Weapon_B_Common_09.png",
+      "file": "gear/Weapon_B_Common_09.webp"
+    },
+    "Weapon_S_1191": {
+      "source": "/ui/zzz/Weapon_S_1191.png",
+      "file": "gear/Weapon_S_1191.webp"
+    },
+    "Weapon_S_Common_02": {
+      "source": "/ui/zzz/Weapon_S_Common_02.png",
+      "file": "gear/Weapon_S_Common_02.webp"
+    },
+    "Weapon_S_1071": {
+      "source": "/ui/zzz/Weapon_S_1071.png",
+      "file": "gear/Weapon_S_1071.webp"
+    },
+    "Weapon_S_1391": {
+      "source": "/ui/zzz/Weapon_S_1391.png",
+      "file": "gear/Weapon_S_1391.webp"
+    },
+    "Weapon_A_Common_08": {
+      "source": "/ui/zzz/Weapon_A_Common_08.png",
+      "file": "gear/Weapon_A_Common_08.webp"
+    },
+    "Weapon_S_Common_01": {
+      "source": "/ui/zzz/Weapon_S_Common_01.png",
+      "file": "gear/Weapon_S_Common_01.webp"
+    },
+    "Weapon_B_Common_08": {
+      "source": "/ui/zzz/Weapon_B_Common_08.png",
+      "file": "gear/Weapon_B_Common_08.webp"
+    },
+    "SuitShiningAria": {
+      "source": "/ui/zzz/SuitShiningAria.png",
+      "file": "gear/SuitShiningAria.webp"
+    },
+    "SuitThornedRose": {
+      "source": "/ui/zzz/SuitThornedRose.png",
+      "file": "gear/SuitThornedRose.webp"
+    },
+    "Weapon_B_Common_04": {
+      "source": "/ui/zzz/Weapon_B_Common_04.png",
+      "file": "gear/Weapon_B_Common_04.webp"
+    },
+    "Weapon_S_1021": {
+      "source": "/ui/zzz/Weapon_S_1021.png",
+      "file": "gear/Weapon_S_1021.webp"
+    },
+    "SuitInfernoMetal": {
+      "source": "/ui/zzz/SuitInfernoMetal.png",
+      "file": "gear/SuitInfernoMetal.webp"
+    },
+    "SuitBunnyinWonderland": {
+      "source": "/ui/zzz/SuitBunnyinWonderland.png",
+      "file": "gear/SuitBunnyinWonderland.webp"
+    },
+    "Weapon_B_Common_12": {
+      "source": "/ui/zzz/Weapon_B_Common_12.png",
+      "file": "gear/Weapon_B_Common_12.webp"
+    },
+    "Weapon_A_Common_01": {
+      "source": "/ui/zzz/Weapon_A_Common_01.png",
+      "file": "gear/Weapon_A_Common_01.webp"
+    },
+    "SuitDawnsBloom": {
+      "source": "/ui/zzz/SuitDawnsBloom.png",
+      "file": "gear/SuitDawnsBloom.webp"
+    },
+    "Weapon_B_Common_11": {
+      "source": "/ui/zzz/Weapon_B_Common_11.png",
+      "file": "gear/Weapon_B_Common_11.webp"
+    },
+    "Weapon_S_1591": {
+      "source": "/ui/zzz/Weapon_S_1591.png",
+      "file": "gear/Weapon_S_1591.webp"
+    },
+    "Weapon_A_1121": {
+      "source": "/ui/zzz/Weapon_A_1121.png",
+      "file": "gear/Weapon_A_1121.webp"
+    },
+    "Weapon_S_1461": {
+      "source": "/ui/zzz/Weapon_S_1461.png",
+      "file": "gear/Weapon_S_1461.webp"
+    },
+    "SuitSoulRock": {
+      "source": "/ui/zzz/SuitSoulRock.png",
+      "file": "gear/SuitSoulRock.webp"
+    },
+    "Weapon_A_1111": {
+      "source": "/ui/zzz/Weapon_A_1111.png",
+      "file": "gear/Weapon_A_1111.webp"
+    },
+    "Weapon_B_Common_06": {
+      "source": "/ui/zzz/Weapon_B_Common_06.png",
+      "file": "gear/Weapon_B_Common_06.webp"
+    },
+    "SuitSavior": {
+      "source": "/ui/zzz/SuitSavior.png",
+      "file": "gear/SuitSavior.webp"
+    },
+    "Weapon_A_1131": {
+      "source": "/ui/zzz/Weapon_A_1131.png",
+      "file": "gear/Weapon_A_1131.webp"
+    },
+    "Weapon_S_1361": {
+      "source": "/ui/zzz/Weapon_S_1361.png",
+      "file": "gear/Weapon_S_1361.webp"
+    },
+    "Weapon_S_1301": {
+      "source": "/ui/zzz/Weapon_S_1301.png",
+      "file": "gear/Weapon_S_1301.webp"
+    },
+    "Weapon_S_1401": {
+      "source": "/ui/zzz/Weapon_S_1401.png",
+      "file": "gear/Weapon_S_1401.webp"
+    },
+    "SuitHormonePunk": {
+      "source": "/ui/zzz/SuitHormonePunk.png",
+      "file": "gear/SuitHormonePunk.webp"
+    },
+    "Weapon_S_1411": {
+      "source": "/ui/zzz/Weapon_S_1411.png",
+      "file": "gear/Weapon_S_1411.webp"
+    },
+    "SuitWoodpeckerElectro": {
+      "source": "/ui/zzz/SuitWoodpeckerElectro.png",
+      "file": "gear/SuitWoodpeckerElectro.webp"
+    },
+    "SuitPolarMetal": {
+      "source": "/ui/zzz/SuitPolarMetal.png",
+      "file": "gear/SuitPolarMetal.webp"
+    },
+    "Weapon_A_Common_12": {
+      "source": "/ui/zzz/Weapon_A_Common_12.png",
+      "file": "gear/Weapon_A_Common_12.webp"
+    },
+    "Weapon_B_Common_15": {
+      "source": "/ui/zzz/Weapon_B_Common_15.png",
+      "file": "gear/Weapon_B_Common_15.webp"
+    },
+    "Weapon_S_1251": {
+      "source": "/ui/zzz/Weapon_S_1251.png",
+      "file": "gear/Weapon_S_1251.webp"
+    },
+    "Weapon_S_1531": {
+      "source": "/ui/zzz/Weapon_S_1531.png",
+      "file": "gear/Weapon_S_1531.webp"
+    },
+    "Weapon_A_Common_15": {
+      "source": "/ui/zzz/Weapon_A_Common_15.png",
+      "file": "gear/Weapon_A_Common_15.webp"
+    },
+    "Weapon_S_1491": {
+      "source": "/ui/zzz/Weapon_S_1491.png",
+      "file": "gear/Weapon_S_1491.webp"
+    },
+    "Weapon_S_1561": {
+      "source": "/ui/zzz/Weapon_S_1561.png",
+      "file": "gear/Weapon_S_1561.webp"
+    },
+    "SuitKingoftheSummit": {
+      "source": "/ui/zzz/SuitKingoftheSummit.png",
+      "file": "gear/SuitKingoftheSummit.webp"
+    },
+    "Weapon_S_1621": {
+      "source": "/ui/zzz/Weapon_S_1621.png",
+      "file": "gear/Weapon_S_1621.webp"
+    },
+    "Weapon_S_1641": {
+      "source": "/ui/zzz/Weapon_S_1641.png",
+      "file": "gear/Weapon_S_1641.webp"
+    },
+    "Weapon_S_1471": {
+      "source": "/ui/zzz/Weapon_S_1471.png",
+      "file": "gear/Weapon_S_1471.webp"
+    },
+    "Weapon_A_Common_19": {
+      "source": "/ui/zzz/Weapon_A_Common_19.png",
+      "file": "gear/Weapon_A_Common_19.webp"
+    },
+    "SuitChaosJazz": {
+      "source": "/ui/zzz/SuitChaosJazz.png",
+      "file": "gear/SuitChaosJazz.webp"
+    },
+    "SuitBranch&BladeSong": {
+      "source": "/ui/zzz/SuitBranch&BladeSong.png",
+      "file": "gear/SuitBranch&BladeSong.webp"
+    },
+    "Weapon_S_1381": {
+      "source": "/ui/zzz/Weapon_S_1381.png",
+      "file": "gear/Weapon_S_1381.webp"
+    },
+    "Weapon_S_1051": {
+      "source": "/ui/zzz/Weapon_S_1051.png",
+      "file": "gear/Weapon_S_1051.webp"
+    },
+    "Weapon_S_1631": {
+      "source": "/ui/zzz/Weapon_S_1631.png",
+      "file": "gear/Weapon_S_1631.webp"
+    },
+    "Weapon_A_Common_22": {
+      "source": "/ui/zzz/Weapon_A_Common_22.png",
+      "file": "gear/Weapon_A_Common_22.webp"
+    },
+    "SuitNotesFromtheChained": {
+      "source": "/ui/zzz/SuitNotesFromtheChained.png",
+      "file": "gear/SuitNotesFromtheChained.webp"
+    },
+    "Weapon_A_Common_06": {
+      "source": "/ui/zzz/Weapon_A_Common_06.png",
+      "file": "gear/Weapon_A_Common_06.webp"
+    },
+    "Weapon_S_Common_03": {
+      "source": "/ui/zzz/Weapon_S_Common_03.png",
+      "file": "gear/Weapon_S_Common_03.webp"
+    },
+    "Weapon_S_1321": {
+      "source": "/ui/zzz/Weapon_S_1321.png",
+      "file": "gear/Weapon_S_1321.webp"
+    },
+    "Weapon_B_Common_01": {
+      "source": "/ui/zzz/Weapon_B_Common_01.png",
+      "file": "gear/Weapon_B_Common_01.webp"
+    },
+    "Weapon_S_Common_04": {
+      "source": "/ui/zzz/Weapon_S_Common_04.png",
+      "file": "gear/Weapon_S_Common_04.webp"
+    },
+    "Weapon_S_1291": {
+      "source": "/ui/zzz/Weapon_S_1291.png",
+      "file": "gear/Weapon_S_1291.webp"
+    },
+    "SuitTheSkyAblaze": {
+      "source": "/ui/zzz/SuitTheSkyAblaze.png",
+      "file": "gear/SuitTheSkyAblaze.webp"
+    },
+    "Weapon_S_1171": {
+      "source": "/ui/zzz/Weapon_S_1171.png",
+      "file": "gear/Weapon_S_1171.webp"
+    },
+    "Weapon_S_1221": {
+      "source": "/ui/zzz/Weapon_S_1221.png",
+      "file": "gear/Weapon_S_1221.webp"
+    },
+    "Weapon_A_Common_02": {
+      "source": "/ui/zzz/Weapon_A_Common_02.png",
+      "file": "gear/Weapon_A_Common_02.webp"
+    },
+    "Weapon_S_1181": {
+      "source": "/ui/zzz/Weapon_S_1181.png",
+      "file": "gear/Weapon_S_1181.webp"
+    },
+    "Weapon_A_Common_04": {
+      "source": "/ui/zzz/Weapon_A_Common_04.png",
+      "file": "gear/Weapon_A_Common_04.webp"
+    },
+    "Weapon_A_1151": {
+      "source": "/ui/zzz/Weapon_A_1151.png",
+      "file": "gear/Weapon_A_1151.webp"
+    },
+    "Weapon_A_Common_21": {
+      "source": "/ui/zzz/Weapon_A_Common_21.png",
+      "file": "gear/Weapon_A_Common_21.webp"
+    },
+    "Weapon_S_1261": {
+      "source": "/ui/zzz/Weapon_S_1261.png",
+      "file": "gear/Weapon_S_1261.webp"
+    },
+    "Weapon_A_1031": {
+      "source": "/ui/zzz/Weapon_A_1031.png",
+      "file": "gear/Weapon_A_1031.webp"
+    },
+    "Weapon_A_Common_03": {
+      "source": "/ui/zzz/Weapon_A_Common_03.png",
+      "file": "gear/Weapon_A_Common_03.webp"
+    },
+    "Weapon_S_1541": {
+      "source": "/ui/zzz/Weapon_S_1541.png",
+      "file": "gear/Weapon_S_1541.webp"
+    },
+    "Weapon_S_1161": {
+      "source": "/ui/zzz/Weapon_S_1161.png",
+      "file": "gear/Weapon_S_1161.webp"
+    },
+    "Weapon_A_1351": {
+      "source": "/ui/zzz/Weapon_A_1351.png",
+      "file": "gear/Weapon_A_1351.webp"
+    },
+    "Weapon_B_Common_03": {
+      "source": "/ui/zzz/Weapon_B_Common_03.png",
+      "file": "gear/Weapon_B_Common_03.webp"
+    },
+    "SuitWutheringSalon": {
+      "source": "/ui/zzz/SuitWutheringSalon.png",
+      "file": "gear/SuitWutheringSalon.webp"
+    },
+    "Weapon_A_1061": {
+      "source": "/ui/zzz/Weapon_A_1061.png",
+      "file": "gear/Weapon_A_1061.webp"
+    },
+    "Weapon_A_1441": {
+      "source": "/ui/zzz/Weapon_A_1441.png",
+      "file": "gear/Weapon_A_1441.webp"
+    },
+    "SuitFeatheredFate": {
+      "source": "/ui/zzz/SuitFeatheredFate.png",
+      "file": "gear/SuitFeatheredFate.webp"
+    },
+    "Weapon_S_1311": {
+      "source": "/ui/zzz/Weapon_S_1311.png",
+      "file": "gear/Weapon_S_1311.webp"
+    },
+    "SuitSwingJazz": {
+      "source": "/ui/zzz/SuitSwingJazz.png",
+      "file": "gear/SuitSwingJazz.webp"
+    },
+    "Weapon_A_Common_11": {
+      "source": "/ui/zzz/Weapon_A_Common_11.png",
+      "file": "gear/Weapon_A_Common_11.webp"
+    },
+    "Weapon_S_1141": {
+      "source": "/ui/zzz/Weapon_S_1141.png",
+      "file": "gear/Weapon_S_1141.webp"
+    },
+    "Weapon_S_1041": {
+      "source": "/ui/zzz/Weapon_S_1041.png",
+      "file": "gear/Weapon_S_1041.webp"
+    },
+    "Weapon_S_1581": {
+      "source": "/ui/zzz/Weapon_S_1581.png",
+      "file": "gear/Weapon_S_1581.webp"
+    },
+    "Weapon_A_1421": {
+      "source": "/ui/zzz/Weapon_A_1421.png",
+      "file": "gear/Weapon_A_1421.webp"
+    },
+    "Weapon_A_1011": {
+      "source": "/ui/zzz/Weapon_A_1011.png",
+      "file": "gear/Weapon_A_1011.webp"
+    },
+    "Weapon_B_Common_13": {
+      "source": "/ui/zzz/Weapon_B_Common_13.png",
+      "file": "gear/Weapon_B_Common_13.webp"
+    },
+    "Weapon_S_1511": {
+      "source": "/ui/zzz/Weapon_S_1511.png",
+      "file": "gear/Weapon_S_1511.webp"
+    },
+    "Weapon_B_Common_14": {
+      "source": "/ui/zzz/Weapon_B_Common_14.png",
+      "file": "gear/Weapon_B_Common_14.webp"
+    },
+    "Weapon_B_Common_05": {
+      "source": "/ui/zzz/Weapon_B_Common_05.png",
+      "file": "gear/Weapon_B_Common_05.webp"
+    },
+    "Weapon_S_1431": {
+      "source": "/ui/zzz/Weapon_S_1431.png",
+      "file": "gear/Weapon_S_1431.webp"
+    },
+    "SuitShockstarDisco": {
+      "source": "/ui/zzz/SuitShockstarDisco.png",
+      "file": "gear/SuitShockstarDisco.webp"
+    },
+    "Weapon_S_1571": {
+      "source": "/ui/zzz/Weapon_S_1571.png",
+      "file": "gear/Weapon_S_1571.webp"
+    },
+    "SuitFangedMetal": {
+      "source": "/ui/zzz/SuitFangedMetal.png",
+      "file": "gear/SuitFangedMetal.webp"
+    },
+    "Weapon_A_1281": {
+      "source": "/ui/zzz/Weapon_A_1281.png",
+      "file": "gear/Weapon_A_1281.webp"
+    },
+    "Weapon_S_1211": {
+      "source": "/ui/zzz/Weapon_S_1211.png",
+      "file": "gear/Weapon_S_1211.webp"
+    },
+    "Weapon_A_Common_05": {
+      "source": "/ui/zzz/Weapon_A_Common_05.png",
+      "file": "gear/Weapon_A_Common_05.webp"
+    },
+    "Weapon_A_Common_10": {
+      "source": "/ui/zzz/Weapon_A_Common_10.png",
+      "file": "gear/Weapon_A_Common_10.webp"
+    },
+    "Weapon_A_Common_20": {
+      "source": "/ui/zzz/Weapon_A_Common_20.png",
+      "file": "gear/Weapon_A_Common_20.webp"
+    },
+    "Weapon_S_1331": {
+      "source": "/ui/zzz/Weapon_S_1331.png",
+      "file": "gear/Weapon_S_1331.webp"
+    }
+  },
+  "portraits": "Original game cutouts from https://enka.network/ui/zzz/, cropped to upper bodies from original PNGs for the Thor. CircleIcon assets retained for recognition/reference.",
+  "official_art": "Original public HoYoLAB game-record art, cached through official-map.js for Bangboo, banners, enemies and exploration.",
+  "ocr": "Tesseract4Android 4.9.0 (Apache 2.0), Tesseract 5.5.1, tessdata_fast English model (Apache 2.0). In-memory game-only OCR.",
+  "controller_feedback": {
+    "behavior_reference": "https://github.com/gbppimentel-dev/underworld-companion/blob/f20a9fac6051131f87f7c28f84ddf4c4fb2466b4/assets/app.js",
+    "face_glyphs": "Original ZZZ HUD crops from local game-only calibration; complete calibration frames are not packaged.",
+    "other_glyphs": "Code-native vectors with Thor button labels and ZZZ gamepad-plate styling.",
+    "credit_mark": "GitHub SVG from the creator's Underworld Companion repository, recolored to match ZZZ."
+  },
+  "task_glyphs": "Code-native task glyphs for activity, scratch ticket, VHS store and weekly calendar; remaining task and rarity graphics are original cached HoYoLAB assets.",
+  "controller": "Face-button vector outlines from the bundled original ZZZ font, centered by exact outline bounds; other controls are code-native plates with Thor labels.",
+  "combat_portraits": "Original public HoYoLAB hollow_icon_path portraits; bundled for the linked roster. Recognition uses shared active/reserve registration, without screenshot identity samples."
+}

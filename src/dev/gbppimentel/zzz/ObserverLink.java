@@ -1,0 +1,15 @@
+package dev.gbppimentel.zzz;
+import android.content.Context;import android.os.*;import java.io.*;import java.nio.file.Files;import org.json.JSONObject;
+/** Only fixed commands and app-private feature data cross the firmware boundary. */
+final class ObserverLink {
+ final Context context;final File watch,output;long lastStart,lastHeartbeat;final long createdAt=System.currentTimeMillis();boolean installed;
+ ObserverLink(Context c){context=c;watch=new File(c.getFilesDir(),"observer.watch");output=new File(c.getFilesDir(),"observation.json");}
+ void prepare()throws Exception{if(installed)return;for(String name:new String[]{"observer.jar","hud-templates.json","combat-catalog.json","portraits.json"}){try(InputStream in=context.getAssets().open(name);OutputStream out=new FileOutputStream(new File(context.getFilesDir(),name))){byte[] b=new byte[8192];int n;while((n=in.read(b))!=-1)out.write(b,0,n);}}new File(context.getFilesDir(),"tessdata").mkdirs();new File(context.getFilesDir(),"native").mkdirs();for(String name:new String[]{"eng.traineddata","native/libjpeg.so","native/libpngx.so","native/libleptonica.so","native/libtesseract.so"}){File dest=new File(context.getFilesDir(),name.equals("eng.traineddata")?"tessdata/"+name:name);try(InputStream in=context.getAssets().open(name);OutputStream out=new FileOutputStream(dest)){byte[] b=new byte[65536];int n;while((n=in.read(b))!=-1)out.write(b,0,n);}}try(FileOutputStream out=new FileOutputStream(new File(context.getFilesDir(),"observer-start.sh"))){out.write(("#!/system/bin/sh\nCLASSPATH=/data/user/0/dev.gbppimentel.zzz/files/observer.jar app_process -Djava.library.path=/data/user/0/dev.gbppimentel.zzz/files/native /system/bin dev.gbppimentel.zzz.GameObserver >/dev/null 2>&1 &\n").getBytes("UTF-8"));}installed=true;}
+ void stop(){watch.delete();}
+ JSONObject poll(boolean enabled)throws Exception{
+  if(!enabled){stop();return new JSONObject().put("phase","disabled");}prepare();if(!watch.exists())watch.createNewFile();if(System.currentTimeMillis()-lastHeartbeat>=1000){lastHeartbeat=System.currentTimeMillis();watch.setLastModified(lastHeartbeat);}
+  long age=output.exists()?System.currentTimeMillis()-output.lastModified():Long.MAX_VALUE;
+  if(age>2500&&System.currentTimeMillis()-lastStart>5000){lastStart=System.currentTimeMillis();IBinder binder=(IBinder)Class.forName("android.os.ServiceManager").getMethod("getService",String.class).invoke(null,"PServerBinder");if(binder==null)throw new IOException("Firmware service unavailable");Parcel data=Parcel.obtain(),reply=Parcel.obtain();try{data.writeStringArray(new String[]{"sh /data/user/0/dev.gbppimentel.zzz/files/observer-start.sh","0"});if(!binder.transact(0,data,reply,0))throw new IOException("Observer unavailable");}finally{data.recycle();reply.recycle();}}
+  if(age>3500)return new JSONObject().put("phase","starting");JSONObject value=new JSONObject(new String(Files.readAllBytes(output.toPath()),"UTF-8"));if(value.optLong("at")<createdAt||value.optJSONObject("context")!=null&&value.getJSONObject("context").optLong("at")<createdAt)return new JSONObject().put("phase","starting");return value;
+ }
+}

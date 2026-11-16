@@ -1,0 +1,31 @@
+name: bug report
+description: report a problem with the companion or account connection or HUD observation.
+title: "[bug] "
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: companion version
+      placeholder: v2.4.2
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: device and game build
+      description: include Thor firmware, Android, Cocoon and ZZZ versions.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: what happened?
+      description: include steps, expected result and the exact message or visible error.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: screenshots or additional context
+      description: do not attach private saves, account details or game binaries.

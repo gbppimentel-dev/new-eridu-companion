@@ -1,0 +1,534 @@
+{
+  "Weapon_B_Common_02": {
+    "source": "/ui/zzz/Weapon_B_Common_02.png",
+    "file": "gear/Weapon_B_Common_02.webp"
+  },
+  "Weapon_A_Common_13": {
+    "source": "/ui/zzz/Weapon_A_Common_13.png",
+    "file": "gear/Weapon_A_Common_13.webp"
+  },
+  "Weapon_A_1271": {
+    "source": "/ui/zzz/Weapon_A_1271.png",
+    "file": "gear/Weapon_A_1271.webp"
+  },
+  "Weapon_S_1501": {
+    "source": "/ui/zzz/Weapon_S_1501.png",
+    "file": "gear/Weapon_S_1501.webp"
+  },
+  "SuitProtoPunk": {
+    "source": "/ui/zzz/SuitProtoPunk.png",
+    "file": "gear/SuitProtoPunk.webp"
+  },
+  "Weapon_S_1521": {
+    "source": "/ui/zzz/Weapon_S_1521.png",
+    "file": "gear/Weapon_S_1521.webp"
+  },
+  "Weapon_A_Common_09": {
+    "source": "/ui/zzz/Weapon_A_Common_09.png",
+    "file": "gear/Weapon_A_Common_09.webp"
+  },
+  "Weapon_A_1081": {
+    "source": "/ui/zzz/Weapon_A_1081.png",
+    "file": "gear/Weapon_A_1081.webp"
+  },
+  "Weapon_B_Common_07": {
+    "source": "/ui/zzz/Weapon_B_Common_07.png",
+    "file": "gear/Weapon_B_Common_07.webp"
+  },
+  "SuitWhiteWaterBallad": {
+    "source": "/ui/zzz/SuitWhiteWaterBallad.png",
+    "file": "gear/SuitWhiteWaterBallad.webp"
+  },
+  "SuitThunderMetal": {
+    "source": "/ui/zzz/SuitThunderMetal.png",
+    "file": "gear/SuitThunderMetal.webp"
+  },
+  "Weapon_S_1481": {
+    "source": "/ui/zzz/Weapon_S_1481.png",
+    "file": "gear/Weapon_S_1481.webp"
+  },
+  "Weapon_S_1241": {
+    "source": "/ui/zzz/Weapon_S_1241.png",
+    "file": "gear/Weapon_S_1241.webp"
+  },
+  "Weapon_A_Common_14": {
+    "source": "/ui/zzz/Weapon_A_Common_14.png",
+    "file": "gear/Weapon_A_Common_14.webp"
+  },
+  "Weapon_A_Common_17": {
+    "source": "/ui/zzz/Weapon_A_Common_17.png",
+    "file": "gear/Weapon_A_Common_17.webp"
+  },
+  "Weapon_S_1451": {
+    "source": "/ui/zzz/Weapon_S_1451.png",
+    "file": "gear/Weapon_S_1451.webp"
+  },
+  "Weapon_A_Common_07": {
+    "source": "/ui/zzz/Weapon_A_Common_07.png",
+    "file": "gear/Weapon_A_Common_07.webp"
+  },
+  "Weapon_S_1611": {
+    "source": "/ui/zzz/Weapon_S_1611.png",
+    "file": "gear/Weapon_S_1611.webp"
+  },
+  "Weapon_S_1101": {
+    "source": "/ui/zzz/Weapon_S_1101.png",
+    "file": "gear/Weapon_S_1101.webp"
+  },
+  "Weapon_A_Common_18": {
+    "source": "/ui/zzz/Weapon_A_Common_18.png",
+    "file": "gear/Weapon_A_Common_18.webp"
+  },
+  "SuitShadow": {
+    "source": "/ui/zzz/SuitShadow.png",
+    "file": "gear/SuitShadow.webp"
+  },
+  "SuitYunkuiTales": {
+    "source": "/ui/zzz/SuitYunkuiTales.png",
+    "file": "gear/SuitYunkuiTales.webp"
+  },
+  "SuitFreedomBlues": {
+    "source": "/ui/zzz/SuitFreedomBlues.png",
+    "file": "gear/SuitFreedomBlues.webp"
+  },
+  "SuitPufferElectro": {
+    "source": "/ui/zzz/SuitPufferElectro.png",
+    "file": "gear/SuitPufferElectro.webp"
+  },
+  "Weapon_S_1091": {
+    "source": "/ui/zzz/Weapon_S_1091.png",
+    "file": "gear/Weapon_S_1091.webp"
+  },
+  "SuitChaosMetal": {
+    "source": "/ui/zzz/SuitChaosMetal.png",
+    "file": "gear/SuitChaosMetal.webp"
+  },
+  "SuitMoonlightLullaby": {
+    "source": "/ui/zzz/SuitMoonlightLullaby.png",
+    "file": "gear/SuitMoonlightLullaby.webp"
+  },
+  "SuitAstralVoice": {
+    "source": "/ui/zzz/SuitAstralVoice.png",
+    "file": "gear/SuitAstralVoice.webp"
+  },
+  "Weapon_A_Common_16": {
+    "source": "/ui/zzz/Weapon_A_Common_16.png",
+    "file": "gear/Weapon_A_Common_16.webp"
+  },
+  "Weapon_S_1201": {
+    "source": "/ui/zzz/Weapon_S_1201.png",
+    "file": "gear/Weapon_S_1201.webp"
+  },
+  "Weapon_S_1341": {
+    "source": "/ui/zzz/Weapon_S_1341.png",
+    "file": "gear/Weapon_S_1341.webp"
+  },
+  "Weapon_S_1371": {
+    "source": "/ui/zzz/Weapon_S_1371.png",
+    "file": "gear/Weapon_S_1371.webp"
+  },
+  "Weapon_B_Common_10": {
+    "source": "/ui/zzz/Weapon_B_Common_10.png",
+    "file": "gear/Weapon_B_Common_10.webp"
+  },
+  "Weapon_B_Common_16": {
+    "source": "/ui/zzz/Weapon_B_Common_16.png",
+    "file": "gear/Weapon_B_Common_16.webp"
+  },
+  "Weapon_B_Common_09": {
+    "source": "/ui/zzz/Weapon_B_Common_09.png",
+    "file": "gear/Weapon_B_Common_09.webp"
+  },
+  "Weapon_S_1191": {
+    "source": "/ui/zzz/Weapon_S_1191.png",
+    "file": "gear/Weapon_S_1191.webp"
+  },
+  "Weapon_S_Common_02": {
+    "source": "/ui/zzz/Weapon_S_Common_02.png",
+    "file": "gear/Weapon_S_Common_02.webp"
+  },
+  "Weapon_S_1071": {
+    "source": "/ui/zzz/Weapon_S_1071.png",
+    "file": "gear/Weapon_S_1071.webp"
+  },
+  "Weapon_S_1391": {
+    "source": "/ui/zzz/Weapon_S_1391.png",
+    "file": "gear/Weapon_S_1391.webp"
+  },
+  "Weapon_A_Common_08": {
+    "source": "/ui/zzz/Weapon_A_Common_08.png",
+    "file": "gear/Weapon_A_Common_08.webp"
+  },
+  "Weapon_S_Common_01": {
+    "source": "/ui/zzz/Weapon_S_Common_01.png",
+    "file": "gear/Weapon_S_Common_01.webp"
+  },
+  "Weapon_B_Common_08": {
+    "source": "/ui/zzz/Weapon_B_Common_08.png",
+    "file": "gear/Weapon_B_Common_08.webp"
+  },
+  "SuitShiningAria": {
+    "source": "/ui/zzz/SuitShiningAria.png",
+    "file": "gear/SuitShiningAria.webp"
+  },
+  "SuitThornedRose": {
+    "source": "/ui/zzz/SuitThornedRose.png",
+    "file": "gear/SuitThornedRose.webp"
+  },
+  "Weapon_B_Common_04": {
+    "source": "/ui/zzz/Weapon_B_Common_04.png",
+    "file": "gear/Weapon_B_Common_04.webp"
+  },
+  "Weapon_S_1021": {
+    "source": "/ui/zzz/Weapon_S_1021.png",
+    "file": "gear/Weapon_S_1021.webp"
+  },
+  "SuitInfernoMetal": {
+    "source": "/ui/zzz/SuitInfernoMetal.png",
+    "file": "gear/SuitInfernoMetal.webp"
+  },
+  "SuitBunnyinWonderland": {
+    "source": "/ui/zzz/SuitBunnyinWonderland.png",
+    "file": "gear/SuitBunnyinWonderland.webp"
+  },
+  "Weapon_B_Common_12": {
+    "source": "/ui/zzz/Weapon_B_Common_12.png",
+    "file": "gear/Weapon_B_Common_12.webp"
+  },
+  "Weapon_A_Common_01": {
+    "source": "/ui/zzz/Weapon_A_Common_01.png",
+    "file": "gear/Weapon_A_Common_01.webp"
+  },
+  "SuitDawnsBloom": {
+    "source": "/ui/zzz/SuitDawnsBloom.png",
+    "file": "gear/SuitDawnsBloom.webp"
+  },
+  "Weapon_B_Common_11": {
+    "source": "/ui/zzz/Weapon_B_Common_11.png",
+    "file": "gear/Weapon_B_Common_11.webp"
+  },
+  "Weapon_S_1591": {
+    "source": "/ui/zzz/Weapon_S_1591.png",
+    "file": "gear/Weapon_S_1591.webp"
+  },
+  "Weapon_A_1121": {
+    "source": "/ui/zzz/Weapon_A_1121.png",
+    "file": "gear/Weapon_A_1121.webp"
+  },
+  "Weapon_S_1461": {
+    "source": "/ui/zzz/Weapon_S_1461.png",
+    "file": "gear/Weapon_S_1461.webp"
+  },
+  "SuitSoulRock": {
+    "source": "/ui/zzz/SuitSoulRock.png",
+    "file": "gear/SuitSoulRock.webp"
+  },
+  "Weapon_A_1111": {
+    "source": "/ui/zzz/Weapon_A_1111.png",
+    "file": "gear/Weapon_A_1111.webp"
+  },
+  "Weapon_B_Common_06": {
+    "source": "/ui/zzz/Weapon_B_Common_06.png",
+    "file": "gear/Weapon_B_Common_06.webp"
+  },
+  "SuitSavior": {
+    "source": "/ui/zzz/SuitSavior.png",
+    "file": "gear/SuitSavior.webp"
+  },
+  "Weapon_A_1131": {
+    "source": "/ui/zzz/Weapon_A_1131.png",
+    "file": "gear/Weapon_A_1131.webp"
+  },
+  "Weapon_S_1361": {
+    "source": "/ui/zzz/Weapon_S_1361.png",
+    "file": "gear/Weapon_S_1361.webp"
+  },
+  "Weapon_S_1301": {
+    "source": "/ui/zzz/Weapon_S_1301.png",
+    "file": "gear/Weapon_S_1301.webp"
+  },
+  "Weapon_S_1401": {
+    "source": "/ui/zzz/Weapon_S_1401.png",
+    "file": "gear/Weapon_S_1401.webp"
+  },
+  "SuitHormonePunk": {
+    "source": "/ui/zzz/SuitHormonePunk.png",
+    "file": "gear/SuitHormonePunk.webp"
+  },
+  "Weapon_S_1411": {
+    "source": "/ui/zzz/Weapon_S_1411.png",
+    "file": "gear/Weapon_S_1411.webp"
+  },
+  "SuitWoodpeckerElectro": {
+    "source": "/ui/zzz/SuitWoodpeckerElectro.png",
+    "file": "gear/SuitWoodpeckerElectro.webp"
+  },
+  "SuitPolarMetal": {
+    "source": "/ui/zzz/SuitPolarMetal.png",
+    "file": "gear/SuitPolarMetal.webp"
+  },
+  "Weapon_A_Common_12": {
+    "source": "/ui/zzz/Weapon_A_Common_12.png",
+    "file": "gear/Weapon_A_Common_12.webp"
+  },
+  "Weapon_B_Common_15": {
+    "source": "/ui/zzz/Weapon_B_Common_15.png",
+    "file": "gear/Weapon_B_Common_15.webp"
+  },
+  "Weapon_S_1251": {
+    "source": "/ui/zzz/Weapon_S_1251.png",
+    "file": "gear/Weapon_S_1251.webp"
+  },
+  "Weapon_S_1531": {
+    "source": "/ui/zzz/Weapon_S_1531.png",
+    "file": "gear/Weapon_S_1531.webp"
+  },
+  "Weapon_A_Common_15": {
+    "source": "/ui/zzz/Weapon_A_Common_15.png",
+    "file": "gear/Weapon_A_Common_15.webp"
+  },
+  "Weapon_S_1491": {
+    "source": "/ui/zzz/Weapon_S_1491.png",
+    "file": "gear/Weapon_S_1491.webp"
+  },
+  "Weapon_S_1561": {
+    "source": "/ui/zzz/Weapon_S_1561.png",
+    "file": "gear/Weapon_S_1561.webp"
+  },
+  "SuitKingoftheSummit": {
+    "source": "/ui/zzz/SuitKingoftheSummit.png",
+    "file": "gear/SuitKingoftheSummit.webp"
+  },
+  "Weapon_S_1621": {
+    "source": "/ui/zzz/Weapon_S_1621.png",
+    "file": "gear/Weapon_S_1621.webp"
+  },
+  "Weapon_S_1641": {
+    "source": "/ui/zzz/Weapon_S_1641.png",
+    "file": "gear/Weapon_S_1641.webp"
+  },
+  "Weapon_S_1471": {
+    "source": "/ui/zzz/Weapon_S_1471.png",
+    "file": "gear/Weapon_S_1471.webp"
+  },
+  "Weapon_A_Common_19": {
+    "source": "/ui/zzz/Weapon_A_Common_19.png",
+    "file": "gear/Weapon_A_Common_19.webp"
+  },
+  "SuitChaosJazz": {
+    "source": "/ui/zzz/SuitChaosJazz.png",
+    "file": "gear/SuitChaosJazz.webp"
+  },
+  "SuitBranch&BladeSong": {
+    "source": "/ui/zzz/SuitBranch&BladeSong.png",
+    "file": "gear/SuitBranch&BladeSong.webp"
+  },
+  "Weapon_S_1381": {
+    "source": "/ui/zzz/Weapon_S_1381.png",
+    "file": "gear/Weapon_S_1381.webp"
+  },
+  "Weapon_S_1051": {
+    "source": "/ui/zzz/Weapon_S_1051.png",
+    "file": "gear/Weapon_S_1051.webp"
+  },
+  "Weapon_S_1631": {
+    "source": "/ui/zzz/Weapon_S_1631.png",
+    "file": "gear/Weapon_S_1631.webp"
+  },
+  "Weapon_A_Common_22": {
+    "source": "/ui/zzz/Weapon_A_Common_22.png",
+    "file": "gear/Weapon_A_Common_22.webp"
+  },
+  "SuitNotesFromtheChained": {
+    "source": "/ui/zzz/SuitNotesFromtheChained.png",
+    "file": "gear/SuitNotesFromtheChained.webp"
+  },
+  "Weapon_A_Common_06": {
+    "source": "/ui/zzz/Weapon_A_Common_06.png",
+    "file": "gear/Weapon_A_Common_06.webp"
+  },
+  "Weapon_S_Common_03": {
+    "source": "/ui/zzz/Weapon_S_Common_03.png",
+    "file": "gear/Weapon_S_Common_03.webp"
+  },
+  "Weapon_S_1321": {
+    "source": "/ui/zzz/Weapon_S_1321.png",
+    "file": "gear/Weapon_S_1321.webp"
+  },
+  "Weapon_B_Common_01": {
+    "source": "/ui/zzz/Weapon_B_Common_01.png",
+    "file": "gear/Weapon_B_Common_01.webp"
+  },
+  "Weapon_S_Common_04": {
+    "source": "/ui/zzz/Weapon_S_Common_04.png",
+    "file": "gear/Weapon_S_Common_04.webp"
+  },
+  "Weapon_S_1291": {
+    "source": "/ui/zzz/Weapon_S_1291.png",
+    "file": "gear/Weapon_S_1291.webp"
+  },
+  "SuitTheSkyAblaze": {
+    "source": "/ui/zzz/SuitTheSkyAblaze.png",
+    "file": "gear/SuitTheSkyAblaze.webp"
+  },
+  "Weapon_S_1171": {
+    "source": "/ui/zzz/Weapon_S_1171.png",
+    "file": "gear/Weapon_S_1171.webp"
+  },
+  "Weapon_S_1221": {
+    "source": "/ui/zzz/Weapon_S_1221.png",
+    "file": "gear/Weapon_S_1221.webp"
+  },
+  "Weapon_A_Common_02": {
+    "source": "/ui/zzz/Weapon_A_Common_02.png",
+    "file": "gear/Weapon_A_Common_02.webp"
+  },
+  "Weapon_S_1181": {
+    "source": "/ui/zzz/Weapon_S_1181.png",
+    "file": "gear/Weapon_S_1181.webp"
+  },
+  "Weapon_A_Common_04": {
+    "source": "/ui/zzz/Weapon_A_Common_04.png",
+    "file": "gear/Weapon_A_Common_04.webp"
+  },
+  "Weapon_A_1151": {
+    "source": "/ui/zzz/Weapon_A_1151.png",
+    "file": "gear/Weapon_A_1151.webp"
+  },
+  "Weapon_A_Common_21": {
+    "source": "/ui/zzz/Weapon_A_Common_21.png",
+    "file": "gear/Weapon_A_Common_21.webp"
+  },
+  "Weapon_S_1261": {
+    "source": "/ui/zzz/Weapon_S_1261.png",
+    "file": "gear/Weapon_S_1261.webp"
+  },
+  "Weapon_A_1031": {
+    "source": "/ui/zzz/Weapon_A_1031.png",
+    "file": "gear/Weapon_A_1031.webp"
+  },
+  "Weapon_A_Common_03": {
+    "source": "/ui/zzz/Weapon_A_Common_03.png",
+    "file": "gear/Weapon_A_Common_03.webp"
+  },
+  "Weapon_S_1541": {
+    "source": "/ui/zzz/Weapon_S_1541.png",
+    "file": "gear/Weapon_S_1541.webp"
+  },
+  "Weapon_S_1161": {
+    "source": "/ui/zzz/Weapon_S_1161.png",
+    "file": "gear/Weapon_S_1161.webp"
+  },
+  "Weapon_A_1351": {
+    "source": "/ui/zzz/Weapon_A_1351.png",
+    "file": "gear/Weapon_A_1351.webp"
+  },
+  "Weapon_B_Common_03": {
+    "source": "/ui/zzz/Weapon_B_Common_03.png",
+    "file": "gear/Weapon_B_Common_03.webp"
+  },
+  "SuitWutheringSalon": {
+    "source": "/ui/zzz/SuitWutheringSalon.png",
+    "file": "gear/SuitWutheringSalon.webp"
+  },
+  "Weapon_A_1061": {
+    "source": "/ui/zzz/Weapon_A_1061.png",
+    "file": "gear/Weapon_A_1061.webp"
+  },
+  "Weapon_A_1441": {
+    "source": "/ui/zzz/Weapon_A_1441.png",
+    "file": "gear/Weapon_A_1441.webp"
+  },
+  "SuitFeatheredFate": {
+    "source": "/ui/zzz/SuitFeatheredFate.png",
+    "file": "gear/SuitFeatheredFate.webp"
+  },
+  "Weapon_S_1311": {
+    "source": "/ui/zzz/Weapon_S_1311.png",
+    "file": "gear/Weapon_S_1311.webp"
+  },
+  "SuitSwingJazz": {
+    "source": "/ui/zzz/SuitSwingJazz.png",
+    "file": "gear/SuitSwingJazz.webp"
+  },
+  "Weapon_A_Common_11": {
+    "source": "/ui/zzz/Weapon_A_Common_11.png",
+    "file": "gear/Weapon_A_Common_11.webp"
+  },
+  "Weapon_S_1141": {
+    "source": "/ui/zzz/Weapon_S_1141.png",
+    "file": "gear/Weapon_S_1141.webp"
+  },
+  "Weapon_S_1041": {
+    "source": "/ui/zzz/Weapon_S_1041.png",
+    "file": "gear/Weapon_S_1041.webp"
+  },
+  "Weapon_S_1581": {
+    "source": "/ui/zzz/Weapon_S_1581.png",
+    "file": "gear/Weapon_S_1581.webp"
+  },
+  "Weapon_A_1421": {
+    "source": "/ui/zzz/Weapon_A_1421.png",
+    "file": "gear/Weapon_A_1421.webp"
+  },
+  "Weapon_A_1011": {
+    "source": "/ui/zzz/Weapon_A_1011.png",
+    "file": "gear/Weapon_A_1011.webp"
+  },
+  "Weapon_B_Common_13": {
+    "source": "/ui/zzz/Weapon_B_Common_13.png",
+    "file": "gear/Weapon_B_Common_13.webp"
+  },
+  "Weapon_S_1511": {
+    "source": "/ui/zzz/Weapon_S_1511.png",
+    "file": "gear/Weapon_S_1511.webp"
+  },
+  "Weapon_B_Common_14": {
+    "source": "/ui/zzz/Weapon_B_Common_14.png",
+    "file": "gear/Weapon_B_Common_14.webp"
+  },
+  "Weapon_B_Common_05": {
+    "source": "/ui/zzz/Weapon_B_Common_05.png",
+    "file": "gear/Weapon_B_Common_05.webp"
+  },
+  "Weapon_S_1431": {
+    "source": "/ui/zzz/Weapon_S_1431.png",
+    "file": "gear/Weapon_S_1431.webp"
+  },
+  "SuitShockstarDisco": {
+    "source": "/ui/zzz/SuitShockstarDisco.png",
+    "file": "gear/SuitShockstarDisco.webp"
+  },
+  "Weapon_S_1571": {
+    "source": "/ui/zzz/Weapon_S_1571.png",
+    "file": "gear/Weapon_S_1571.webp"
+  },
+  "SuitFangedMetal": {
+    "source": "/ui/zzz/SuitFangedMetal.png",
+    "file": "gear/SuitFangedMetal.webp"
+  },
+  "Weapon_A_1281": {
+    "source": "/ui/zzz/Weapon_A_1281.png",
+    "file": "gear/Weapon_A_1281.webp"
+  },
+  "Weapon_S_1211": {
+    "source": "/ui/zzz/Weapon_S_1211.png",
+    "file": "gear/Weapon_S_1211.webp"
+  },
+  "Weapon_A_Common_05": {
+    "source": "/ui/zzz/Weapon_A_Common_05.png",
+    "file": "gear/Weapon_A_Common_05.webp"
+  },
+  "Weapon_A_Common_10": {
+    "source": "/ui/zzz/Weapon_A_Common_10.png",
+    "file": "gear/Weapon_A_Common_10.webp"
+  },
+  "Weapon_A_Common_20": {
+    "source": "/ui/zzz/Weapon_A_Common_20.png",
+    "file": "gear/Weapon_A_Common_20.webp"
+  },
+  "Weapon_S_1331": {
+    "source": "/ui/zzz/Weapon_S_1331.png",
+    "file": "gear/Weapon_S_1331.webp"
+  }
+}
