@@ -1,5 +1,9 @@
 # changelog
 
+## [2.4.3] — 2026-11-18
+
+- **credits:** simple developer attribution for gbppimentel-dev in Companion Options and a compact Credits page, with third-party acknowledgements expandable below.
+
 ## [2.4.2] — 2026-11-16
 
 First public source backup and development preview.

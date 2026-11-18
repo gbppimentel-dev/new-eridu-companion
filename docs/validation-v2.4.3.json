@@ -1,0 +1,28 @@
+{
+  "release": "v2.4.3",
+  "status": "development-preview",
+  "publicBuildDeviceValidated": false,
+  "changes": [
+    "Simple developer credit for gbppimentel-dev",
+    "Compact Credits page with expandable third-party acknowledgements"
+  ],
+  "hostChecks": [
+    "57 UI/data/session/arrangement checks passed",
+    "Source credential/privacy audit passed",
+    "Credits rendered at 538 \u00d7 468 with no overflow or broken local artwork",
+    "Signed APK built and verified locally"
+  ],
+  "notCertified": [
+    "Fresh-account end-to-end setup",
+    "All-agent/costume live recognition",
+    "Live paired Quit",
+    "Credits interaction on physical Thor"
+  ],
+  "documentationImages": "Synthetic UI preview; not recognition evidence",
+  "deviceInstallation": {
+    "device": "AYN Thor",
+    "result": "ADB install succeeded; package reports versionName 2.4.3 and versionCode 13",
+    "interaction": "No app launch or touch/key input sent",
+    "functionalValidation": false
+  }
+}

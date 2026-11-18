@@ -6,7 +6,7 @@
 
 **a second-screen companion for Zenless Zone Zero on AYN Thor.** keep the game on top and use the lower screen for daily affairs, agents, builds, challenges, events and account records, with ZZZ artwork and controller feedback.
 
-[download the preview](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.4.2) · [setup](docs/SETUP.md) · [compatibility](docs/COMPATIBILITY.md) · [report a bug](https://github.com/gbppimentel-dev/new-eridu-companion/issues/new/choose)
+[download the preview](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.4.3) · [setup](docs/SETUP.md) · [compatibility](docs/COMPATIBILITY.md) · [report a bug](https://github.com/gbppimentel-dev/new-eridu-companion/issues/new/choose)
 
 **status:** development preview and first public source backup. screen recognition is observational and can be uncertain. this is not an exact game-engine feed. the public build removes developer account defaults; it is not being installed on the development Thor as part of this backup.
 
@@ -40,7 +40,7 @@ These are **synthetic UI previews**, rendered at the Thor lower-screen viewport 
 ## install
 
 1. **install ZZZ** and use your own HoYoLAB account.
-2. **install the signed preview APK** from [releases](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.4.2).
+2. **install the signed preview APK** from [releases](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.4.3).
 3. **connect the account** from the companion's Account screen and select the correct game role/region. enable the needed Battle Records visibility in HoYoLAB.
 4. **pair in Cocoon:** open the ZZZ entry's options → companion app → New Eridu Companion → lower display.
 5. **launch through Cocoon.** the dashboard waits for a matching visible game UID instead of treating old saved data as a live session.
@@ -64,7 +64,7 @@ These are **synthetic UI previews**, rendered at the Thor lower-screen viewport 
 
 **account records:** availability, history coverage, publishing delays, verification and service changes can affect individual sections. cached data is timestamped. no game-memory access, game-file patches, save editing or automatic gameplay actions are implemented.
 
-[compatibility matrix](docs/COMPATIBILITY.md) · [validation record](docs/validation-v2.4.2.json) · [open tasks](TASKS.md)
+[compatibility matrix](docs/COMPATIBILITY.md) · [validation record](docs/validation-v2.4.3.json) · [open tasks](TASKS.md)
 
 ## docs & development
 
@@ -72,7 +72,7 @@ These are **synthetic UI previews**, rendered at the Thor lower-screen viewport 
 - **[architecture](docs/ARCHITECTURE.md):** account requests, local observation and session coordination.
 - **[privacy](docs/PRIVACY.md):** credentials, screen processing and local storage.
 - **[building](docs/BUILDING.md):** portable builds, signing, checks and release packaging.
-- **[release notes](docs/releases/v2.4.2.md)** · **[changelog](CHANGELOG.md)** · **[contributing](CONTRIBUTING.md)**
+- **[release notes](docs/releases/v2.4.3.md)** · **[changelog](CHANGELOG.md)** · **[contributing](CONTRIBUTING.md)**
 
 ```sh
 node tests/ui-state.cjs
