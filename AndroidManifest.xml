@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="dev.gbppimentel.zzz" android:versionCode="18" android:versionName="2.6.1">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="dev.gbppimentel.zzz" android:versionCode="19" android:versionName="2.6.1">
  <uses-sdk android:minSdkVersion="30" android:targetSdkVersion="32"/>
  <uses-permission android:name="android.permission.INTERNET"/>
  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>

@@ -1,12 +1,15 @@
 # New Eridu Companion
 
+<img src="res/drawable/icon.png" alt="Companion app icon" width="112">
+
+**Icon refresh:** [download build 19](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.6.1-icons.1) · [details](docs/ICON_REFRESH.md). Original game artwork with a rounded teal frame and bottom-left document badge.
 [![preview](https://img.shields.io/github/v/release/gbppimentel-dev/new-eridu-companion?include_prereleases)](https://github.com/gbppimentel-dev/new-eridu-companion/releases)
 [![checks](https://github.com/gbppimentel-dev/new-eridu-companion/actions/workflows/ci.yml/badge.svg)](https://github.com/gbppimentel-dev/new-eridu-companion/actions/workflows/ci.yml)
 [![license: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 
 **a second-screen companion for Zenless Zone Zero on AYN Thor.** keep the game on top and use the lower screen for daily affairs, agents, builds, challenges, events and account records, with ZZZ artwork and controller feedback.
 
-[download the preview](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.6.1) · [setup](docs/SETUP.md) · [compatibility](docs/COMPATIBILITY.md) · [report a bug](https://github.com/gbppimentel-dev/new-eridu-companion/issues/new/choose)
+[download the preview](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.6.1-icons.1) · [setup](docs/SETUP.md) · [compatibility](docs/COMPATIBILITY.md) · [report a bug](https://github.com/gbppimentel-dev/new-eridu-companion/issues/new/choose)
 
 **status:** v2.6.1 development preview, built locally and installed on AYN Thor. Includes controller-driven dailies and farming; Clear Alerts has been removed. Screen recognition is observational. See [routine validation](docs/DAILY-ROUTINE.md) for the tested scope and remaining work.
 
@@ -42,7 +45,7 @@ These are **synthetic UI previews**, rendered at the Thor lower-screen viewport 
 ## install
 
 1. **install ZZZ** and use your own HoYoLAB account.
-2. **install the signed preview APK** from [releases](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.6.1).
+2. **install the signed preview APK** from [releases](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.6.1-icons.1).
 3. **connect the account** from the companion's Account screen and select the correct game role/region. enable the needed Battle Records visibility in HoYoLAB.
 4. **pair in Cocoon:** open the ZZZ entry's options → companion app → New Eridu Companion → lower display.
 5. **launch through Cocoon.** the dashboard waits for a matching visible game UID instead of treating old saved data as a live session.

@@ -4,7 +4,7 @@
     "name": "New Eridu Companion",
     "package": "dev.gbppimentel.zzz",
     "version": "2.6.1",
-    "versionCode": 18,
+    "versionCode": 19,
     "minAndroidApi": 30
   },
   "toolchain": {
