@@ -7,11 +7,11 @@
 | ZZZ on display 0 / companion on display 4 | development layout |
 | HoYoLAB records | available sections depend on account visibility, region, login and service behavior |
 | Enka showcase | source cache/TTL honored; not a full live roster feed |
-| Public v2.4.2 source build | host checks/build verified; fresh-account physical-device onboarding unverified |
+| v2.6.1 signed preview | installed on Thor; targeted daily/farming/UI tests passed; complete fresh daily route and every farming target remain unverified |
 | Every agent/costume/team | not certified; recognition must be allowed to return unknown |
 | Exact enemy totals/engine events | not available |
 | Other Android devices, secondary users or firmware layouts | unverified |
 
 The development line was used on one physical Thor. Paired Home was checked with Cocoon 3.11 and Wayfinder 1.4.1, including an existing-task resume repair. It assumes current Cocoon activity names/schema and the Thor's display arrangement. It is not general Android compatibility support.
 
-No game-file integration is required. Do not change firmware security settings to bypass unsupported configurations. See [compatibility.json](../compatibility.json), [validation](validation-v2.4.2.json) and [open tasks](../TASKS.md).
+No game-file integration is required. Do not change firmware security settings to bypass unsupported configurations. See [compatibility.json](../compatibility.json), [validation](validation-v2.6.1.json) and [open tasks](../TASKS.md).

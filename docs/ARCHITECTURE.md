@@ -24,4 +24,4 @@ The helper's privileged task operations use `PServerBinder`, native existing-tas
 
 ## boundaries
 
-No gameplay automation, memory hooks, game patching, save writes or automatic account actions such as spending currency are implemented. Authentication and service behavior can change independently of this app. Keep compatibility and validation claims tied to actual evidence.
+The local 2.5 development build adds an opt-in screen-verified daily routine through real Thor controller events. Its status and unverified paths are documented in DAILY-ROUTINE.md. No memory hooks, game patching or save writes are used. Authentication and service behavior can change independently of this app. Keep compatibility and validation claims tied to actual evidence.

@@ -7,8 +7,9 @@ public final class ControllerReader {
  static String key(int code){switch(code){case 304:return "A";case 305:return "B";case 307:return "X";case 308:return "Y";case 310:return "L1";case 311:return "R1";case 312:return "L2";case 313:return "R2";case 314:return "SELECT";case 315:return "START";case 317:return "L3";case 318:return "R3";case 544:return "UP";case 545:return "DOWN";case 546:return "LEFT";case 547:return "RIGHT";default:return null;}}
  static void button(String name,boolean down){if(!Boolean.valueOf(down).equals(buttons.get(name))){buttons.put(name,down);if(down)pulses.put(name,System.currentTimeMillis());dirty=urgent=true;}}
  static void event(int type,int code,int value)throws Exception{ synchronized(LOCK){
-  if(type==1){String name=key(code);if(name!=null&&value!=2)button(name,value!=0);}
-  else if(type==3){String axis=code==0?"lx":code==1?"ly":code==2?"rx":code==5?"ry":null;
+  boolean own=RoutineController.expected.consume(type,code,value,System.currentTimeMillis());
+  if(type==1){if(value==1&&!own)DailyAutomation.manualOverride();String name=key(code);if(name!=null&&value!=2)button(name,value!=0);}
+  else if(type==3){if(!own&&(((code==0||code==1||code==2||code==5)&&Math.abs(value)>18000)||((code==16||code==17)&&value!=0)||((code==9||code==10)&&value>2000)))DailyAutomation.manualOverride();String axis=code==0?"lx":code==1?"ly":code==2?"rx":code==5?"ry":null;
    if(axis!=null){double v=Math.max(-1,Math.min(1,value/32767.0));if(Math.abs(v)<.025)v=0;Double old=axes.put(axis,v);if(old==null||Math.abs(old-v)>.01){dirty=true;if(v==0)urgent=true;}}
    else if(code==9)button("R2",value>2000);else if(code==10)button("L2",value>2000);
    else if(code==16){button("LEFT",value<0);button("RIGHT",value>0);}else if(code==17){button("UP",value<0);button("DOWN",value>0);}

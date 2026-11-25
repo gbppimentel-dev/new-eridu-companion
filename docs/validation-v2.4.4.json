@@ -1,0 +1,32 @@
+{
+  "release": "v2.4.4",
+  "status": "local-validated-candidate",
+  "publicBuildDeviceValidated": false,
+  "deviceInstallation": {
+    "device": "AYN Thor",
+    "versionCode": 14,
+    "versionName": "2.4.4",
+    "installed": true
+  },
+  "liveChecks": [
+    "Previously saved single account migrated without changing encrypted credentials",
+    "HoYoLAB session connected; notes, account, roster and Signals returned ready data",
+    "Three repeated observations confirmed the visible UID matches the selected account",
+    "Touch city HUD consistently classified as exploring",
+    "Lower-screen dashboard visibly unlocked with Connected status and current Daily Affairs"
+  ],
+  "hostChecks": [
+    "15 legacy account selection regression checks",
+    "13 context/UID policy checks",
+    "Existing native authentication, sync, HUD, FPS, lifecycle and squad suites passed",
+    "57 UI/data/session/arrangement checks passed",
+    "Current Touch capture and five historical HUD capture classifications passed locally",
+    "Signed APK verified; source privacy audit passed"
+  ],
+  "notCertified": [
+    "Fresh-account setup on another Thor",
+    "Live combat and arbitrary team/costume recognition after this patch",
+    "Live paired Quit"
+  ],
+  "privacy": "No account identifiers, credentials or diagnostic screenshots included in this validation record."
+}

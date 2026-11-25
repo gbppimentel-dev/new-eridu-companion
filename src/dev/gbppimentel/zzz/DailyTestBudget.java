@@ -1,0 +1,10 @@
+package dev.gbppimentel.zzz;
+import java.io.*;import java.nio.file.Files;import java.util.UUID;import org.json.*;
+/** Optional private live-test allowance. Holds count against the cap before confirmation. */
+final class DailyTestBudget {
+ static JSONObject read(File dir)throws Exception{File f=new File(dir,"daily-test-budget.json");if(!f.exists())return null;if(f.length()>65536)throw new IOException("Test Budget File Is Invalid");return new JSONObject(new String(Files.readAllBytes(f.toPath()),"UTF-8"));}
+ static void save(File dir,JSONObject value)throws Exception{File f=new File(dir,"daily-test-budget.next");try(FileOutputStream out=new FileOutputStream(f)){out.write(value.toString().getBytes("UTF-8"));}if(!f.renameTo(new File(dir,"daily-test-budget.json")))throw new IOException("Could Not Save Test Allowance");}
+ static int used(JSONObject budget){JSONArray list=budget.optJSONArray("transactions");int used=0;for(int i=0;list!=null&&i<list.length();i++){JSONObject x=list.optJSONObject(i);if(x!=null&&!x.optString("state").equals("cancelled"))used+=Math.max(0,x.optInt("amount"));}return used;}
+ static synchronized String hold(File dir,int amount,String reason)throws Exception{JSONObject b=read(dir);if(b==null||!b.optBoolean("enabled"))return "";if(amount<=0||amount>240||used(b)+amount>b.optInt("limit"))throw new IOException("Stored Battery Test Allowance Reached");JSONArray list=b.optJSONArray("transactions");if(list==null){list=new JSONArray();b.put("transactions",list);}String id=UUID.randomUUID().toString();list.put(new JSONObject().put("id",id).put("amount",amount).put("reason",reason).put("at",System.currentTimeMillis()).put("state","held"));save(dir,b);return id;}
+ static synchronized void confirm(File dir,String id)throws Exception{if(id.isEmpty())return;JSONObject b=read(dir);if(b==null)throw new IOException("Test Allowance Record Missing");JSONArray list=b.getJSONArray("transactions");for(int i=0;i<list.length();i++)if(list.getJSONObject(i).optString("id").equals(id)){list.getJSONObject(i).put("state","confirmed");save(dir,b);return;}throw new IOException("Test Allowance Hold Missing");}
+}

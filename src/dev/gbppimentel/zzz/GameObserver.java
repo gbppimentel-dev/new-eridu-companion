@@ -13,7 +13,7 @@ public final class GameObserver {
    if(!watching())return;
    try(RandomAccessFile lockFile=new RandomAccessFile(new File(DIR,"observer.lock"),"rw");FileLock lock=lockFile.getChannel().tryLock()){
     if(lock==null)return;telemetry=new DeviceStatsReader();Thread statsThread=new Thread(telemetry,"GameStatistics");statsThread.setDaemon(true);statsThread.start();
-    GameContextReader context=new GameContextReader();Thread contextThread=new Thread(context,"GameContext");contextThread.setDaemon(true);contextThread.start();Thread controllerThread=new Thread(()->ControllerReader.main(new String[0]),"ControllerInput");controllerThread.setDaemon(true);controllerThread.start();
+    GameContextReader context=new GameContextReader();Thread contextThread=new Thread(context,"GameContext");contextThread.setDaemon(true);contextThread.start();Thread dailyThread=new Thread(new DailyAutomation(context),"DailyRoutine");dailyThread.setDaemon(true);dailyThread.start();Thread controllerThread=new Thread(()->ControllerReader.main(new String[0]),"ControllerInput");controllerThread.setDaemon(true);controllerThread.start();
     PortraitMatcher portraits=new PortraitMatcher(new String(Files.readAllBytes(new File(DIR,"portraits.json").toPath()),StandardCharsets.UTF_8));long portraitStamp=0;String lastSquad="";SquadTracker squadTracker=new SquadTracker();String squadKind="";
     GameCapture capture=new GameCapture(960,540);GameCapture.Foreground foreground=new GameCapture.Foreground();
     HudClassifier classifier=new HudClassifier(new String(Files.readAllBytes(new File(DIR,"hud-templates.json").toPath()),StandardCharsets.UTF_8));HudClassifier.Stable stable=new HudClassifier.Stable();

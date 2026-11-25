@@ -1,0 +1,33 @@
+{
+  "release": "v2.6.1",
+  "status": "development-preview",
+  "date": "2026-11-25",
+  "publicBuildDeviceValidated": true,
+  "deviceValidationScope": "Targeted existing-account tests on one AYN Thor; not full-route or fresh-account certification",
+  "apkSha256": "194be33a618cf5b8db6a8f8e35ddad755ade17b49df993489c00761bbff3e871",
+  "hostChecks": [
+    "75 UI/data/session/automation checks passed",
+    "214 native policy/context/lifecycle checks passed",
+    "Signed APK verified and hash matched to installed Thor APK",
+    "Public source privacy audit passed",
+    "11 daily planner layouts and 16 general companion layouts passed at 538x468",
+    "Public gallery refreshed from synthetic fixtures"
+  ],
+  "deviceChecks": [
+    "v2.6.1 Today screen visually verified; Clear Alerts removed",
+    "List-based planner, farming targets and paired Disc artwork verified on Thor in v2.6.0; retained in v2.6.1",
+    "Disc test: 57 exact Backup Charge filler, 60 Battery battle, low-Battery results exit and final daily reward check, 5m23s",
+    "Earlier targeted tests verified 80-Battery coffee, daily draw, Video Store, Temple checkpoints, Dennies repeat, Agent XP and Expert farming",
+    "Controller manual override verified"
+  ],
+  "resourceUse": "590 of 1,200 authorized Backup Charge used across development testing; no Polychrome refreshes, Ether Battery conversions or Auto Combat tickets used. No gameplay testing for the v2.6.1 feature removal.",
+  "notCertified": [
+    "Complete uninterrupted fresh daily route",
+    "Every farming category and variation",
+    "Fresh-account onboarding on another Thor",
+    "Every agent/costume/team",
+    "Live paired Quit",
+    "Other firmware/display arrangements"
+  ],
+  "documentationImages": "Synthetic previews; no private account captures"
+}

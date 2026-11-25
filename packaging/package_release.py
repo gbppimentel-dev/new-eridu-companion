@@ -12,8 +12,9 @@ apk=out/f'NewEriduCompanion-v{version}.apk';shutil.copy2(a.apk,apk);assets=[apk]
 if a.paired_apk:
  helper=out/a.paired_apk.name;shutil.copy2(a.paired_apk,helper);assets.append(helper)
 compat=out/f'compatibility-v{version}.json';shutil.copy2(ROOT/'compatibility.json',compat);assets.append(compat)
+validation=json.loads((ROOT/f'docs/validation-v{version}.json').read_text())
 commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
-manifest=out/f'release-manifest-v{version}.json';manifest.write_text(json.dumps({'sourceCommit':commit,'release':'v'+version,'developmentPreview':True,'publicBuildDeviceValidated':False,'apkSha256':sha(apk),'artifacts':{f.name:sha(f) for f in assets},'validation':json.loads((ROOT/f'docs/validation-v{version}.json').read_text())},indent=2));assets.append(manifest)
+manifest=out/f'release-manifest-v{version}.json';manifest.write_text(json.dumps({'sourceCommit':commit,'release':'v'+version,'developmentPreview':True,'publicBuildDeviceValidated':validation.get('publicBuildDeviceValidated',False),'apkSha256':sha(apk),'artifacts':{f.name:sha(f) for f in assets},'validation':validation},indent=2));assets.append(manifest)
 archive=out/f'NewEriduCompanion-v{version}.zip'
 with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
  for f in assets:z.write(f,f.name)

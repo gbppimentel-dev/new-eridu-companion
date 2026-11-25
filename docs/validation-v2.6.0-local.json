@@ -1,0 +1,38 @@
+{
+  "version": "2.6.0",
+  "status": "local build installed; targeted Thor and host validation passed; complete fresh daily route and all targets remain unverified",
+  "date": "2026-11-25",
+  "host": {
+    "native_checks": 224,
+    "ui_checks": 77,
+    "daily_layout_views": 12,
+    "non_scrolling_route_and_battery_pages": true,
+    "paged_stage_choices": true,
+    "today_cards_visible_during_automation": 6,
+    "terminal_layout_views": 16,
+    "long_combat_names_with_run_panel": true,
+    "fullscreen_progress_removed": true,
+    "disc_set_artworks_local": 30,
+    "paged_target_and_stage_lists": true
+  },
+  "thor_verified": [
+    "read-only Mail traversal:9 entries",
+    "read-only Announcements traversal:13 entries",
+    "authorized free Mail Claim All and receipt acknowledgment; inventory-full attachment remains",
+    "Disc final-batch top-up:24 Backup Charge,60 Battery spent,post-farm Daily Rewards check completed; low-Battery return recognition subsequently tightened",
+    "Disc repeat:57 exact Backup filler from3 to60,one60-Battery battle,static low-Battery return proof,post-farm Daily Rewards,5m23s,one regenerated Battery left",
+    "installed v2.6.0 Today and Route/Battery dialogs visually verified on Thor lower screen",
+    "detailed progress and compressed Today visually verified during automation on the installed lower screen",
+    "corrected wrapping/clamped cleanup completed from remembered positions:9 Mail,13 Announcements,6m03s,read-only,no resource spending",
+    "final list-based Errands/Farming planner, target list and real15-stage Disc selector with paired artwork visually verified on Thor; previous Agent XP choice restored; installed APK hash matched local build"
+  ],
+  "remaining": [
+    "complete uninterrupted fresh daily route",
+    "all farming targets"
+  ],
+  "github_updated": false,
+  "backup_charge_test_used": 590,
+  "backup_charge_test_limit": 1200,
+  "apk_sha256": "ec77b0f71f8686eb96c752adbc90121376e13acf2e297a07c10be2a2b2b50ffe",
+  "test_allowance_archived_and_temporary_cap_removed": true
+}

@@ -3,7 +3,7 @@ const elements=new Map();const element=()=>({innerHTML:'',textContent:'',hidden:
 const document={documentElement:{style:{setProperty(){}}},querySelector(s){if(!elements.has(s))elements.set(s,element());return elements.get(s)},querySelectorAll(){return []}};
 const ctx=vm.createContext({document,window:{},console,setInterval(){},clearTimeout(){},setTimeout(){},URL,Date,Number,String,JSON,Map,Set});
 vm.runInContext(fs.readFileSync('assets/catalog.js','utf8'),ctx);vm.runInContext(fs.readFileSync('assets/ui.js','utf8'),ctx);vm.runInContext(fs.readFileSync('assets/app.js','utf8'),ctx);vm.runInContext(fs.readFileSync('assets/game-ui.js','utf8'),ctx);
-vm.runInContext(fs.readFileSync('assets/official-map.js','utf8'),ctx);vm.runInContext(fs.readFileSync('assets/terminal.js','utf8'),ctx);
+vm.runInContext(fs.readFileSync('assets/official-map.js','utf8'),ctx);vm.runInContext(fs.readFileSync('assets/daily.js','utf8'),ctx);vm.runInContext(fs.readFileSync('assets/terminal.js','utf8'),ctx);
 const run=s=>vm.runInContext(s,ctx);let checks=0;function check(s,msg){assert.ok(run(s),msg);checks++;}
 const profile=JSON.parse(fs.readFileSync('tests/fixtures/profile.json','utf8'));
 ctx.profile=profile;run(`state={uid:'1000000001',server:'prod_gf_jp',session:'disconnected',sections:{showcase:{state:'ready',at:Date.now(),data:profile}}}`);
@@ -20,7 +20,7 @@ check(`pullRarity({rarity:'S'})==='S'&&pullRarity({rarity:'A'})==='A'`,'HoYoLAB 
 check(`pullDate({date:{year:2026,month:11,day:15,hour:2,minute:3,second:4}})==='2026-11-15 02:03:04'`,'HoYoLAB structured pull dates');
 const notes={energy:{progress:{current:120,max:240},restore:21600},vitality:{current:200,max:400},card_sign:'CardSignDone',vhs_sale:{sale_state:'SaleStateDoing'},weekly_task:{cur_point:700,max_point:1000,refresh_time:86400},bounty_commission:{num:2,total:3},survey_points:{num:300,total:400},temple_running:{expedition_state:'ExpeditionStateEnd',bench_state:'BenchStateCanProduce',shelve_state:'ShelveStateSoldOut'}};
 ctx.notes=notes;run(`state.session='connected';state.sections.notes={state:'ready',at:Date.now(),data:notes};`);
-check(`dailyTiles().includes('120')&&dailyTiles().includes('Returned')&&dailyTiles().includes('700 / 1000')`,'Daily notes normalize actual upstream field names');
+check(`dailyTiles().includes('120')&&dailyTiles().includes('Collect')&&dailyTiles().includes('700 / 1000')`,'Daily notes normalize actual upstream field names');
 check(`duration(21600)==='6h 0m'&&dailyTiles().includes('Battery Charge')`,'Battery countdown derives from recovery time');
 run(`state.sections.notes.state='error';state.sections.notes.error='Network unavailable';`);
 check(`sectionMessage('notes').includes('Network unavailable')`,'Stale daily data carries error');
@@ -76,3 +76,46 @@ check(`(receiveGame({phase:'combat',context:{uid:state.uid,uidConfirmed:true,age
 check(`(receiveGame({phase:'combat',context:{agents:[{id:'1211'},{id:'1611'},{id:'1101'}],activeAgent:'1211'}}),liveAgents()[1].id==='1211')`,'Switching changes the centered agent');
 check(`(receiveGame({phase:'combat',context:{agents:[]}}),liveAgents().length===3&&liveAgents().every(x=>!x.id))`,'Unknown initial squad reserves three honest slots');
 console.log('3 encounter arrangement checks passed');
+
+check(`(receiveGame({phase:'exploring',at:Date.now(),context:{uid:state.uid,uidConfirmed:true},dailyHistory:{lastTriggeredAt:Date.now()-1000,errandsAvailable:false,nextResetAt:Date.now()+3600000}}),dailyHistoryCard().includes('Daily Errands Reset In')&&dailyHistoryCard().includes('Battery Farming Available Anytime'))`,'Daily reset countdown does not lock Battery farming');
+check(`dailyMini({running:true,startedAt:Date.now()-60000,stageIndex:2,stageTotal:6,estimatedDurationMs:180000}).includes('2/6')&&dailyMini({}).includes('0m 0s Elapsed')`,'Progress uses verified tasks and tolerates missing timestamps');
+check(`dailyMini({running:true,startedAt:Date.now()-240000,estimatedDurationMs:180000}).includes('Estimate Updating')`,'Slow loading cannot produce a negative ETA');
+check(`dailyClock(25*3600000)==='25h 0m'`,'Long elapsed runs do not wrap their hours');
+console.log('4 daily progress/reset UI checks passed');
+
+run(`let dailyToastCount=0;const previousDailyToast=toast;toast=()=>dailyToastCount++;gameObservation.automation={id:'notice-test',state:'attention',message:'Needs Attention',running:false};dailyRunPaint='';updateDailyRun();dailyRunPaint='';updateDailyRun();`);
+check(`dailyToastCount===1`,'Routine status clock repaint cannot repeat a stopped/error toast');
+run(`toast=previousDailyToast;`);
+console.log('1 daily notification regression passed');
+
+run(`gameObservation.automation={};gameObservation.dailyHistory={errandsAvailable:false};showDailyPlan();`);
+check(`$('#modal-body').innerHTML.includes('Farm Only Until Reset')&&$('#modal-body').innerHTML.includes('route-skipped')&&$('#modal-body').innerHTML.includes('Daily Rewards · Always Included')`,'Completed daily cycle exposes farming without offering daily errands again');
+run(`gameObservation.dailyHistory={errandsAvailable:true};dailyPlan.farmOnly=false;local.options={...local.options,dailyPlan:{...dailyPlan,farmOnly:false}};showDailyPlan();`);
+check(`$('#modal-body').innerHTML.includes('daily-checks')&&$('#modal-body').innerHTML.includes('Full Routine')`,'New reset restores full daily-route controls');
+console.log('2 daily plan eligibility regressions passed');
+
+run(`gameObservation.dailyHistory={errandsAvailable:true,verifiedTasks:{coffee:true,draw:true}};showDailyPlan(0);`);
+check(`$('#modal-body').innerHTML.includes('Done')&&!dailyForecast().includes('+80 From Coffee')`,'Verified tasks show Done and do not count coffee Battery twice');
+run(`gameObservation.dailyHistory={errandsAvailable:true,verifiedTasks:{}};showDailyPlan();`);
+check(`!$('#modal-body').innerHTML.includes('Done')&&dailyForecast().includes('+80 From Coffee')`,'Reset clears completed badges and restores the coffee forecast');
+console.log('2 verified-task UI regressions passed');
+
+run(`gameObservation.dailyHistory={verifiedTasks:{temple:true}};`);
+check(`templeDailyState().complete&&templeDailyState().label==='Done'`,'Verified Temple management is green even when HoYo notes lag');
+run(`gameObservation.dailyHistory={};`);
+check(`storeDailyState().label==='Running'&&storeDailyState().complete`,'Video Store status describes active business');
+check(`templeDailyState().label==='Collect'&&templeDailyState().attention`,'Returned Bangboo clearly needs collection');
+check(`eriduDailyGrid().indexOf('Bangboo')<eriduDailyGrid().indexOf('Hollow Zero')&&eriduDailyGrid().indexOf('Weekly Tasks')>eriduDailyGrid().indexOf('Hollow Zero')`,'Bangboo occupies the former Weekly Tasks position');
+run(`dailyPlan.target='discs';dailyPlan.stage='';dailyPlan.battery=true;saveDailyPlan();showDailyPlan(1);`);
+check(`$('#modal-body').innerHTML.includes('Choose Stage')&&$('#modal-body').innerHTML.includes('60 / Run')`,'Disc plan exposes its stage and exact final-run top-up rule');
+console.log('5 Thor daily enhancement checks passed');
+
+run(`gameObservation.automation={running:true,at:Date.now()};const beforeRunModal=$('#modal-body').innerHTML;showDailyPlan();`);
+check(`$('#modal-body').innerHTML===beforeRunModal&&!dailyMini({}).includes('onclick="showDailyPlan()"')`,'Running progress never opens a fullscreen modal');
+run(`gameObservation.automation={};explainStageRefresh();`);
+check(`$('#modal-body').innerHTML.includes('Does Not Start Battles Or Spend Battery')`,'Stage list update explains its actual controller navigation');
+run(`gameObservation.dailyHistory={};const savedSale=notes.vhs_sale.sale_state,savedTemple=notes.temple_running;notes.vhs_sale.sale_state='SaleStateNotStarted';notes.temple_running={expedition_state:'ExpeditionStateNone'};`);
+check(`storeDailyState().label==='Closed'&&templeDailyState().label==='Idle'`,'Inactive services use short Closed and Idle labels');
+run(`notes.vhs_sale.sale_state=savedSale;notes.temple_running=savedTemple;`);
+check(`dailyDiscSets('swiftspine and splitclaw').length===2&&dailyDiscArt('swiftspine and splitclaw').includes('SuitFeatheredFate')&&dailyDiscSets('sharp fang and biunt axe').length===2&&dailyDiscSets('Unknown Stage').length===0`,'Disc artwork uses known set pairs, tolerates the scanned Blunt spelling and does not invent unknown rewards');
+console.log(`${checks} total UI checks passed`);

@@ -4,6 +4,7 @@ final class ContextParser {
  final JSONObject catalog;
  ContextParser(String json)throws Exception{catalog=new JSONObject(json);}
  static String uid(String text){Matcher m=Pattern.compile("(?<![0-9])([1-9][0-9]{8,9})(?![0-9])").matcher(text);return m.find()?m.group(1):"";}
+ static String consistentUid(String... readings){String found="";for(String text:readings){String next=uid(text);if(next.isEmpty())continue;if(!found.isEmpty()&&!found.equals(next))return "";found=next;}return found;}
  static String clean(String s){return s.toLowerCase(Locale.ROOT).replaceAll("[^a-z0-9 ]"," ").replaceAll("\\s+"," ").trim();}
  JSONObject enemy(String text)throws Exception{String hay=" "+clean(text)+" ";JSONArray list=catalog.optJSONArray("enemies");for(int i=0;list!=null&&i<list.length();i++){JSONObject e=list.getJSONObject(i);String n=clean(e.optString("name"));if(n.length()>3&&hay.contains(" "+n+" "))return e;}return null;}
  String area(String text){String hay=" "+clean(text)+" ";JSONArray list=catalog.optJSONArray("areas");for(int i=0;list!=null&&i<list.length();i++){String name=list.optString(i),n=clean(name).replace("restricted area ","").replace("hollow ","");if(n.length()>5&&hay.contains(" "+n+" "))return name;}return "";}

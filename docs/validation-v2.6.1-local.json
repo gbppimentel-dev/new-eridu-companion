@@ -1,0 +1,23 @@
+{
+  "version": "2.6.1",
+  "date": "2026-11-25",
+  "status": "installed locally on Thor; removal verified",
+  "changes": [
+    "Removed Clear Alerts UI, Mail claim option and native clear action",
+    "Removed feature-specific Mail/Announcements OCR and input policy"
+  ],
+  "host": {
+    "native_checks": 214,
+    "ui_checks": 75,
+    "signed_build": true,
+    "publication_audit": true
+  },
+  "apk_sha256": "194be33a618cf5b8db6a8f8e35ddad755ade17b49df993489c00761bbff3e871",
+  "github_updated": false,
+  "gameplay_run": false,
+  "thor": {
+    "installed_apk_hash_matches": true,
+    "today_clear_alerts_removed": true,
+    "game_session_connected": true
+  }
+}

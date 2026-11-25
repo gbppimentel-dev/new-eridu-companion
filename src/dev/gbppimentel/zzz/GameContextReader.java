@@ -7,7 +7,7 @@ final class GameContextReader implements Runnable {
  public void run(){try{OcrEngine ocr=new OcrEngine();GameCapture capture=new GameCapture(1920,1080);GameCapture.Foreground foreground=new GameCapture.Foreground();ContextParser parser=new ContextParser(read("combat-catalog.json"));ContextParser.Identity identity=new ContextParser.Identity();long hiddenSince=0;int loginFrames=0;
   while(GameObserver.watching()){long start=System.currentTimeMillis();Bitmap full=null,small=null;try{
    if(!foreground.gameVisible()){if(hiddenSince==0)hiddenSince=start;if(start-hiddenSince>5000){identity.clear();latest=new JSONObject();}Thread.sleep(500);continue;}hiddenSince=0;
-   full=capture.frame();String uid=ContextParser.uid(ocr.read(full,1650,1056,145,24,true));identity.update(uid);small=Bitmap.createScaledBitmap(full,960,540,true);full.recycle();full=null;
+   full=capture.frame();String uid=ocr.uid(full);identity.update(uid);small=Bitmap.createScaledBitmap(full,960,540,true);full.recycle();full=null;
    if(!foreground.gameVisible())continue;
    boolean fight=phase.equals("combat");String top=ocr.read(small,210,25,720,110,false);String active=parser.agent(top);boolean login=false;if(uid.isEmpty()){String middle=ContextParser.clean(ocr.read(small,240,280,480,220,false));login=middle.contains("start game")||middle.contains("tap to begin")||middle.contains("tap to start")||middle.contains("log in");}
    loginFrames=login?loginFrames+1:0;login=loginFrames>=2;if(login)identity.clear();JSONObject out=new JSONObject().put("at",start).put("uid",identity.confirmed).put("uidConfirmed",!identity.confirmed.isEmpty()).put("login",login).put("ocr",true);

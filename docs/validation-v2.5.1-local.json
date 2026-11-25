@@ -1,0 +1,61 @@
+{
+  "version": "2.5.1",
+  "status": "local development; full unattended route remains under live validation",
+  "date": "2026-11-25",
+  "host": {
+    "native_checks": 213,
+    "ui_checks": 66,
+    "review_views": 16,
+    "daily_layout_screens": 5,
+    "picker_interaction_checks": 2,
+    "footer_geometry_unchanged": {
+      "content_top": 88,
+      "content_height": 337,
+      "viewport": [
+        538,
+        468
+      ]
+    },
+    "source_privacy_audit": "passed"
+  },
+  "thor_verified": [
+    "persistent reset-scoped Coffee, Draw, Video Store and Temple completion skips",
+    "Ninne Video Store Happy promoter, Recommended Tapes, opening confirmation and final toast handled automatically in fresh-reset run",
+    "Suibian Temple travel from remembered and scrolled Quick Nav positions",
+    "Auto-Managed Temple checkpoint and city return",
+    "Dennies 125000 reward and 100 Battery deployment guards",
+    "successful controller combat and local 100 Battery accounting",
+    "compact footer retains all six Today cards and physical controller strip",
+    "exact controller Backup Charge extraction and in-game balance verification",
+    "funded battle reached S-rank result",
+    "completed-battle detection uses footer actions plus explicit1/1 clear progress",
+    "fresh-reset 80-Battery coffee reward, daily surprise-box draw and Ninne Video Store opening completed automatically",
+    "two consecutive native Dennies battles using X repeat and local Battery accounting",
+    "running Temple session recognized from explicit Stop Auto-Manage control",
+    "available engagement rewards banked before errands; verified errands preserved on retry",
+    "58 Backup Charge final filler followed by successful second 100 Battery battle",
+    "60 Battery Drive Disc deployment and successful battle accounting",
+    "Expert 80 Battery Burnout cost rejected before deployment; native exit-Burnout confirmation restored 40 Battery and deployed successfully",
+    "native 40 Battery Expert run completed end to end, including Burnout off, victory, accounting, category exit and verified city return",
+    "Expert run duration 373420ms with tested saved squad; not a full daily-route measurement",
+    "selected-row scan completed with 15 Drive Disc and 16 Expert entries; no duplicated artwork suffixes",
+    "native recovery from the observed server-timeout dialog, followed by fresh city-session checks and farming navigation",
+    "Agent XP preset, Investigator Log reward and 100 Battery cost verified before controller deployment",
+    "native Agent XP run completed end to end, including server reconnect, preset action menu, Investigator Log reward verification, 100 Battery battle and verified city return",
+    "Agent XP run duration 181677ms with tested saved squad; not a full daily-route measurement",
+    "installed Battery Target picker fits the lower display and scrolls to Drive Discs and Expert Challenge",
+    "installed build reopened Connected, with all six Today cards visible and no active routine"
+  ],
+  "remaining": [
+    "complete unattended route",
+    "all farming targets",
+    "complete-run duration measurement"
+  ],
+  "github_updated": false,
+  "local_installation": {
+    "version_code": 16,
+    "apk_matches_local_build": true,
+    "routine_running": false,
+    "temporary_test_cap_removed": true
+  }
+}

@@ -23,6 +23,7 @@ final class GameCapture {
   private final Object service;private final Method tasks;
   Foreground()throws Exception{service=Class.forName("android.app.ActivityTaskManager").getDeclaredMethod("getService").invoke(null);tasks=service.getClass().getMethod("getTasks",int.class,boolean.class,boolean.class,int.class);}
   String topPackage(){try{List<?> list=(List<?>)tasks.invoke(service,8,false,false,0);for(Object info:list){Object component=info.getClass().getField("topActivity").get(info);if(component==null)continue;boolean visible=true;try{visible=info.getClass().getField("isVisible").getBoolean(info);}catch(Exception ignored){}if(!visible)continue;String pkg=(String)component.getClass().getMethod("getPackageName").invoke(component);return pkg;}return "";}catch(Exception e){return null;}}
+  void focusGame()throws Exception{List<?> list=(List<?>)tasks.invoke(service,8,false,false,0);for(Object info:list){Object component=info.getClass().getField("topActivity").get(info);if(component==null)continue;String pkg=(String)component.getClass().getMethod("getPackageName").invoke(component);boolean visible=info.getClass().getField("isVisible").getBoolean(info);if(!visible)continue;if(!"com.HoYoverse.Nap".equals(pkg))throw new IllegalStateException("Game Left The Foreground");int task=info.getClass().getField("taskId").getInt(info);service.getClass().getMethod("setFocusedTask",int.class).invoke(service,task);return;}throw new IllegalStateException("Game Task Unavailable");}
   boolean gameVisible(){return "com.HoYoverse.Nap".equals(topPackage());}
  }
 }

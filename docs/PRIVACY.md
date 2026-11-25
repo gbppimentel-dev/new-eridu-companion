@@ -12,6 +12,8 @@ The app processes visible ZZZ display frames locally for HUD/UID text and portra
 
 The optional Paired Home helper uses privileged task metadata and reads Cocoon's configured companion assignments. It stores package/task identifiers, a boot marker and a hashed intent identity in its private directory. It does not capture screen content or read game save files. Its session-end safeguard can stop the captured companion after the captured game task and process have ended.
 
+The local development daily routine uses these transient observations to verify controller actions after an explicit Start. It stores the selected plan, account-scoped trigger/completion times, task summaries and measured durations locally. It writes real gamepad events only while the linked game remains visible and the opt-in run is active. A Stop request or manual controller override ends the run. No routine frames or raw OCR transcript are uploaded or retained.
+
 ## stored records and reports
 
 Saved account records and UI preferences remain in private Android app storage. The Android manifest disables application backup. Release signing keys stay outside Git/CI.

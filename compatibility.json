@@ -3,8 +3,8 @@
   "application": {
     "name": "New Eridu Companion",
     "package": "dev.gbppimentel.zzz",
-    "version": "2.4.3",
-    "versionCode": 13,
+    "version": "2.6.1",
+    "versionCode": 18,
     "minAndroidApi": 30
   },
   "toolchain": {
@@ -30,14 +30,16 @@
     "privilegedService": "PServerBinder"
   },
   "publicCandidate": {
-    "status": "host-validated development preview",
+    "status": "targeted host and existing-account Thor validation; development preview",
     "deviceInstallValidated": true
   },
   "unverified": [
     "Fresh-account onboarding on another Thor",
     "Every agent, costume and team",
     "Live paired Quit",
-    "Other firmware and display arrangements"
+    "Other firmware and display arrangements",
+    "Complete uninterrupted fresh daily route",
+    "Every supported farming target"
   ],
   "unavailable": [
     "Exact engine telemetry",

@@ -1,0 +1,29 @@
+{
+  "version": "2.5.0",
+  "status": "local development; full unattended route not validated",
+  "date": "2026-11-24",
+  "host": {
+    "native_checks": 176,
+    "ui_checks": 64,
+    "review_views": 16,
+    "source_privacy_audit": "passed"
+  },
+  "thor_verified": [
+    "paired account recovery",
+    "controller input focus on display 0",
+    "controller handbook and coffee warp",
+    "80 Battery coffee reward",
+    "manual controller override",
+    "in-game Battery overflow read above 240",
+    "automated Dennies125000 reward and100 Battery deployment guards",
+    "controller combat inputs after verified deployment"
+  ],
+  "remaining": [
+    "full daily route",
+    "exact reserve extraction",
+    "all farming targets",
+    "complete-run duration measurement",
+    "first automated battle completion; USB disconnected during battle"
+  ],
+  "github_updated": false
+}

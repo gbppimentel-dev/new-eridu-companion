@@ -19,6 +19,40 @@
 - [x] Keep stale/missing account sections explicit and respect service backoff.
 - [x] Remove the unverified exact enemy counter.
 
+## local daily routine development
+
+- [x] Select errands, farming target and Backup Charge policy before starting.
+- [x] Show current task, elapsed time, estimated time remaining and local trigger history.
+- [x] Model the 4 AM Asia reset independently of Battery farming; test the 3 AM / 5 AM case.
+- [x] Send real controller events and verify manual override on Thor.
+- [x] Verify 80-Battery coffee and read charge overflow above 240 in game.
+- [x] Verify automated Dennies reward/cost guards and controller deployment into combat.
+- [x] Restore Thor USB access.
+- [x] Verify successful controller battle completion and local Battery accounting.
+- [x] Verify native battle repeat without a HoYoLAB/results Battery refresh.
+- [x] Verify final exit through menu-to-city fade in an end-to-end Expert run.
+- [ ] Complete an unattended full route and measure its actual duration.
+- [x] Validate exact controller-based Backup Charge extraction and deployment into the funded battle.
+- [x] Verify funded battle result handling and local Battery accounting.
+- [x] Validate the selected-row scan across 15 Disc and 16 Expert stages.
+- [ ] Validate every supported farming category.
+- [ ] Validate alternate daily draw locations and loading/reconnection variations.
+- [x] Publish v2.6.1 source and development-preview artifacts after confirmation.
+
+## local 2.6 improvements
+
+- [x] Remove Clear Alerts, optional Mail claims and their native command route in 2.6.1.
+
+- [x] Swap Bangboo and Weekly Tasks on Today.
+- [x] Add detailed main-screen progress while keeping Today visible; remove fullscreen progress.
+- [x] Keep combat agent names visible with a dedicated two-line label area during automation.
+- [x] Replace scrolling daily dialogs with a two-step planner and paged target/stage lists.
+- [x] Show Disc set pairs with local artwork; explain Update Stage List before starting.
+- [x] Use Done / Closed / Idle and explicit collection/attention states.
+- [x] Surface Drive Disc stages and the exact one-time final-run top-up rule.
+- [x] Require reward evidence for full daily completion and check claims after farming.
+- [x] Verify a Disc top-up, low-Battery results exit and post-farm reward check on Thor.
+
 ## remaining validation and known limits
 
 - [ ] Validate a clean installation, first account connection and UID selection on a second Thor/account.

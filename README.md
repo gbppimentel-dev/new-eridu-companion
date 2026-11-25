@@ -6,13 +6,14 @@
 
 **a second-screen companion for Zenless Zone Zero on AYN Thor.** keep the game on top and use the lower screen for daily affairs, agents, builds, challenges, events and account records, with ZZZ artwork and controller feedback.
 
-[download the preview](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.4.3) · [setup](docs/SETUP.md) · [compatibility](docs/COMPATIBILITY.md) · [report a bug](https://github.com/gbppimentel-dev/new-eridu-companion/issues/new/choose)
+[download the preview](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.6.1) · [setup](docs/SETUP.md) · [compatibility](docs/COMPATIBILITY.md) · [report a bug](https://github.com/gbppimentel-dev/new-eridu-companion/issues/new/choose)
 
-**status:** development preview and first public source backup. screen recognition is observational and can be uncertain. this is not an exact game-engine feed. the public build removes developer account defaults; it is not being installed on the development Thor as part of this backup.
+**status:** v2.6.1 development preview, built locally and installed on AYN Thor. Includes controller-driven dailies and farming; Clear Alerts has been removed. Screen recognition is observational. See [routine validation](docs/DAILY-ROUTINE.md) for the tested scope and remaining work.
 
 ## what it does
 
 - **Today:** Battery Charge, activity, scratch card, video store, weekly tasks, Hollow Zero and Bangboo status. incomplete values stay white, completed/okay values turn green, and full Battery Charge turns red.
+- **Automation:** opt-in daily errands, mandatory reward checks, material/Disc/Expert farming and one exact final-batch Backup Charge top-up.
 - **Agents & Bangboo:** a compact roster, original cutouts, rarity art, equipment and skill details.
 - **Guide:** completion progress, automatic next steps and available official build recommendations.
 - **Challenges:** recorded clears, teams, scores and cycle summaries when supplied by the service.
@@ -35,12 +36,13 @@ These are **synthetic UI previews**, rendered at the Thor lower-screen viewport 
 <tr><td><a href="docs/images/agents.png"><img src="docs/images/agents.png" width="460" alt="Agent archive preview"></a><br><b>agents</b> · original character art</td><td><a href="docs/images/calendar.png"><img src="docs/images/calendar.png" width="460" alt="Calendar channel artwork preview"></a><br><b>calendar</b> · events and channels</td></tr>
 <tr><td><a href="docs/images/challenges.png"><img src="docs/images/challenges.png" width="460" alt="Challenges preview"></a><br><b>challenges</b> · recorded progress</td><td><a href="docs/images/earnings.png"><img src="docs/images/earnings.png" width="460" alt="Earnings preview"></a><br><b>earnings</b> · available income records</td></tr>
 <tr><td><a href="docs/images/signals.png"><img src="docs/images/signals.png" width="460" alt="Signal Search preview"></a><br><b>signals</b> · channel progress and history</td><td><a href="docs/images/waiting.png"><img src="docs/images/waiting.png" width="460" alt="Pre-login waiting state"></a><br><b>before login</b> · empty session state</td></tr>
+<tr><td><a href="docs/images/daily-plan.png"><img src="docs/images/daily-plan.png" width="460" alt="Daily errands planner"></a><br><b>daily routine</b> · select errands and farming</td><td><a href="docs/images/disc-sets.png"><img src="docs/images/disc-sets.png" width="460" alt="Drive Disc set selection"></a><br><b>disc farming</b> · paired artwork and set names</td></tr>
 </table>
 
 ## install
 
 1. **install ZZZ** and use your own HoYoLAB account.
-2. **install the signed preview APK** from [releases](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.4.3).
+2. **install the signed preview APK** from [releases](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.6.1).
 3. **connect the account** from the companion's Account screen and select the correct game role/region. enable the needed Battle Records visibility in HoYoLAB.
 4. **pair in Cocoon:** open the ZZZ entry's options → companion app → New Eridu Companion → lower display.
 5. **launch through Cocoon.** the dashboard waits for a matching visible game UID instead of treating old saved data as a live session.
@@ -62,9 +64,9 @@ These are **synthetic UI previews**, rendered at the Thor lower-screen viewport 
 
 **enemies:** no exact enemy census is available. the old health-bar-derived total was removed. names are shown only when screen text can identify them.
 
-**account records:** availability, history coverage, publishing delays, verification and service changes can affect individual sections. cached data is timestamped. no game-memory access, game-file patches, save editing or automatic gameplay actions are implemented.
+**account records:** availability, history coverage, publishing delays, verification and service changes can affect individual sections. cached data is timestamped. no game-memory access, game-file patches, save editing are used. Daily gameplay automation is opt-in; [validation is still in progress](docs/DAILY-ROUTINE.md).
 
-[compatibility matrix](docs/COMPATIBILITY.md) · [validation record](docs/validation-v2.4.3.json) · [open tasks](TASKS.md)
+[compatibility matrix](docs/COMPATIBILITY.md) · [validation record](docs/validation-v2.6.1.json) · [open tasks](TASKS.md)
 
 ## docs & development
 
@@ -72,7 +74,7 @@ These are **synthetic UI previews**, rendered at the Thor lower-screen viewport 
 - **[architecture](docs/ARCHITECTURE.md):** account requests, local observation and session coordination.
 - **[privacy](docs/PRIVACY.md):** credentials, screen processing and local storage.
 - **[building](docs/BUILDING.md):** portable builds, signing, checks and release packaging.
-- **[release notes](docs/releases/v2.4.3.md)** · **[changelog](CHANGELOG.md)** · **[contributing](CONTRIBUTING.md)**
+- **[release notes](docs/releases/v2.6.1.md)** · **[changelog](CHANGELOG.md)** · **[contributing](CONTRIBUTING.md)**
 
 ```sh
 node tests/ui-state.cjs
