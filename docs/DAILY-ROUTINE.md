@@ -33,7 +33,25 @@ Resources: current Battery, the 80-Battery coffee and an optional final top-off 
 - The 2.6 Disc repeat completed end to end in 5m23s: exact 57 Backup Charge filler from 3 to 60, one 60-Battery battle, low-Battery results exit and final daily reward check. One naturally regenerated Battery remained. This is a measured Farm Only run, not a complete errand-route estimate.
 - Full daily route, alternative draw variants and every farming target remain under live validation. Unrecognized screens stop the routine rather than guessing.
 
-The v2.6.1 source and development-preview artifacts are published with user authorization. Targeted test results do not certify the remaining full-route and compatibility tasks.
+The v2.6.4 source and development-preview artifacts are published with user authorization. Targeted test results do not certify the remaining full-route and compatibility tasks.
+
+## Video Store Confirmation — Local 2.6.3
+
+The opening-congratulations popup requires its complete message, final line and Confirm button label to agree. The runner confirms through A, returns to the city and reads the focused Store errand card. It records completion only for 1/1, including when an already-open service message was observed. Requesting Open or reaching the city alone does not complete the checkpoint.
+
+A retry can settle this specific popup when Store is selected, Farm Only is off, the daily cycle is incomplete and the exact linked account is verified. Other unknown menus remain blocked.
+
+## Temple Navigation — Local 2.6.4
+
+Business Log contains a Total Obtained statistic; that text is never treated as a reward receipt. Both tab labels and the selected orange tab are verified before navigation. Business Log uses RB to select Auto-Manage; the runner waits for the selected tab before reading its Start/Stop controls. Start uses X. Completion requires a stable Stop Auto-Manage state, and therefore does not skip Auto-Sell when the Omnicoin period cap is full. The active job is never stopped by this route.
+
+The verified reward popup accepts Temple currency labels (Omnicoin or Cloud Crest), plus its Obtain Rewards title and Confirm button. Unknown screens remain bounded waits and do not receive speculative A presses.
+
+## Temple Claim Recovery — Local 2.6.2
+
+The Temple route reads the fixed completed-management and Claim Revenue labels before sending its X shortcut. The custom Obtain Rewards receipt requires its title, Confirm button and Temple currency label to agree. Pending revenue and receipts are handled before verified running-state completion. The period cap alone is not completion evidence.
+
+A retry can resume a positively identified Temple claim/receipt on the exact linked account when Temple is enabled, Farm Only is off and the daily cycle remains incomplete. It settles that service first, returns to the city and performs the normal reward checkpoints. Unknown menus and other accounts are never treated as resumable Temple screens. Identity interruptions pause inputs for bounded re-verification; Stop and manual override remain active.
 
 ## Stage List And Labels
 
@@ -42,3 +60,5 @@ Update Stage List opens the Handbook through controller input and reads Area Pat
 Completion reads **Done**. Video Store uses **Running**, **Collect**, **Closed** and **Unknown**. Temple uses **Done**, **Managing**, **Collect**, **Attention**, **Idle** and **Unknown**. Unknown means no verified state; Closed and Idle mean the service needs starting.
 
 Disc pair names follow the existing local equipment catalog. Stage associations were cross-checked against the game’s Swiftspine reward screen and the [Area Patrol stage list](https://gamemarket.gg/news/zenless-zone-zero/which-zzz-area-patrol-stage-should-you-farm-for-double-rewards), with the newest pair confirmed in [HoYoverse’s Steam announcements](https://store.steampowered.com/news/posts/?enddate=1785245407&feed=steam_community_announcements). Artwork uses the already bundled game assets.
+
+Further Thor testing was stopped at the user’s request before the final v2.6.4 Handbook chord change was device-verified. The signed preview is saved for user testing; see [release validation](validation-v2.6.4.json).

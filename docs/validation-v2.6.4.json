@@ -1,0 +1,26 @@
+{
+  "release": "v2.6.4",
+  "date": "2026-11-27",
+  "status": "development-preview",
+  "publicBuildDeviceValidated": false,
+  "apkSha256": "946eb70f381617065dba7dd80075b57b8a90ead0b862312ebc6c922d49379ede",
+  "hostChecks": [
+    "262 native policy/context/lifecycle checks passed before testing was stopped",
+    "75 UI checks passed before testing was stopped",
+    "Latest source compiled and signed successfully"
+  ],
+  "targetedDeviceEvidence": [
+    "Business Log Total Obtained statistic reproduced as false reward-popup detection",
+    "RB verified to select Auto-Manage; X verified to start management",
+    "Automatic retry selected Auto-Manage and saved running-state evidence without pressing X again",
+    "Five captured Temple states classified correctly:Business Log,idle,active,pending revenue,and receipt",
+    "Earlier Video Store confirmation recovery verified through focused errand1/1 and reward checks"
+  ],
+  "limitations": [
+    "Latest signed APK and final Handbook chord change were not device-validated; user requested testing stop",
+    "A full fresh daily route and final end-to-end reward return remain unverified",
+    "Existing fresh-account,roster,firmware and farming-category limits remain"
+  ],
+  "testingStoppedByUser": true,
+  "documentationImages": "Synthetic fixtures; private device captures excluded"
+}

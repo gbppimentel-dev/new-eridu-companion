@@ -1,0 +1,29 @@
+{
+  "version": "2.6.2",
+  "date": "2026-11-26",
+  "status": "installed locally on Thor; targeted Temple claim/recovery and final UID restart validation passed",
+  "host": {
+    "native_checks": 238,
+    "ui_checks": 75,
+    "private_pixel_fixtures": [
+      "Unclaimed Temple claim panel",
+      "Temple Obtain Rewards receipt",
+      "Bright Temple city background",
+      "Dark outpost city background"
+    ]
+  },
+  "thor_verified": [
+    "Completed-management revenue claimed through verified X shortcut",
+    "Retry resumed the verified custom Temple receipt and confirmed through A",
+    "Temple period limit verified,returned to city,and daily reward checks completed",
+    "All four errand checkpoints and reward checkpoint belong to the new reset",
+    "No Battery or Backup Charge spent by Temple tests",
+    "Final installed build confirmed exact linked UID after observer restart",
+    "All four private captured frames matched linked UID and correctly distinguished claim,receipt,and city states",
+    "Final Today screen showed Temple Done; saved routine status complete"
+  ],
+  "validation_scope": "The claim and receipt recovery were verified across successive test builds; not a fresh full daily route or all Temple starting conditions",
+  "apk_sha256": "792345588c48a821271995028ce3556c202e0b013fbb933a554bd616b4c3d7e8",
+  "github_updated": false,
+  "installed_apk_hash_matches": true
+}

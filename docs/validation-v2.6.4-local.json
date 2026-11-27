@@ -1,0 +1,28 @@
+{
+  "version": "2.6.4",
+  "date": "2026-11-27",
+  "status": "Further device testing stopped at user request; latest signed build saved for publication",
+  "host": {
+    "native_checks": 262,
+    "ui_checks": 75
+  },
+  "private_pixel_regressions": {
+    "Business Log with Total Obtained": "OPEN_AUTO",
+    "Auto-Manage idle at5000/5000": "START",
+    "Active management": "RUNNING",
+    "Completed management with pending revenue": "CLAIM",
+    "Temple reward popup": "RECEIPT"
+  },
+  "thor_verified": [
+    "Actual RB selected Auto-Manage from Business Log",
+    "Actual X started the Auto-Sell management job; job left running",
+    "Automatic retry from Business Log sent R1 and saved actual Auto-Manage Running evidence without pressing X again"
+  ],
+  "validation_scope": "Selected-tab navigation, start input, existing running-state recovery, and captured claim/receipt states; full fresh daily route remains unverified",
+  "github_updated": false,
+  "apk_sha256": "946eb70f381617065dba7dd80075b57b8a90ead0b862312ebc6c922d49379ede",
+  "remaining": [
+    "Final signed APK installation and Handbook chord validation",
+    "Complete uninterrupted fresh daily route"
+  ]
+}

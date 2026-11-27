@@ -6,9 +6,9 @@
 
 **a second-screen companion for Zenless Zone Zero on AYN Thor.** keep the game on top and use the lower screen for daily affairs, agents, builds, challenges, events and account records, with ZZZ artwork and controller feedback.
 
-[download the preview](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.6.1) · [setup](docs/SETUP.md) · [compatibility](docs/COMPATIBILITY.md) · [report a bug](https://github.com/gbppimentel-dev/new-eridu-companion/issues/new/choose)
+[download the preview](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.6.4) · [setup](docs/SETUP.md) · [compatibility](docs/COMPATIBILITY.md) · [report a bug](https://github.com/gbppimentel-dev/new-eridu-companion/issues/new/choose)
 
-**status:** v2.6.1 development preview, built locally and installed on AYN Thor. Includes controller-driven dailies and farming; Clear Alerts has been removed. Screen recognition is observational. See [routine validation](docs/DAILY-ROUTINE.md) for the tested scope and remaining work.
+**status:** v2.6.4 development preview with Temple navigation, reward-popup and Video Store confirmation fixes. Targeted checks passed; the final controller-chord update still needs device validation. Screen recognition is observational. See [routine validation](docs/DAILY-ROUTINE.md) for the tested scope and remaining work.
 
 ## what it does
 
@@ -42,7 +42,7 @@ These are **synthetic UI previews**, rendered at the Thor lower-screen viewport 
 ## install
 
 1. **install ZZZ** and use your own HoYoLAB account.
-2. **install the signed preview APK** from [releases](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.6.1).
+2. **install the signed preview APK** from [releases](https://github.com/gbppimentel-dev/new-eridu-companion/releases/tag/v2.6.4).
 3. **connect the account** from the companion's Account screen and select the correct game role/region. enable the needed Battle Records visibility in HoYoLAB.
 4. **pair in Cocoon:** open the ZZZ entry's options → companion app → New Eridu Companion → lower display.
 5. **launch through Cocoon.** the dashboard waits for a matching visible game UID instead of treating old saved data as a live session.
@@ -66,7 +66,7 @@ These are **synthetic UI previews**, rendered at the Thor lower-screen viewport 
 
 **account records:** availability, history coverage, publishing delays, verification and service changes can affect individual sections. cached data is timestamped. no game-memory access, game-file patches, save editing are used. Daily gameplay automation is opt-in; [validation is still in progress](docs/DAILY-ROUTINE.md).
 
-[compatibility matrix](docs/COMPATIBILITY.md) · [validation record](docs/validation-v2.6.1.json) · [open tasks](TASKS.md)
+[compatibility matrix](docs/COMPATIBILITY.md) · [validation record](docs/validation-v2.6.4.json) · [open tasks](TASKS.md)
 
 ## docs & development
 
@@ -74,7 +74,7 @@ These are **synthetic UI previews**, rendered at the Thor lower-screen viewport 
 - **[architecture](docs/ARCHITECTURE.md):** account requests, local observation and session coordination.
 - **[privacy](docs/PRIVACY.md):** credentials, screen processing and local storage.
 - **[building](docs/BUILDING.md):** portable builds, signing, checks and release packaging.
-- **[release notes](docs/releases/v2.6.1.md)** · **[changelog](CHANGELOG.md)** · **[contributing](CONTRIBUTING.md)**
+- **[release notes](docs/releases/v2.6.4.md)** · **[changelog](CHANGELOG.md)** · **[contributing](CONTRIBUTING.md)**
 
 ```sh
 node tests/ui-state.cjs

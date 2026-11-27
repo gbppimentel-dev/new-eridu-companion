@@ -1,0 +1,27 @@
+{
+  "version": "2.6.3",
+  "date": "2026-11-27",
+  "status": "installed locally on Thor; targeted Video Store recovery passed",
+  "host": {
+    "native_checks": 246,
+    "ui_checks": 75,
+    "private_captured_screen": "Original untouched Store congratulations popup correctly identified; linked UID matched"
+  },
+  "apk_sha256": "841d139846c8c4c5a51ee183806cac8a223d95e15875dc9ad992d2c51f32ae68",
+  "github_updated": false,
+  "validation_scope": "Video Store opening confirmation and retry path; complete fresh daily route remains unverified",
+  "thor_verified": [
+    "Resumed the original untouched opening-congratulations popup through controller A",
+    "Returned to city and verified the focused Store errand1/1 before persisting completion",
+    "Continued through daily reward checks and returned to city;2m25s",
+    "No Battery or Backup Charge spent by the Store-only test",
+    "Final signed APK installed; exact linked account confirmed after observer restart",
+    "Saved Store checkpoint belongs to the current reset and records focused1/1 proof"
+  ],
+  "installed_apk_hash_matches": true,
+  "private_pixel_regressions": {
+    "original_confirmation_detected": true,
+    "completed_city_not_confirmation": true,
+    "linked_uid_matches_both": true
+  }
+}

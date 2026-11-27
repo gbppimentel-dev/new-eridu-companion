@@ -27,7 +27,7 @@ final class DailyAutomation implements Runnable {
   JSONObject command=read(new File(dir,"daily-command.json"));if(command.optString("action").equals("stop")&&!command.optString("id").equals(runId))throw new InterruptedException("Stopped By You");
   if(System.currentTimeMillis()-started>DailyPolicy.RUN_LIMIT_MS)throw new IOException("Routine Time Limit Reached");
   if(!foreground.gameVisible())throw new InterruptedException("Game Left The Foreground");
-  JSONObject identity=context.latest;if(!DailyPolicy.canContinue(uid,identity.optString("uid"),identity.optBoolean("uidConfirmed"),System.currentTimeMillis()-identity.optLong("at")))throw new IOException("Game Identity Could Not Be Confirmed");
+  JSONObject identity=context.latest;if(!DailyPolicy.canContinue(uid,identity.optString("uid"),identity.optBoolean("uidConfirmed"),System.currentTimeMillis()-identity.optLong("at")))awaitIdentity();
  }
  void awaitIdentity()throws Exception{
   long until=System.currentTimeMillis()+20000;
@@ -83,7 +83,9 @@ final class DailyAutomation implements Runnable {
  void swipe(DailyScreen frame,int x,int y,int x2,int y2,int ms,String semantic)throws Exception{press(Math.abs(x2-x)>Math.abs(y2-y)?(x2<x?"RIGHT":"LEFT"):(y2<y?"DOWN":"UP"));}
  DailyScreen world()throws Exception{return waitFor("The City",f->f.world());}
  DailyScreen journal()throws Exception{
-  DailyScreen f=waitFor("The City Or Handbook",s->s.world()||s.journal());if(!f.journal()){tap(f,1468,94,"START");f=waitFor("The Handbook",DailyScreen::journal);}
+  DailyScreen f=waitFor("The City Or Handbook",s->s.world()||s.journal());
+  if(!f.journal()&&f.phase.equals("shortcuts")){controller.up("L2");Thread.sleep(400);f=screen(false);if(f.phase.equals("shortcuts")){press("B");Thread.sleep(1000);}f=waitFor("The City Or Handbook",s->s.journal()||s.phase.equals("exploring"));}
+  if(!f.journal()){tap(f,1468,94,"START");f=waitFor("The Handbook",DailyScreen::journal);}
   for(int i=0;i<6;i++){if(f.errands())return f;press("L1");f=waitFor("The Handbook",DailyScreen::journal);}throw new IOException("Daily Errands Tab Was Not Confirmed");
  }
  void closeJournal(DailyScreen f)throws Exception{if(!f.journal())throw new IOException("Handbook Not Visible");for(int i=0;i<3;i++){press("B");Thread.sleep(1800);f=waitFor("The City Or Handbook",s->s.world()||s.journal());if(f.world()){world();return;}}throw new IOException("Handbook Did Not Close");}
@@ -143,11 +145,20 @@ final class DailyAutomation implements Runnable {
  void store()throws Exception{
   task("Video Store");if(checkpoint("store",step))return;if(!warpErrand("store for")){checkpointDone("store",step,errandEvidence);return;}
   DailyScreen f=world();press("A");
-  boolean promoter=false,tapes=false,opened=false;int choices=0;long until=System.currentTimeMillis()+DailyPolicy.SCREEN_LIMIT_MS;
+  settleStore();
+ }
+ void verifyStoreOpening()throws Exception{
+  publish("running","Verifying Video Store Opening");closeToCity();DailyScreen book=journal(),card=card(book,"store for");boolean verified=card!=null&&card.focusedDone();closeJournal(card==null?screen(false):card);
+  if(!verified)throw new IOException("Video Store Opening Was Not Confirmed By Its Errand Card");
+  checkpointDone("store","Video Store","Opening Confirmed And Store Errand 1/1 In Game");
+ }
+ void settleStore()throws Exception{
+  DailyScreen f;boolean promoter=false,tapes=false,opened=false;int choices=0;long until=System.currentTimeMillis()+DailyPolicy.SCREEN_LIMIT_MS;
   while(System.currentTimeMillis()<until){
    f=screen(false);
-   if(f.world()&&opened){checkpointDone("store",step,"Store Open In Game");return;}
-   if(f.has("business is booming")||f.has("currently open")||f.has("business in progress")){checkpointDone("store",step,"Store Open In Game");press("B");world();return;}
+   if(f.storeOpeningConfirm){publish("running","Confirming Video Store Opening");press("A");Thread.sleep(2500);verifyStoreOpening();return;}
+   if(f.world()&&opened){verifyStoreOpening();return;}
+   if(f.has("business is booming")||f.has("currently open")||f.has("business in progress")){verifyStoreOpening();return;}
    if(f.has("operating with integrity")&&f.has("every denny counts")){press("A");opened=true;Thread.sleep(2500);}
    else if(f.has("ready to open shop")){press("A");opened=true;Thread.sleep(2500);}
    else if(f.has("yesterday s account")){press("B");}
@@ -167,18 +178,28 @@ final class DailyAutomation implements Runnable {
 
  void temple()throws Exception{
   task("Suibian Temple");if(checkpoint("temple",step))return;warpQuick("failume heights","suibian temple");
-  DailyScreen f=waitFor("Temple Management",x->x.has("auto manage")||x.has("suibian temple")||x.has("business log"));
-  for(int i=0;i<12;i++){
-   f=screen(false);DailyScreen.Line claim=f.find("claim revenue"),start=f.find("start auto manage"),confirm=f.find("confirm");
-   if(f.has("auto managed")&&f.has("turn off auto management")){checkpointDone("temple",step,"Auto-Managed In Game");closeToCity();return;}
-   else if(f.has("obtain rewards")){tap(f,960,750,"A");}
-   else if(claim!=null&&f.has("auto management completed")){tap(f,claim,"A");}
-   else if(f.has("start auto manage")&&confirm!=null&&f.has("cancel")){tap(f,confirm,"A");}
-   else if(start!=null){press("X");Thread.sleep(2000);}
-   else if(f.has("stop auto manage")&&f.has("current period limit")){checkpointDone("temple",step,"Auto-Manage Running In Game");closeToCity();return;}
-   else if(f.find("auto manage",1300,80,1800,220)!=null){press("R1");Thread.sleep(1500);}
-   else if(f.has("current period limit")&&f.text.replace(" ","").contains("5000/5000")&&!f.has("start auto manage")){checkpointDone("temple",step,"Period Limit In Game");closeToCity();return;}
-   else throw new IOException("Temple Management Screen Was Not Recognized");
+  waitFor("Temple Management",x->x.templeTab>=0||x.templeRewardReceipt);settleTemple();
+ }
+ void settleTemple()throws Exception{
+  long until=System.currentTimeMillis()+DailyPolicy.SCREEN_LIMIT_MS;int claims=0;boolean claimReceipt=false;
+  while(System.currentTimeMillis()<until){
+   DailyScreen f=screen(false);DailyPolicy.TempleAction action=DailyPolicy.templeAction(f.templeTab,f.templeRewardReceipt,f.templeClaimReady,f.templeStartReady,f.templeRunning);
+   switch(action){
+    case OPEN_AUTO:
+     publish("running","Opening Auto-Manage");press("R1");Thread.sleep(1500);waitFor("Selected Auto-Manage Tab",x->x.templeTab==1,30000);break;
+    case CLAIM:
+     if(++claims>2)throw new IOException("Temple Revenue Claim Did Not Settle");publish("running","Claiming Temple Revenue");press("X");Thread.sleep(2200);
+     waitFor("Temple Revenue Receipt",x->x.templeRewardReceipt||x.templeTab==1&&(x.templeStartReady||x.templeRunning),45000);break;
+    case RECEIPT:
+     // Only the verified Temple receipt can acknowledge rewards. Business Log's
+     // Total Obtained metric is not a reward dialog.
+     claimReceipt=true;publish("running","Temple Revenue Received");press("A");Thread.sleep(2000);break;
+    case START:
+     publish("running","Starting Auto-Manage");press("X");Thread.sleep(2000);waitFor("Auto-Manage Running",x->x.templeTab==1&&x.templeRunning,45000);break;
+    case RUNNING:
+     waitFor("Verified Auto-Manage Running",x->x.templeTab==1&&x.templeRunning,15000);checkpointDone("temple",step,claimReceipt?"Revenue Claimed And Auto-Manage Running In Game":"Auto-Manage Running In Game");closeToCity();return;
+    default:publish("waiting","Waiting For A Verified Temple Screen");Thread.sleep(750);
+   }
   }throw new IOException("Temple Management Did Not Settle");
  }
  void rewards()throws Exception{
@@ -301,12 +322,14 @@ final class DailyAutomation implements Runnable {
     JSONObject command=read(new File(dir,"daily-command.json"));String id=command.optString("id");
     if(!id.isEmpty()&&!id.equals(lastConsumed)&&(command.optString("action").equals("start")||command.optString("action").equals("scan"))&&System.currentTimeMillis()-command.optLong("issuedAt")<10000){
      lastConsumed=id;write("daily-consumed.json",new JSONObject().put("id",id));runId=id;action=command.optString("action");uid=command.optString("uid");plan=command.optJSONObject("plan");if(plan==null)plan=new JSONObject();battery=action.equals("start")&&command.optBoolean("battery");reserve=plan.optBoolean("reserve",true);started=System.currentTimeMillis();history=null;availableBattery=-1;batteryAt=0;stageIndex=stageTotal=estimatedBattles=0;estimatedDuration=0;step="";completed=new JSONArray();spent=battles=reserveUsed=reconnects=0;manualStop=false;running=active=true;
-     try{if(command.optString("action").equals("start")&&uid.matches("[1-9][0-9]{7,11}")){history=DailyHistory.read(dir,uid);history.put("lastTriggeredAt",started).put("lastState","running");DailyHistory.save(dir,uid,history);}capture=new GameCapture(1920,1080);foreground=new GameCapture.Foreground();controller=new RoutineController(foreground);ocr=new OcrEngine();classifier=new HudClassifier(new String(Files.readAllBytes(new File(dir,"hud-templates.json").toPath()),"UTF-8"));task("Checking Your Session");awaitIdentity();DailyScreen f=waitFor("Your Linked City Session",s->{JSONObject identity=context.latest;return DailyPolicy.canStart(uid,identity.optString("uid"),identity.optBoolean("uidConfirmed"),s.phase,!s.touch,System.currentTimeMillis()-identity.optLong("at"));},30000);
+     try{if(command.optString("action").equals("start")&&uid.matches("[1-9][0-9]{7,11}")){history=DailyHistory.read(dir,uid);history.put("lastTriggeredAt",started).put("lastState","running");DailyHistory.save(dir,uid,history);}capture=new GameCapture(1920,1080);foreground=new GameCapture.Foreground();controller=new RoutineController(foreground);ocr=new OcrEngine();classifier=new HudClassifier(new String(Files.readAllBytes(new File(dir,"hud-templates.json").toPath()),"UTF-8"));task("Checking Your Session");awaitIdentity();final boolean incompleteErrands=action.equals("start")&&!plan.optBoolean("farmOnly")&&history!=null&&!DailyHistory.cycleComplete(history,started),recoverTemple=incompleteErrands&&plan.optBoolean("temple",true),recoverStore=incompleteErrands&&plan.optBoolean("store",true);DailyScreen f=waitFor("Your Linked City Session Or Pending Errand",s->{JSONObject identity=context.latest;long age=System.currentTimeMillis()-identity.optLong("at");return DailyPolicy.canStart(uid,identity.optString("uid"),identity.optBoolean("uidConfirmed"),s.phase,!s.touch,age)||DailyPolicy.canResumeErrand(uid,identity.optString("uid"),identity.optBoolean("uidConfirmed"),age,recoverTemple,s.templeTab>=0||s.templeRewardReceipt)||DailyPolicy.canResumeErrand(uid,identity.optString("uid"),identity.optBoolean("uidConfirmed"),age,recoverStore,s.storeOpeningConfirm);},30000);
       if(action.equals("scan")){scanStages();}else {
        history=DailyHistory.read(dir,uid);errandsRun=!plan.optBoolean("farmOnly")&&!DailyHistory.cycleComplete(history,started);
        history.put("lastTriggeredAt",started).put("lastState","running");DailyHistory.save(dir,uid,history);
        stageIndex=0;stageTotal=2;for(String k:new String[]{"coffee","draw","store","temple"})if(errandsRun&&plan.optBoolean(k,true))stageTotal++;if(battery)stageTotal++;if(errandsRun)stageTotal++;
        estimatedBattles=0;estimatedDuration=DailyPolicy.estimateMs(stageTotal,0,history.optLong("battleEstimateMs",144000));
+       if(recoverStore&&!f.world()&&f.storeOpeningConfirm){task("Video Store");publish("running","Resuming Video Store Opening");settleStore();}
+       if(recoverTemple&&!f.world()&&(f.templeTab>=0||f.templeRewardReceipt)){task("Suibian Temple");publish("running","Resuming Temple Claim");settleTemple();}
        rewards();stageIndex++;
        if(errandsRun){if(plan.optBoolean("coffee",true)){coffee();stageIndex++;}if(plan.optBoolean("draw",true)){dailyDraw();stageIndex++;}if(plan.optBoolean("store",true)){store();stageIndex++;}if(plan.optBoolean("temple",true)){temple();stageIndex++;}rewards();stageIndex++;saveErrandCompletion();}
        if(battery){farm();stageIndex++;}

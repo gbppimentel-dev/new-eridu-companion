@@ -1,5 +1,25 @@
 # changelog
 
+## 2.6.4 — 2026-11-27
+
+- **Temple navigation:** detect the selected Business Log / Auto-Manage tab through verified header labels and active-tab color; use RB and verify Auto-Manage before acting.
+- **False receipt:** Total Obtained on Business Log no longer triggers repeated A presses. Only the verified Temple reward popup can be acknowledged.
+- **Management:** read the actual Start / Stop control and confirm management is running before saving completion. A full Omnicoin period cap alone does not complete the task; Auto-Sell can still run.
+- **Handbook input:** focus the game once per controller chord, allow the modifier to settle before A, and recover a leftover shortcut wheel before opening the Handbook.
+- **Receipts:** accept verified Cloud Crest rewards as well as Omnicoin while retaining the required reward title and Confirm control.
+
+## 2.6.3 — local development, not released
+
+- **Video Store:** handle the prosperous-store-opening congratulations popup through a verified Confirm shortcut. Read the exact opening message, ending and button label before acting.
+- **Verification:** save Store completion only after its focused in-game errand reads 1/1; initiating Open or returning to the city is insufficient.
+- **Recovery:** allow a selected, unfinished Video Store errand to resume its known opening confirmation on the exact linked account. Continue through the normal reward checks.
+
+## 2.6.2 — local development, not released
+
+- **Temple:** recognize the completed-management panel using fixed labels and claim revenue through its verified controller X shortcut. Detect and acknowledge the custom Obtain Rewards receipt.
+- **Recovery:** resume an unfinished Temple claim or receipt only when that errand is selected and the exact linked account is confirmed. Pending revenue is processed before running/period-limit completion.
+- **Transitions:** wait briefly for exact identity re-verification before sending further inputs, and use agreeing complete-field readings with a paired numeral-only fallback for bright backgrounds, avoiding the former thresholded UID misread.
+
 ## 2.6.1 — 2026-11-25
 
 - Remove Clear Alerts, its Mail claim option, and the supporting native automation route. Daily errands, farming and daily reward checks remain available.

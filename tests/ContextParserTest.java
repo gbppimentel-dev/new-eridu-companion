@@ -5,4 +5,10 @@ if(!ContextParser.consistentUid("1000000001","D:100000000111").equals("100000000
 if(!ContextParser.consistentUid("","UID: 1000000001").equals("1000000001"))throw new AssertionError("Legacy crop remains usable");n++;
 if(!ContextParser.consistentUid("1000000001","1000000000").isEmpty())throw new AssertionError("Conflicting valid readings must remain unknown");n++;
 if(!ContextParser.consistentUid("100000000111","10000000 01").isEmpty())throw new AssertionError("Never trim or join broken UID digits");n++;
+if(!ContextParser.uidCrops("UID:1000000001","1000000001","100000001","100000001").equals("1000000001"))throw new AssertionError("Complete fields outrank truncated numeral crops");n++;
+if(!ContextParser.uidCrops("1000000001","1000000000","1000000001","1000000001").isEmpty())throw new AssertionError("Conflicting complete fields cannot be overridden");n++;
+if(!ContextParser.uidCrops("","","1000000001","1000000001").equals("1000000001"))throw new AssertionError("Bright-background numeral pair must agree");n++;
+if(!ContextParser.uidCrops("","","1000000001","1000000000").isEmpty())throw new AssertionError("Conflicting numeral crops remain unknown");n++;
+if(!ContextParser.uidCrops("1000000001","","","").equals("1000000001"))throw new AssertionError("Empty crops do not discard a complete readable field");n++;
+if(!ContextParser.uidCrops("","","1000000001","").equals("1000000001"))throw new AssertionError("Readable numeral fallback still requires temporal identity confirmation");n++;
 System.out.println(n+" context policy checks passed");}}

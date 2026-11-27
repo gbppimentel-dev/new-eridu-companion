@@ -53,6 +53,30 @@
 - [x] Require reward evidence for full daily completion and check claims after farming.
 - [x] Verify a Disc top-up, low-Battery results exit and post-farm reward check on Thor.
 
+## local 2.6.2 Temple fix
+
+- [x] Reproduce the fresh-reset unclaimed Temple panel and missed controller shortcut.
+- [x] Add fixed claim/receipt recognition and exact-account retry guards.
+- [x] Verify live receipt recovery and current-reset completion on Thor.
+- [x] Install and verify the signed local 2.6.2 patch.
+
+## local 2.6.3 Video Store fix
+
+- [x] Preserve and diagnose the untouched opening-congratulations screen.
+- [x] Add message/ending/button confirmation checks and guarded retry recovery.
+- [x] Require the Store errand 1/1 before persisting completion.
+- [x] Verify live recovery, final reward checks and the installed signed patch.
+
+## local 2.6.4 Temple tab fix
+
+- [x] Reproduce Business Log Total Obtained being misclassified as a receipt.
+- [x] Verify RB changes to Auto-Manage and X starts management on Thor.
+- [x] Classify five captured Temple states, including idle management at the full currency cap.
+- [x] Require actual running management instead of period-cap-only completion.
+- [x] Verify automatic RB navigation from Business Log and actual running-state checkpoint.
+- [ ] Verify the final signed build and updated Handbook chord on Thor; testing stopped at user request.
+- [x] Publish the latest signed v2.6.4 preview and source after explicit user instruction.
+
 ## remaining validation and known limits
 
 - [ ] Validate a clean installation, first account connection and UID selection on a second Thor/account.

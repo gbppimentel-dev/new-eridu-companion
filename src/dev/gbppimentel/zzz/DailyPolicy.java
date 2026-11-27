@@ -8,6 +8,14 @@ final class DailyPolicy {
  static final long RUN_LIMIT_MS=45*60*1000L,SCREEN_LIMIT_MS=180000,BATTLE_LIMIT_MS=5*60*1000L;
  static final int COFFEE_DENNY_LIMIT=2500,MAX_BATTERY_SPEND=1500,MAX_BATTLES=20;
  static String clean(String value){return value.toLowerCase(Locale.ROOT).replaceAll("[^a-z0-9 /]"," ").replaceAll("\\s+"," ").trim();}
+ // Fixed Temple label crops must agree; a generic Revenue word never authorizes X.
+ static boolean templeClaimReady(String status,String claim,String revenue){return clean(status).replace(" ","").matches("automanagementi?completed")&&clean(claim).matches("claim(?: [0-9]+)?")&&clean(revenue).equals("revenue");}
+ static boolean templeRewardReceipt(String title,String confirm,String currency){String item=clean(currency);return clean(title).equals("obtain rewards")&&clean(confirm).equals("confirm")&&(item.equals("omnicoin")||item.equals("cloud crest"));}
+ static boolean canResumeErrand(String selected,String visible,boolean confirmed,long age,boolean requested,boolean knownScreen){return requested&&knownScreen&&canContinue(selected,visible,confirmed,age);}
+ static boolean storeOpeningConfirmation(String message,String ending,String button){return clean(message).equals("wishing you a prosperous store opening may the dennies")&&clean(ending).equals("flow")&&clean(button).equals("confirm");}
+ enum TempleAction { WAIT,OPEN_AUTO,CLAIM,RECEIPT,START,RUNNING }
+ static int templeTab(double businessOrange,double autoOrange){if(businessOrange>.35&&businessOrange-autoOrange>.15)return 0;if(autoOrange>.35&&autoOrange-businessOrange>.15)return 1;return -1;}
+ static TempleAction templeAction(int tab,boolean receipt,boolean claim,boolean start,boolean running){if(receipt)return TempleAction.RECEIPT;if(tab==0)return TempleAction.OPEN_AUTO;if(tab!=1)return TempleAction.WAIT;if(claim)return TempleAction.CLAIM;if(start)return TempleAction.START;if(running)return TempleAction.RUNNING;return TempleAction.WAIT;}
  static boolean forbidden(String text){String s=clean(text);return s.contains("use ether batter")||s.contains("consume ether batter")||s.contains("replenish battery")||s.contains("battery replenishment")||s.contains("use polychrome")||s.contains("insufficient battery")||s.contains("insufficient denn")||s.contains("payment method")||s.contains("purchase monochrome");}
  static boolean loginOrError(String text){String s=clean(text);return s.contains("failed to obtain")||s.contains("connection timed out")||s.contains("connection lost")||s.contains("network error")||s.contains("tap to begin")||s.contains("press to play")||s.contains("tap to start")||s.contains("log in to your account");}
  static int batteryBudget(int available){return Math.max(0,Math.min(MAX_BATTERY_SPEND,available)/20*20);}
