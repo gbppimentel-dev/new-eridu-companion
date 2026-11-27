@@ -1,0 +1,13 @@
+{
+  "app": "zzz",
+  "oldVersionCode": 18,
+  "newVersionCode": 19,
+  "iconEntry": "res/drawable/icon.png",
+  "changedEntries": [
+    "AndroidManifest.xml",
+    "res/drawable/icon.png"
+  ],
+  "certificateSha256": "6a58366a5e5391e18d43af8f6951baec0eb14f54c7f9b3afa1103eb27edd4684",
+  "apkSha256": "94294d5a9bd4a01801d51d5e9a013ababdca386913d1829430b53caa3f4c3eb5",
+  "codeAssetsLibrariesUnchanged": true
+}

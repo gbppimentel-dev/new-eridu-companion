@@ -3,7 +3,7 @@
   "date": "2026-11-27",
   "status": "development-preview",
   "publicBuildDeviceValidated": false,
-  "apkSha256": "946eb70f381617065dba7dd80075b57b8a90ead0b862312ebc6c922d49379ede",
+  "apkSha256": "cf7845a3134404493077dd5589b7954ccadfb4a9aea5c634ba2112ac8067c500",
   "hostChecks": [
     "262 native policy/context/lifecycle checks passed before testing was stopped",
     "75 UI checks passed before testing was stopped",
@@ -22,5 +22,10 @@
     "Existing fresh-account,roster,firmware and farming-category limits remain"
   ],
   "testingStoppedByUser": true,
-  "documentationImages": "Synthetic fixtures; private device captures excluded"
+  "documentationImages": "Synthetic fixtures; private device captures excluded",
+  "deviceInstallation": {
+    "result": "Success",
+    "method": "ADB update only; no launch or game inputs",
+    "functionalValidation": false
+  }
 }

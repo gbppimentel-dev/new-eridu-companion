@@ -20,9 +20,14 @@
   ],
   "validation_scope": "Selected-tab navigation, start input, existing running-state recovery, and captured claim/receipt states; full fresh daily route remains unverified",
   "github_updated": false,
-  "apk_sha256": "946eb70f381617065dba7dd80075b57b8a90ead0b862312ebc6c922d49379ede",
+  "apk_sha256": "cf7845a3134404493077dd5589b7954ccadfb4a9aea5c634ba2112ac8067c500",
   "remaining": [
-    "Final signed APK installation and Handbook chord validation",
+    "Final Handbook chord functional validation",
     "Complete uninterrupted fresh daily route"
-  ]
+  ],
+  "deviceInstallation": {
+    "result": "Success",
+    "method": "ADB update only; no launch or game inputs",
+    "functionalValidation": false
+  }
 }

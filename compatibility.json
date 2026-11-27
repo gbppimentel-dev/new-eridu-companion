@@ -30,8 +30,8 @@
     "privilegedService": "PServerBinder"
   },
   "publicCandidate": {
-    "status": "development preview; targeted Temple checks passed; final APK device validation pending",
-    "deviceInstallValidated": false
+    "status": "development preview; APK installed; targeted Temple checks passed; final functional device validation pending",
+    "deviceInstallValidated": true
   },
   "unverified": [
     "Fresh-account onboarding on another Thor",

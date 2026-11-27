@@ -1,5 +1,8 @@
 # New Eridu Companion
 
+<img src="res/drawable/icon.png" alt="Companion app icon" width="112">
+
+**Icon refresh:** [details](docs/ICON_REFRESH.md). Original game artwork with a rounded teal frame and bottom-left document badge.
 [![preview](https://img.shields.io/github/v/release/gbppimentel-dev/new-eridu-companion?include_prereleases)](https://github.com/gbppimentel-dev/new-eridu-companion/releases)
 [![checks](https://github.com/gbppimentel-dev/new-eridu-companion/actions/workflows/ci.yml/badge.svg)](https://github.com/gbppimentel-dev/new-eridu-companion/actions/workflows/ci.yml)
 [![license: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
