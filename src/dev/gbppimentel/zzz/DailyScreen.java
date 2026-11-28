@@ -13,21 +13,29 @@ final class DailyScreen {
   int x(){return (left+right)/2;}int y(){return (top+bottom)/2;}
  }
  final List<int[]> focusBoxes=new ArrayList<>();
+ boolean bossBar;
+ WeeklyScreen weekly;
+ CombatRotation.Frame combat;
  final long at=System.currentTimeMillis();final List<Line> lines=new ArrayList<>();
  boolean rewardPopup,discSetup,templeClaimReady,templeRewardReceipt,storeOpeningConfirm,templeStartReady,templeRunning;int templeTab=-1;String text="",resourceFooter="",rewardText="",focusedTitle="",focusedProgress="";int headerBattery=-1,handbookTab=-1,backupAmount=-1,obtainedBattery=-1;int[] focusedCard,travelAreaFocus,travelShortcutFocus;boolean weeklySelected,dailyActivityComplete,pendingDailyRewards,battleResults,battleCleared,farmingCategories;final String phase;final Map<Integer,String> cardProgress=new HashMap<>();final Map<Integer,String> stageTitles=new LinkedHashMap<>();final boolean touch,bookHud;final double cityScore;
  DailyScreen(Bitmap full,OcrEngine ocr,HudClassifier classifier,boolean combatFast){
   Bitmap small=Bitmap.createScaledBitmap(full,960,540,true),reduced=Bitmap.createScaledBitmap(full,480,270,true);
-  int[] pixels=new int[480*270];reduced.getPixels(pixels,0,480,0,0,480,270);reduced.recycle();findFocus(pixels);travelAreaFocus=ControllerFocus.travel(pixels,false);travelShortcutFocus=ControllerFocus.travel(pixels,true);HudClassifier.Result result=classifier.classify(pixels);phase=result.phase;cityScore=result.city;
+  int[] pixels=new int[480*270];reduced.getPixels(pixels,0,480,0,0,480,270);reduced.recycle();bossBar=WeeklyPolicy.bossBar(pixels);findFocus(pixels);travelAreaFocus=ControllerFocus.travel(pixels,false);travelShortcutFocus=ControllerFocus.travel(pixels,true);HudClassifier.Result result=classifier.classify(pixels);phase=result.phase;cityScore=result.city;
   boolean match=false;for(HudClassifier.Template template:classifier.templates)if(template.phase.equals("city")&&template.x==30&&template.y==14)match=classifier.match(template,pixels)>.85;touch=match;boolean book=false;for(HudClassifier.Template template:classifier.templates)if(template.phase.equals("handbook"))book=classifier.match(template,pixels)>.88;bookHud=book;
   handbookTab=selectedHandbookTab();String raw="";ResultIterator iterator=null;
   try{
-   if(combatFast&&phase.equals("combat")){text="";return;}
+   if(combatFast&&(phase.equals("combat")||DailyAutomation.weeklyReading&&CombatHudSignals.controllerVisible(pixels,480,270))){text="";return;}
    ocr.api.setPageSegMode(11);ocr.api.setVariable("tessedit_char_whitelist","");ocr.api.setImage(small);raw=ocr.api.getUTF8Text();iterator=ocr.api.getResultIterator();
    if(iterator!=null){iterator.begin();do{String line=iterator.getUTF8Text(2);if(line!=null&&!line.trim().isEmpty())lines.add(new Line(line,iterator.getBoundingBox(2)));}while(iterator.next(2));}
   }finally{if(iterator!=null)iterator.delete();ocr.api.clear();small.recycle();}
   text=DailyPolicy.clean(raw==null?"":raw);
-  if(!journal()&&!phase.equals("combat")&&has("wishing you a prosperous store opening")){
-   storeOpeningConfirm=DailyPolicy.storeOpeningConfirmation(ocr.readLine(full,435,482,1060,48),ocr.readLine(full,910,528,110,40),ocr.readLine(full,890,622,200,48));
+  if(combatFast&&CombatHudSignals.chainPrompt(text))return;
+  if(!journal()&&!phase.equals("combat")){
+   String message=ocr.readLine(full,435,482,1060,48);
+   if(DailyPolicy.clean(message).contains("store opening")||has("prosperous")){
+    String ending=ocr.readLine(full,910,528,110,40),button=ocr.readLine(full,890,622,200,48);
+    storeOpeningConfirm=DailyPolicy.storeOpeningConfirmation(message,ending,button)||DailyPolicy.storeOpeningPopup(message+" "+ending,button)||DailyPolicy.storeOpeningPopup(text,button);
+   }
   }
   if(!journal()&&!phase.equals("combat")){
    String log=DailyPolicy.clean(ocr.readLine(full,1240,150,180,38)),auto=DailyPolicy.clean(ocr.readLine(full,1460,125,205,50));
@@ -49,10 +57,10 @@ final class DailyScreen {
    String title=ocr.readLine(full,800,395,350,55);
    if(DailyPolicy.clean(title).equals("obtain rewards")){
     String confirm=ocr.readLine(full,880,685,200,50);templeRewardReceipt=DailyPolicy.templeRewardReceipt(title,confirm,ocr.readLine(full,985,620,140,40));
-    if(!templeRewardReceipt&&DailyPolicy.clean(confirm).equals("confirm")){String items=DailyPolicy.clean(ocr.read(full,800,595,320,85,false));if(items.contains("cloud crest"))templeRewardReceipt=DailyPolicy.templeRewardReceipt(title,confirm,"cloud crest");}
+    if(!templeRewardReceipt&&DailyPolicy.clean(confirm).equals("confirm")){String items=DailyPolicy.clean(ocr.readLine(full,910,624,105,23)+" "+ocr.readLine(full,910,646,105,23));if(items.equals("cloud crest"))templeRewardReceipt=DailyPolicy.templeRewardReceipt(title,confirm,"cloud crest");}
    }
   }
-  if(!journal()&&has("current period limit")&&has("auto manage")){
+  if(templeTab==1){
    templeClaimReady=DailyPolicy.templeClaimReady(ocr.readLine(full,1000,775,470,50),ocr.readLine(full,1175,871,160,30),ocr.readLine(full,1175,903,160,30));
    if(templeClaimReady)text+=" auto management completed claim revenue";
   }
@@ -60,7 +68,9 @@ final class DailyScreen {
    readFocusedCard(full,ocr);int green=0,total=0;for(int y=67;y<74;y++)for(int x=340;x<370;x++){int c=pixels[y*480+x],r=c>>16&255,g=c>>8&255,blue=c&255;total++;if(g>100&&g>r*1.15&&g>blue*1.3)green++;}dailyActivityComplete=green>total*.25;
    for(int marker:new int[]{732,1005,1278,1550})for(int y=57;y<66;y++)for(int x=(marker-18)/4;x<(marker+18)/4;x++){int c=pixels[y*480+x];if((c>>16&255)>170&&(c>>8&255)<95&&(c&255)<95)pendingDailyRewards=true;}
   }
+   if(DailyAutomation.weeklyReading)weekly=new WeeklyScreen(full,ocr,this,pixels);
  }
+
  int selectedHandbookTab(){int[] centers={795,984,1174,1364,1549};for(int[] b:focusBoxes)if(b[0]>650&&b[2]<1650&&b[1]>=110&&b[3]<=215&&b[2]-b[0]>90){int cx=(b[0]+b[2])/2;for(int i=0;i<centers.length;i++)if(Math.abs(cx-centers[i])<80)return i;}return -1;}
  boolean errands(){return journal()&&!has("teleport")&&!has("obtained")&&!has("obtain rewards")&&!has("challenge rewards")&&(handbookTab==1||has("engagement today"));}
  void readFocusedCard(Bitmap full,OcrEngine ocr){

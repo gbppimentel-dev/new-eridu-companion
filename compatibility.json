@@ -3,8 +3,8 @@
   "application": {
     "name": "New Eridu Companion",
     "package": "dev.gbppimentel.zzz",
-    "version": "2.6.4",
-    "versionCode": 21,
+    "version": "2.7.0",
+    "versionCode": 24,
     "minAndroidApi": 30
   },
   "toolchain": {
@@ -30,7 +30,7 @@
     "privilegedService": "PServerBinder"
   },
   "publicCandidate": {
-    "status": "development preview; APK installed; targeted Temple checks passed; final functional device validation pending",
+    "status": "local signed v2.7.0 installed on Thor; three free Butcher clears across testing, zero-quota recovery, claim receipts and final claims verified",
     "deviceInstallValidated": true
   },
   "unverified": [
@@ -40,7 +40,9 @@
     "Other firmware and display arrangements",
     "Complete uninterrupted fresh daily route",
     "Every supported farming target",
-    "Final v2.6.4 Handbook chord and complete end-to-end reward return on Thor"
+    "Final v2.6.4 Handbook chord and complete end-to-end reward return on Thor",
+    "Other weekly boss layouts, encounter prompts and automatic correction from a different preset",
+    "One uninterrupted three-clear weekly route with final signed candidate after next reset"
   ],
   "unavailable": [
     "Exact engine telemetry",

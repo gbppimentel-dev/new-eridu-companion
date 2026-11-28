@@ -1,0 +1,47 @@
+{
+  "version": "2.6.5",
+  "versionCode": 22,
+  "date": "2026-11-27",
+  "status": "local-candidate-installed-for-user-testing",
+  "apkSha256": "0f33a7dd1423dab2824de0e8def1d15f86546e9b8a56b18c107acdfccdba023a",
+  "publicBuildDeviceValidated": false,
+  "hostChecks": {
+    "nativePassed": 321,
+    "combatRotationPassed": 32,
+    "combatHudPassed": 19,
+    "controllerHoldPassed": 8,
+    "fullAppCompiledAndSignatureVerified": true,
+    "sourcePrivacyAuditPassed": true
+  },
+  "readOnlyDeviceInspection": {
+    "priorDailyRun": "Reported complete before any inspection inputs",
+    "presetOrder": [
+      "Koleda",
+      "Rina",
+      "Claret Flint"
+    ],
+    "claretDescriptionsRead": [
+      "Basic Attack",
+      "Special Attack",
+      "Core Skill"
+    ],
+    "presetChanged": false,
+    "returnedToCity": true
+  },
+  "liveCombatTesting": false,
+  "additionalBatterySpent": 0,
+  "limitations": [
+    "Readiness and chain overlays need live combat validation",
+    "Hold and combo timings are conservative initial values, not animation-state telemetry",
+    "The specialized rotation pauses for an unknown or different squad",
+    "No exact Sharpness, Gash, Maim or Crimson Inscription state tracking"
+  ],
+  "installation": {
+    "result": "Success",
+    "version": "2.6.5",
+    "versionCode": 22,
+    "method": "ADB streamed update; no launch or gameplay inputs",
+    "date": "2026-11-27"
+  },
+  "githubUpdated": false
+}

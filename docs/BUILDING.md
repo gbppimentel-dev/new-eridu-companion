@@ -53,7 +53,7 @@ The public fixture is synthetic. Optional raster/font asset tools need `requirem
 Run checks and build/sign the candidate. Then package that exact APK:
 
 ```sh
-python3 packaging/package_release.py --apk dist/NewEriduCompanion-v2.6.4.apk --paired-apk dist/PairedHome-v1.2.apk
+python3 packaging/package_release.py --apk dist/NewEriduCompanion-v2.7.0.apk --paired-apk dist/PairedHome-v1.2.apk
 ```
 
 The package includes the APK, optional helper, quick start, notices, compatibility/validation JSON, source commit and checksums. It verifies package/version and excludes local state. A package/build check is not a substitute for hardware validation; update the validation record only for checks actually performed.

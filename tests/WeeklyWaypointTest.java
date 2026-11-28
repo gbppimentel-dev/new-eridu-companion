@@ -1,0 +1,9 @@
+package dev.gbppimentel.zzz;
+public final class WeeklyWaypointTest {
+ static final int[] SHIFTED_GLYPH={83,78,73,81,66,36,20,32,58,82,83,83,82,83,77,57,18,83,165,195,165,73,18,67,83,82,82,51,34,199,179,94,32,98,189,200,25,58,81,76,20,196,90,18,17,22,17,18,101,206,24,74,27,182,125,17,19,76,153,80,19,17,152,170,28,17,207,20,14,163,225,224,224,154,15,19,213,17,23,208,15,4,224,232,217,204,215,6,16,207,39,24,211,16,5,210,199,190,186,206,8,17,199,38,17,213,18,11,147,188,178,186,152,17,31,189,18,21,179,126,15,19,83,160,91,19,14,139,136,25,68,13,192,89,19,19,20,15,17,98,165,23,70,70,48,28,175,171,92,34,99,172,155,19,46,71,68,69,56,16,64,131,152,127,56,14,54,67,68};
+
+ static int checks;static void check(boolean x){if(!x)throw new AssertionError("Waypoint "+checks);checks++;}
+ static int[] frame(int x,int y,boolean dim){return frame(x,y,dim,WeeklyWaypoint.REFERENCE);}
+ static int[] frame(int x,int y,boolean dim,int[] reference){int[] p=new int[480*270];for(int yy=0;yy<13;yy++)for(int xx=0;xx<13;xx++){int v=reference[yy*13+xx];if(dim)v=v*3/4+15;p[(y+yy)*480+x+xx]=0xff000000|v<<16|v<<8|v;}return p;}
+ public static void main(String[]args){check(WeeklyWaypoint.locate(new int[480*270])==null);check(WeeklyWaypoint.locate(null)==null);check(WeeklyWaypoint.locate(frame(10,92,false))==null);int[] a=WeeklyWaypoint.locate(frame(235,92,false));check(a!=null);check(a[0]==964&&a[1]==430);a=WeeklyWaypoint.locate(frame(239,57,false));check(a!=null&&a[0]==980&&a[1]==290);a=WeeklyWaypoint.locate(frame(235,92,true));check(a!=null&&a[0]==964&&a[1]==430);a=WeeklyWaypoint.locate(frame(237,60,false,SHIFTED_GLYPH));check(a!=null&&a[0]==972&&a[1]==302);a=WeeklyWaypoint.locate(frame(237,60,true,SHIFTED_GLYPH));check(a!=null&&a[0]==972&&a[1]==302);System.out.println(checks+" staging waypoint checks passed");}
+}

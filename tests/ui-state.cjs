@@ -3,7 +3,7 @@ const elements=new Map();const element=()=>({innerHTML:'',textContent:'',hidden:
 const document={documentElement:{style:{setProperty(){}}},querySelector(s){if(!elements.has(s))elements.set(s,element());return elements.get(s)},querySelectorAll(){return []}};
 const ctx=vm.createContext({document,window:{},console,setInterval(){},clearTimeout(){},setTimeout(){},URL,Date,Number,String,JSON,Map,Set});
 vm.runInContext(fs.readFileSync('assets/catalog.js','utf8'),ctx);vm.runInContext(fs.readFileSync('assets/ui.js','utf8'),ctx);vm.runInContext(fs.readFileSync('assets/app.js','utf8'),ctx);vm.runInContext(fs.readFileSync('assets/game-ui.js','utf8'),ctx);
-vm.runInContext(fs.readFileSync('assets/official-map.js','utf8'),ctx);vm.runInContext(fs.readFileSync('assets/daily.js','utf8'),ctx);vm.runInContext(fs.readFileSync('assets/terminal.js','utf8'),ctx);
+vm.runInContext(fs.readFileSync('assets/official-map.js','utf8'),ctx);vm.runInContext(fs.readFileSync('assets/daily.js','utf8'),ctx);vm.runInContext(fs.readFileSync('assets/weekly.js','utf8'),ctx);vm.runInContext(fs.readFileSync('assets/terminal.js','utf8'),ctx);
 const run=s=>vm.runInContext(s,ctx);let checks=0;function check(s,msg){assert.ok(run(s),msg);checks++;}
 const profile=JSON.parse(fs.readFileSync('tests/fixtures/profile.json','utf8'));
 ctx.profile=profile;run(`state={uid:'1000000001',server:'prod_gf_jp',session:'disconnected',sections:{showcase:{state:'ready',at:Date.now(),data:profile}}}`);
@@ -119,3 +119,19 @@ check(`storeDailyState().label==='Closed'&&templeDailyState().label==='Idle'`,'I
 run(`notes.vhs_sale.sale_state=savedSale;notes.temple_running=savedTemple;`);
 check(`dailyDiscSets('swiftspine and splitclaw').length===2&&dailyDiscArt('swiftspine and splitclaw').includes('SuitFeatheredFate')&&dailyDiscSets('sharp fang and biunt axe').length===2&&dailyDiscSets('Unknown Stage').length===0`,'Disc artwork uses known set pairs, tolerates the scanned Blunt spelling and does not invent unknown rewards');
 console.log(`${checks} total UI checks passed`);
+
+run(`gameObservation={phase:'exploring',context:{uid:state.uid,uidConfirmed:true},weeklyHistory:{remaining:3},weeklyBosses:[{name:'dead end butcher'}]};sessionReady=true;state.session='connected';weeklyPlan={bosses:false,boss:''};local.options={};showWeeklyPlan()`);
+check(`$('#modal-body').innerHTML.includes('Claims Only')&&$('#modal-body').innerHTML.includes('Final Claims')`,'Weekly claims include a final pass');
+run(`weeklyPlan.bosses=true;showWeeklyPlan()`);
+check(`$('#modal-body').innerHTML.includes('Choose Boss')&&$('#modal-body').innerHTML.includes('3 Free Hunts')`,'Boss mode requires a selected boss and shows observed quota');
+run(`weeklyPickBoss()`);
+check(`$('#modal-body').innerHTML.includes('Dead End Butcher')`,'Weekly bosses use a list of observed game names');
+run(`weeklySelectBoss('dead end butcher')`);
+check(`weeklyPlan.bosses&&local.options.weeklyPlan.boss==='dead end butcher'`,'Weekly selection persists independently of daily farming');
+run(`gameObservation.weeklyHistory={remaining:0};showWeeklyPlan()`);
+check(`$('#modal-body').innerHTML.includes('No Free Rewards Left')&&$('#modal-body').innerHTML.includes('Start Weeklies')`,'Zero free quota keeps claims available');
+check(`dailyMini({action:'weekly',battles:1,weeklyRemaining:2,startedAt:Date.now()}).includes('2 Free Rewards Left')&&!dailyMini({action:'weekly',battles:1}).includes('Battery')`,'Weekly run deck reports free rewards instead of Battery spending');
+check(`renderLive().includes('Do Weeklies')&&eriduDailyGrid().includes('showWeeklyPlan()')`,'Weekly routine opens from Today and Weekly Tasks');
+run(`gameObservation.weeklyHistory={};showWeeklyPlan()`);
+check(`$('#modal-body').innerHTML.includes('Checked In Game')&&!$('#modal-body').innerHTML.includes('0 / 3 Remaining')`,'Unknown weekly quota is never shown as zero');
+console.log('8 weekly UI checks passed; '+checks+' total UI checks passed');

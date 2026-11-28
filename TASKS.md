@@ -92,3 +92,44 @@ These unchecked items are not implied complete by a passing build or a synthetic
 - [Clean onboarding and Signals recovery — #2](https://github.com/gbppimentel-dev/new-eridu-companion/issues/2)
 - [Paired Quit and suspend — #3](https://github.com/gbppimentel-dev/new-eridu-companion/issues/3)
 - [Firmware and display compatibility — #4](https://github.com/gbppimentel-dev/new-eridu-companion/issues/4)
+
+## Local v2.6.5 team rotation
+
+- [x] Wait for the existing daily run to finish before inspecting Thor.
+- [x] Read the saved Koleda → Rina → Claret preset and Claret’s relevant skills; restore the city without squad edits.
+- [x] Replace generic combat inputs with observed agent-specific actions, ready-skill checks and Claret chain preference.
+- [x] Add bounded long holds with interruption/release coverage.
+- [ ] Validate live readiness, chain overlays and rotation timing when the user is ready for combat testing.
+- [ ] Install/publish the new candidate only when requested; Thor is in use for other projects.
+
+## Local v2.6.6 routine regressions
+
+- [x] Reproduce Temple destination handoff waiting despite a recognised Auto-Manage tab.
+- [x] Remove the separate sparse-text requirement for arrival and revenue detection.
+- [x] Reproduce the split Cloud Crest receipt and verify separate Cloud / Crest label readings.
+- [x] Complete the live Temple receipt → restart → final rewards retry.
+- [x] Recognise the captured Store opening confirmation without relying on sparse full-page OCR.
+- [x] Implement bounded known-Store confirmation retries and require disappearance before verification.
+- [x] Reproduce combat idling after a long load despite correct fresh portrait matches; exclude loading from its inactivity watchdog.
+- [x] Clear three consecutive disc battles with the final candidate, finish its reward check, and install signed v2.6.6 on Thor.
+- [ ] Observe a fresh-day Video Store opening from start to finish with the revised reader.
+
+
+## Weekly Routine — v2.7.0 Local
+
+- [x] Add compact Do Weeklies plan, claims-only mode and boss selection.
+- [x] Reuse controller feedback, Stop, elapsed time, ETA and reserved progress layout.
+- [x] Add account-scoped weekly history and Monday 4 AM Asia reset.
+- [x] Read free Notorious Hunt quota; reject paid/resource-cost deployment and confirm quota decrement before repeats.
+- [x] Implement Ridu Weekly task/milestone and Hunt Weekly Challenge claims before and after bosses.
+- [x] Verify saved screenshot readers and host/UI regressions; build locally.
+- [x] Validate actual weekly claim receipts, nine-tile navigation and active milestone Claim controls.
+- [x] Validate 11-boss discovery, required-squad deployment, completed results and quota read-back on Butcher.
+- [x] Clear all three free Butcher rewards across testing, including two consecutive unattended clears after the staging fix.
+- [x] Verify automatic exhausted-details recovery and Hunt Claim All receipt dismissal.
+- [ ] Observe one uninterrupted three-clear route and final claims with the final signed candidate after the next weekly reset.
+- [ ] Validate encounter-specific prompts, including Resonia where applicable. Unknown screens require takeover.
+- [x] Install for explicitly authorized testing; first free Butcher clear verified.
+- [x] Verify the zero-quota run skips deployment, claims Hunt rewards and completes both closing claim checks in the city.
+- [x] Install the final signed candidate after the live route checks.
+- [ ] Publish only after user confirmation.

@@ -1,0 +1,107 @@
+{
+  "version": "2.7.0",
+  "versionCode": 24,
+  "date": "2026-11-28",
+  "status": "development-preview",
+  "apkSha256": "f5f485b57818f999a02c99532b1a2cf593764fbbcf3883079f9e7381c880202c",
+  "hostChecks": {
+    "native": 468,
+    "ui": 83,
+    "signedFullBuildVerified": true,
+    "sourcePrivacyAuditPassed": true
+  },
+  "ui": {
+    "viewport": [
+      538,
+      468
+    ],
+    "nonScrollingWeeklyPlan": true,
+    "pagedBossList": true,
+    "zeroQuotaClaimsRemainAvailable": true,
+    "reservedProgressDeck": true,
+    "allSixTodayCardsVisible": true,
+    "dailyAndCombatLayoutRegressionsPassed": true
+  },
+  "savedThorFrameChecks": {
+    "completedTileFocusedIndex": 0,
+    "claimableTileFocusedIndex": 2,
+    "bottomRowFocusedIndex": 6,
+    "claimableTaskButton": true,
+    "completedTaskRejectedAsClaimable": true,
+    "huntListRemaining": 3,
+    "disabledHuntClaimAllRejected": true,
+    "bossSetupName": "kusarikku",
+    "bossSetupFreeQuota": 3,
+    "bossSetupNextRecognized": true
+  },
+  "live": {
+    "readOnlyMenuInspection": true,
+    "bottomRowControllerNavigationVerified": true,
+    "claimsTriggered": true,
+    "bossAttempts": 3,
+    "installed": true,
+    "bossClears": 3,
+    "bossListCount": 11,
+    "requiredSquad": "Koleda \u2192 Rina \u2192 Claret",
+    "freeRewardsRemaining": 0,
+    "firstClear": {
+      "boss": "Newborn Dead End Butcher",
+      "level": 65,
+      "rank": "S",
+      "time": "2m 29s"
+    },
+    "openingTaskAndMilestoneClaimsVerified": true,
+    "consecutiveUnattendedClears": 2,
+    "lastClear": {
+      "boss": "Newborn Dead End Butcher",
+      "level": 65,
+      "rank": "S",
+      "time": "2m 17s"
+    },
+    "automaticResultExitVerified": true,
+    "quotaDecrementVerified": [
+      2,
+      1,
+      0
+    ],
+    "exhaustedDetailsRecoveryVerified": true,
+    "huntClaimAllReceipt": {
+      "dennies": 60000,
+      "investigationMerits": 90
+    },
+    "disabledClaimAfterReceiptVerified": true,
+    "zeroQuotaDeploymentSkipped": true,
+    "finalSignedCandidateInstalled": true,
+    "finalClaimPassComplete": true,
+    "finalClaimRunDurationMs": 538310,
+    "finalClaimRunBattles": 0,
+    "finalState": "complete",
+    "finalReturn": "city"
+  },
+  "remaining": [
+    "One uninterrupted three-clear route with final signed candidate after next weekly reset",
+    "Other boss layouts, mechanics and special prompts",
+    "Live correction from a different squad preset"
+  ],
+  "resources": {
+    "batterySpent": 0,
+    "storedBatterySpent": 0,
+    "polychromesSpent": 0,
+    "etherBatteriesSpent": 0,
+    "autoCombatTicketsSpent": 0
+  },
+  "markerFrameChecks": {
+    "method": "3x3 Gaussian smoothing, 11x11 interior normalized correlation",
+    "threshold": 0.86,
+    "visibleMarkerScoreRange": [
+      0.886,
+      0.999
+    ],
+    "sampledNonStagingMaximum": 0.82,
+    "movementLimitsPreserved": true
+  },
+  "testSequence": "First free clear before pause; two consecutive unattended free clears after staging fix. Zero-quota return and Hunt yellow-caption claim fixes validated in recovery. Final zero-quota run collected the Hunt receipt, skipped deployment, verified both closing claim pages and completed in the city.",
+  "release": "v2.7.0",
+  "publicBuildDeviceValidated": true,
+  "deviceValidationScope": "Exact signed APK installed and dashboard verified; targeted weekly and prior daily evidence below, with uninterrupted final-candidate three-clear route and other bosses unverified."
+}

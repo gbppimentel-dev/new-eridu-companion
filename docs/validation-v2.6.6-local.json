@@ -1,0 +1,73 @@
+{
+  "version": "2.6.6",
+  "versionCode": 23,
+  "date": "2026-11-28",
+  "status": "targeted-live-validation-passed-installed-for-user",
+  "apkSha256": "64385035677cda0e2536a3e1b48862d66a51ce58dae32422b657c58dfef71cc1",
+  "hostChecks": {
+    "passed": 346,
+    "signedFullBuildVerified": true,
+    "sourcePrivacyAuditPassed": true
+  },
+  "store": {
+    "capturedOpeningConfirmationRecognized": true,
+    "businessLogRejectedAsConfirmation": true,
+    "changes": [
+      "Fixed-caption detection independent of sparse whole-page OCR",
+      "Bounded A confirmation retries and dismissal verification"
+    ],
+    "freshDayOpeningRetested": false,
+    "limitation": "Store was already opened for the day before testing"
+  },
+  "temple": {
+    "liveClaimReceiptRestartAndFinalRewardsPassed": true,
+    "regressions": [
+      "Recognized destination did not end travel wait",
+      "Claim detection depended on unreliable sparse text",
+      "Two-line Cloud Crest receipt was unreadable as a single region"
+    ]
+  },
+  "combat": {
+    "loadingWatchdogReproducedAndFixed": true,
+    "freshAgentRecognitionVerified": true,
+    "firstGuardedDiscBattleCleared": true,
+    "automaticRepeatStarted": true,
+    "knockoutInEarlierTestExposedAndAddressed": true,
+    "defense": [
+      "Recovery dodge after held basic finisher",
+      "Reactive dodge after observed health-indicator loss",
+      "Pause on persistent missing squad member or failed combat confirmation"
+    ],
+    "finalRunResult": {
+      "state": "complete",
+      "battles": 3,
+      "batterySpent": 180,
+      "reserveUsed": 0,
+      "batteryRemaining": 5,
+      "durationMs": 457441,
+      "finalRewardCheck": true
+    },
+    "boundedSwapRetryAdded": true,
+    "totalSuccessfulTestBatterySpent": 240,
+    "liveLimits": "One stage and the current squad only; not every farming target, roster or chain overlay"
+  },
+  "githubUpdated": false,
+  "publicBuildDeviceValidated": false,
+  "targetedDeviceValidationPassed": true,
+  "installation": {
+    "result": "Success",
+    "method": "ADB streamed update",
+    "version": "2.6.6",
+    "versionCode": 23,
+    "date": "2026-11-28",
+    "dashboardVerified": true,
+    "nativeVersionVerified": "2.6.6",
+    "idleAfterInstall": true
+  },
+  "resources": {
+    "storedBatterySpent": 0,
+    "etherBatteriesSpent": 0,
+    "polychromesSpent": 0,
+    "autoCombatTicketsSpent": 0
+  }
+}

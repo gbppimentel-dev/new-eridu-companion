@@ -1,0 +1,8 @@
+package dev.gbppimentel.zzz;
+import java.io.*;import java.nio.file.Files;import org.json.*;
+/** Claims remain repeatable as new weekly objectives finish. Quota is game evidence, not a lock. */
+final class WeeklyHistory {
+ static JSONObject read(File dir,String uid){try{File f=new File(dir,"weekly-history.json");if(f.length()>65536)return new JSONObject();JSONObject j=new JSONObject(new String(Files.readAllBytes(f.toPath()),"UTF-8")).optJSONObject(uid);return j==null?new JSONObject():j;}catch(Exception e){return new JSONObject();}}
+ static void save(File dir,String uid,JSONObject h)throws Exception{if(!uid.matches("[1-9][0-9]{7,11}"))throw new IOException("Linked Account Required");JSONObject all=new JSONObject();File file=new File(dir,"weekly-history.json"),next=new File(dir,"weekly-history.next");try{if(file.length()<65536)all=new JSONObject(new String(Files.readAllBytes(file.toPath()),"UTF-8"));}catch(Exception ignored){}all.put(uid,h);try(FileOutputStream out=new FileOutputStream(next)){out.write(all.toString().getBytes("UTF-8"));}next.setReadable(true,false);if(!next.renameTo(file))throw new IOException("Could Not Save Weekly History");}
+ static JSONObject summary(File dir,String uid,long now)throws Exception{JSONObject h=read(dir,uid);return new JSONObject().put("lastTriggeredAt",h.optLong("lastTriggeredAt")).put("lastFinishedAt",h.optLong("lastFinishedAt")).put("lastDurationMs",h.optLong("lastDurationMs")).put("lastState",h.optString("lastState")).put("nextResetAt",WeeklyPolicy.nextReset(now)).put("remaining",WeeklyPolicy.current(now,h.optLong("quotaAt"))?h.optInt("remaining",-1):-1).put("quotaAt",h.optLong("quotaAt")).put("claimsAt",h.optLong("claimsAt"));}
+}

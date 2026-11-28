@@ -9,17 +9,21 @@ import org.json.*;
 
 /** Opt-in, game-only daily runner. Screen/identity guards precede every input. */
 final class DailyAutomation implements Runnable {
- static volatile boolean active,manualStop;
+ static volatile boolean active,manualStop,weeklyReading;
  final GameContextReader context;
  final File dir=GameObserver.DIR;
+ CombatHudReader combatHud;
  RoutineController controller;GameCapture capture;GameCapture.Foreground foreground;OcrEngine ocr;HudClassifier classifier;
  String action="",uid="",runId="",step="",message="",lastConsumed="",input="",errandEvidence="";boolean running,battery,reserve;long started,inputAt;
+ int weeklyRemaining=-1,weeklyClaims;
+ boolean enteringWeekly;
+ JSONObject weeklyEvidence=new JSONObject();
  JSONObject plan,history;boolean errandsRun;long taskStarted,batteryAt;int availableBattery=-1;int stageIndex,stageTotal,estimatedBattles;long estimatedDuration;JSONArray completed=new JSONArray();int spent,battles,reserveUsed,reconnects;
  DailyAutomation(GameContextReader context){this.context=context;}
  static void manualOverride(){if(active)manualStop=true;}
  JSONObject read(File file)throws Exception{if(!file.exists()||file.length()>16384)return new JSONObject();return new JSONObject(new String(Files.readAllBytes(file.toPath()),"UTF-8"));}
  void write(String file,JSONObject json)throws Exception{File next=new File(dir,file+".next"),out=new File(dir,file);try(FileOutputStream f=new FileOutputStream(next)){f.write(json.toString().getBytes("UTF-8"));}next.setReadable(true,false);if(!next.renameTo(out))throw new IOException("Could Not Publish Routine Status");}
- void publish(String state,String text)throws Exception{message=text;write("daily-status.json",new JSONObject().put("id",runId).put("action",action).put("state",state).put("running",running).put("step",step).put("message",text).put("startedAt",started).put("at",System.currentTimeMillis()).put("completed",completed).put("batterySpent",spent).put("reserveUsed",reserveUsed).put("battles",battles).put("input",input).put("inputAt",inputAt).put("inputMode","Controller").put("stageIndex",stageIndex).put("stageTotal",stageTotal).put("estimatedBattles",estimatedBattles).put("estimatedDurationMs",estimatedDuration).put("elapsedMs",System.currentTimeMillis()-started).put("taskStartedAt",taskStarted).put("batteryAvailable",availableBattery).put("batteryReadAt",batteryAt));}
+ void publish(String state,String text)throws Exception{message=text;write("daily-status.json",new JSONObject().put("id",runId).put("action",action).put("state",state).put("running",running).put("step",step).put("message",text).put("startedAt",started).put("at",System.currentTimeMillis()).put("completed",completed).put("batterySpent",spent).put("reserveUsed",reserveUsed).put("battles",battles).put("input",input).put("inputAt",inputAt).put("inputMode","Controller").put("stageIndex",stageIndex).put("stageTotal",stageTotal).put("estimatedBattles",estimatedBattles).put("estimatedDurationMs",estimatedDuration).put("elapsedMs",System.currentTimeMillis()-started).put("taskStartedAt",taskStarted).put("batteryAvailable",availableBattery).put("batteryReadAt",batteryAt).put("weeklyRemaining",weeklyRemaining).put("weeklyClaims",weeklyClaims).put("weeklyScreen",weeklyEvidence));}
  void task(String title)throws Exception{if(!title.equals(step)){taskStarted=System.currentTimeMillis();}step=title;publish("running",title);}
  void check()throws Exception{
   if(manualStop)throw new InterruptedException("Stopped By Controller Input");
@@ -39,7 +43,8 @@ final class DailyAutomation implements Runnable {
   }throw new IOException("Game Identity Could Not Be Confirmed");
  }
  DailyScreen screen(boolean combat)throws Exception{
-  check();foreground.focusGame();Bitmap b=capture.frame();DailyScreen frame;try{frame=new DailyScreen(b,ocr,classifier,combat);}finally{b.recycle();}
+  check();foreground.focusGame();Bitmap b=capture.frame();DailyScreen frame;try{frame=new DailyScreen(b,ocr,classifier,combat&&!enteringWeekly);if(combat&&combatHud!=null&&!frame.results()&&!frame.loading())frame.combat=combatHud.read(b,ocr,frame);}finally{b.recycle();}
+  if(weeklyReading){WeeklyScreen w=frame.weekly;weeklyEvidence=new JSONObject().put("tab",frame.handbookTab).put("journal",frame.journal()).put("phase",frame.phase).put("hasReader",w!=null);if(w!=null)weeklyEvidence.put("list",w.huntList).put("remaining",w.remaining).put("board",w.board).put("tile",w.tile).put("claim",w.claim).put("setup",w.huntSetup).put("challenge",w.huntChallenge).put("squad",w.squad).put("requiredSquad",w.squadReady).put("presets",w.presets).put("waypointVisible",w.waypointX>=0).put("bossBar",frame.bossBar);}
   if(DailyPolicy.loginOrError(frame.text)){
    DailyScreen.Line reconnect=frame.find("reconnect",950,570,1320,690);
    if(reconnect!=null&&frame.has("log in again")&&reconnects++<3){publish("waiting","Reconnecting To The Game · "+reconnects+" / 3");focusTarget(frame,reconnect.x(),reconnect.y(),true);Thread.sleep(2000);return screen(combat);}
@@ -153,10 +158,10 @@ final class DailyAutomation implements Runnable {
   checkpointDone("store","Video Store","Opening Confirmed And Store Errand 1/1 In Game");
  }
  void settleStore()throws Exception{
-  DailyScreen f;boolean promoter=false,tapes=false,opened=false;int choices=0;long until=System.currentTimeMillis()+DailyPolicy.SCREEN_LIMIT_MS;
+  DailyScreen f;boolean promoter=false,tapes=false,opened=false;int choices=0,confirmations=0;long until=System.currentTimeMillis()+DailyPolicy.SCREEN_LIMIT_MS;
   while(System.currentTimeMillis()<until){
    f=screen(false);
-   if(f.storeOpeningConfirm){publish("running","Confirming Video Store Opening");press("A");Thread.sleep(2500);verifyStoreOpening();return;}
+   if(f.storeOpeningConfirm){if(++confirmations>4)throw new IOException("Video Store Confirmation Did Not Close");publish("running","Confirming Video Store Opening");press("A");opened=true;Thread.sleep(2000);continue;}
    if(f.world()&&opened){verifyStoreOpening();return;}
    if(f.has("business is booming")||f.has("currently open")||f.has("business in progress")){verifyStoreOpening();return;}
    if(f.has("operating with integrity")&&f.has("every denny counts")){press("A");opened=true;Thread.sleep(2500);}
@@ -225,14 +230,15 @@ final class DailyAutomation implements Runnable {
  void warpQuick(String area,String service)throws Exception{
   DailyScreen f=world();tap(f,1540,280,"SELECT");f=waitFor("Travel Map",s->s.has("quick nav"));press("START");
   f=waitFor("Quick Nav",s->s.find(area)!=null);quickNavTarget(f,area,false);f=waitFor("Travel Shortcut",s->s.travelShortcutFocus!=null);quickNavTarget(f,service,true);
-  long until=System.currentTimeMillis()+DailyPolicy.SCREEN_LIMIT_MS;while(System.currentTimeMillis()<until){f=screen(false);if(f.world()||service.equals("suibian temple")&&(f.has("auto manage")||f.has("business log")))return;if(f.has("teleport to")||f.has("teleport now")){tap(f,1115,628,"A");}Thread.sleep(350);}throw new IOException("Travel Did Not Finish");
+  long until=System.currentTimeMillis()+DailyPolicy.SCREEN_LIMIT_MS;while(System.currentTimeMillis()<until){f=screen(false);if(f.world()||service.equals("suibian temple")&&DailyPolicy.templeArrived(f.templeTab,f.templeRewardReceipt,f.templeClaimReady))return;if(f.has("teleport to")||f.has("teleport now")){tap(f,1115,628,"A");}Thread.sleep(350);}throw new IOException("Travel Did Not Finish");
  }
  boolean farmingSetup(DailyScreen f){return f.discSetup||f.has("waves of enemies")||f.has("combat options")||f.find("next",1450,950,1850,1075)!=null&&f.battery()!=null;}
  void closeToCity()throws Exception{
-  long until=System.currentTimeMillis()+DailyPolicy.SCREEN_LIMIT_MS;int backs=0;
+  long until=System.currentTimeMillis()+DailyPolicy.SCREEN_LIMIT_MS;int backs=0,storeConfirms=0;
   while(System.currentTimeMillis()<until){DailyScreen f=screen(false);if(f.world()){world();return;}
+   if(f.storeOpeningConfirm){if(++storeConfirms>4)throw new IOException("Video Store Confirmation Did Not Close");press("A");Thread.sleep(1800);continue;}
    if(f.journal()){closeJournal(f);return;}
-   boolean menu=farmingSetup(f)||f.has("restore battery charge")||f.has("options","storage","agents")||f.has("waves of enemies")||f.has("combat options")||f.has("more features")||f.farmingCategories||f.has("basic material","agent promotion","custom")||f.has("business")||f.has("temple")||f.has("assigned bangboo")||f.has("auto managed")||f.has("quick nav")||f.has("change areas");
+   boolean menu=farmingSetup(f)||f.has("restore battery charge")||f.has("options","storage","agents")||f.has("waves of enemies")||f.has("combat options")||f.has("more features")||f.farmingCategories||f.has("basic material","agent promotion","custom")||f.has("business")||f.has("temple")||f.has("assigned bangboo")||f.has("auto managed")||f.has("quick nav")||f.has("change areas")||f.weekly!=null&&(f.weekly.huntSetup||f.weekly.huntMenu||f.weekly.board||f.weekly.huntChallenge);
    if(menu&&backs<6){press("B");backs++;Thread.sleep(2500);}
    else{publish("waiting","Waiting For The City To Settle");Thread.sleep(750);}
   }throw new IOException("Return To The City To Continue");
@@ -241,7 +247,7 @@ final class DailyAutomation implements Runnable {
   if(frame.headerBattery<0)frame=waitFor("Current Battery Charge",s->s.journal()&&s.headerBattery>=0);availableBattery=frame.headerBattery;batteryAt=System.currentTimeMillis();publish("running",step);return availableBattery;
  }
  DailyScreen training(String type)throws Exception{
-  type=DailyPolicy.clean(type);DailyScreen f=journal();tap(f,1180,156,"R1");f=waitFor("Training",s->s.journal()&&s.handbookTab==2);int y=type.equals("area patrol")?580:type.equals("expert challenge")?690:480;tap(f,300,y,"A");return waitFor(type,s->s.journal()&&s.find("go",1350,350,1700,950)!=null);
+  type=DailyPolicy.clean(type);DailyScreen f=journal();tap(f,1180,156,"R1");f=waitFor("Training",s->s.journal()&&s.handbookTab==2);int y=type.equals("area patrol")?580:type.equals("expert challenge")?690:type.equals("notorious hunt")?800:480;tap(f,300,y,"A");return waitFor(type,s->s.journal()&&s.find("go",1350,350,1700,950)!=null);
  }
  DailyScreen.Line stageRow(DailyScreen f,String name)throws Exception{
   for(int i=0;i<40;i++){DailyScreen.Line title=f.find(name,450,300,1320,920);if(title!=null)return title;swipe(f,1100,865,1100,440,550,"UP");f=waitFor("Stage List",s->s.journal());}throw new IOException("Selected Farming Stage Was Not Found");
@@ -277,17 +283,39 @@ final class DailyAutomation implements Runnable {
   f=waitFor("Backup Extraction Result",s->s.has("obtained")||s.has("restore battery charge")||s.has("options","storage","agents")||s.world());if(f.has("obtained")){press("A");}closeToCity();f=journal();int after=journalBattery(f);closeJournal(f);if(!DailyPolicy.backupConversion(before,needed,after,System.currentTimeMillis()-beforeAt))throw new IOException("Backup Conversion Needs Review. No More Reserves Will Be Used.");DailyTestBudget.confirm(dir,budgetHold);reserveUsed=needed;completed.put("Backup Battery Charge · "+needed);publish("running",step);
  }
 
- void battle(int expectedCost)throws Exception{
-  long battleStarted=System.currentTimeMillis();task("Farming · Battle "+(battles+1)+(estimatedBattles>0?" / ~"+estimatedBattles:""));long until=System.currentTimeMillis()+DailyPolicy.BATTLE_LIMIT_MS;int presses=0;boolean fought=false;
+ void battle(int expectedCost)throws Exception{battle(expectedCost,false);}
+ void battle(int expectedCost,boolean weeklyBoss)throws Exception{
+  long battleStarted=System.currentTimeMillis();task((weeklyBoss?"Weekly Boss · Battle ":"Farming · Battle ")+(battles+1)+(estimatedBattles>0?" / ~"+estimatedBattles:""));long until=System.currentTimeMillis()+(weeklyBoss?10*60*1000L:DailyPolicy.BATTLE_LIMIT_MS);boolean fought=false;CombatRotation rotation=new CombatRotation();CombatActivity activity=new CombatActivity();combatHud=new CombatHudReader(dir);
+  try{
   while(System.currentTimeMillis()<until){DailyScreen f=screen(true);
-   if(f.phase.equals("combat")){fought=true;int n=presses++;
-    if(n%33==32)tap(f,1695,710,"R1");else if(n%17==16)tap(f,1695,508,"R2");else if(n%11==10)tap(f,1345,920,"Y");else if(n%9==8)tap(f,1695,920,"A");else tap(f,1515,814,"X");
+   if(f.phase.equals("combat")||f.combat!=null&&(f.combat.chain||weeklyBoss&&f.combat.controls&&f.combat.team.equals(CombatRotation.TEAM))){fought=true;
+    long now=System.currentTimeMillis();if(f.combat!=null&&f.combat.squadLost){pauseFailedCombat();throw new IOException("Squad Incomplete Or Agent Down. Battle Paused.");}CombatRotation.Action next=rotation.next(f.combat,now);
+    if(rotation.swapUnconfirmed(now)){pauseFailedCombat();throw new IOException("Agent Swap Could Not Be Confirmed. Battle Paused.");}
+    if(next!=null){combatInput(next);activity.stalled(System.currentTimeMillis(),true);}
+    else if(activity.stalled(now,false)){pauseFailedCombat();throw new IOException("Could Not Confirm The Combat HUD. Battle Paused.");}
+    else {publish("waiting","Reading Your Squad And Combat Prompts");Thread.sleep(120);}
    }else if(f.results()){
     if(!fought){publish("waiting","Waiting For The Next Battle To Start");Thread.sleep(600);continue;}
-    f=waitFor("Completed Battle",s->s.results()&&s.battleCleared&&s.find("complete",1400,950,1850,1070)!=null);
-    if(!fought||f.has("challenge failed")||f.has("defeat"))throw new IOException("Battle Did Not Complete Successfully");spent+=expectedCost;availableBattery=DailyPolicy.afterBattle(availableBattery,expectedCost);if(availableBattery<0)throw new IOException("Verified Battery Budget Was Lost");batteryAt=System.currentTimeMillis();battles++;long duration=System.currentTimeMillis()-battleStarted;long old=history.optLong("battleEstimateMs",duration);history.put("battleEstimateMs",(old*2+duration)/3);publish("running","Battle Complete");return;
-   }else if(f.loading()){Thread.sleep(350);}else if(f.has("chain attack")){DailyScreen.Line chain=f.find("chain attack");tap(f,chain.x(),chain.y(),"A");}else Thread.sleep(300);
+    f=waitFor("Completed Battle",s->s.results()&&(weeklyBoss?s.weekly!=null&&s.weekly.resultClear:s.battleCleared&&s.find("complete",1400,950,1850,1070)!=null));
+    if(!fought||f.has("challenge failed")||f.has("defeat"))throw new IOException("Battle Did Not Complete Successfully");if(!weeklyBoss){spent+=expectedCost;availableBattery=DailyPolicy.afterBattle(availableBattery,expectedCost);if(availableBattery<0)throw new IOException("Verified Battery Budget Was Lost");batteryAt=System.currentTimeMillis();}battles++;long duration=System.currentTimeMillis()-battleStarted;long old=history.optLong("battleEstimateMs",duration);history.put("battleEstimateMs",(old*2+duration)/3);publish("running","Battle Complete");return;
+   }else if(f.loading()){activity.loading();Thread.sleep(350);}else Thread.sleep(300);
   }throw new IOException("Battle Time Limit Reached. Take Over In Game.");
+  }finally{combatHud=null;}
+ }
+ void pauseFailedCombat()throws Exception{controller.hold("START",140,()->checkCombatHold());}
+ void combatInput(CombatRotation.Action next)throws Exception{
+  check();if(System.currentTimeMillis()-next.at>900)throw new IOException("Combat Observation Expired Before Input. Take Over In Game.");input=next.key;inputAt=System.currentTimeMillis();publish("running",next.label);
+  // The guard runs throughout a hold, so Stop, manual input and Home still release it.
+  controller.hold(next.key,next.holdMs,()->checkCombatHold());
+  // Animation waits are observed in the next frames; do not sleep through chain prompts.
+ }
+ void checkCombatHold()throws Exception{
+  if(manualStop)throw new InterruptedException("Stopped By Controller Input");
+  if(!GameObserver.watching()||!foreground.gameVisible())throw new InterruptedException("Game Left The Foreground");
+  JSONObject command=read(new File(dir,"daily-command.json"));
+  if(command.optString("action").equals("stop")&&!command.optString("id").equals(runId))throw new InterruptedException("Stopped By You");
+  JSONObject identity=context.latest;
+  if(!DailyPolicy.canContinue(uid,identity.optString("uid"),identity.optBoolean("uidConfirmed"),System.currentTimeMillis()-identity.optLong("at")))throw new InterruptedException("Session Confirmation Lost During Input");
  }
  void farm()throws Exception{
   String target=plan.optString("target","dennies");if(!Arrays.asList("dennies","agent-xp","engine-xp","plating","promotion","engine-promotion","skills","discs","expert").contains(target))throw new IOException("Unknown Farm Target");
@@ -320,10 +348,11 @@ final class DailyAutomation implements Runnable {
   try{File consumed=new File(dir,"daily-consumed.json");lastConsumed=read(consumed).optString("id");
    while(GameObserver.watching()){
     JSONObject command=read(new File(dir,"daily-command.json"));String id=command.optString("id");
-    if(!id.isEmpty()&&!id.equals(lastConsumed)&&(command.optString("action").equals("start")||command.optString("action").equals("scan"))&&System.currentTimeMillis()-command.optLong("issuedAt")<10000){
-     lastConsumed=id;write("daily-consumed.json",new JSONObject().put("id",id));runId=id;action=command.optString("action");uid=command.optString("uid");plan=command.optJSONObject("plan");if(plan==null)plan=new JSONObject();battery=action.equals("start")&&command.optBoolean("battery");reserve=plan.optBoolean("reserve",true);started=System.currentTimeMillis();history=null;availableBattery=-1;batteryAt=0;stageIndex=stageTotal=estimatedBattles=0;estimatedDuration=0;step="";completed=new JSONArray();spent=battles=reserveUsed=reconnects=0;manualStop=false;running=active=true;
-     try{if(command.optString("action").equals("start")&&uid.matches("[1-9][0-9]{7,11}")){history=DailyHistory.read(dir,uid);history.put("lastTriggeredAt",started).put("lastState","running");DailyHistory.save(dir,uid,history);}capture=new GameCapture(1920,1080);foreground=new GameCapture.Foreground();controller=new RoutineController(foreground);ocr=new OcrEngine();classifier=new HudClassifier(new String(Files.readAllBytes(new File(dir,"hud-templates.json").toPath()),"UTF-8"));task("Checking Your Session");awaitIdentity();final boolean incompleteErrands=action.equals("start")&&!plan.optBoolean("farmOnly")&&history!=null&&!DailyHistory.cycleComplete(history,started),recoverTemple=incompleteErrands&&plan.optBoolean("temple",true),recoverStore=incompleteErrands&&plan.optBoolean("store",true);DailyScreen f=waitFor("Your Linked City Session Or Pending Errand",s->{JSONObject identity=context.latest;long age=System.currentTimeMillis()-identity.optLong("at");return DailyPolicy.canStart(uid,identity.optString("uid"),identity.optBoolean("uidConfirmed"),s.phase,!s.touch,age)||DailyPolicy.canResumeErrand(uid,identity.optString("uid"),identity.optBoolean("uidConfirmed"),age,recoverTemple,s.templeTab>=0||s.templeRewardReceipt)||DailyPolicy.canResumeErrand(uid,identity.optString("uid"),identity.optBoolean("uidConfirmed"),age,recoverStore,s.storeOpeningConfirm);},30000);
-      if(action.equals("scan")){scanStages();}else {
+    if(!id.isEmpty()&&!id.equals(lastConsumed)&&(command.optString("action").equals("start")||command.optString("action").equals("scan")||command.optString("action").equals("weekly")||command.optString("action").equals("weekly-scan"))&&System.currentTimeMillis()-command.optLong("issuedAt")<10000){
+     lastConsumed=id;write("daily-consumed.json",new JSONObject().put("id",id));runId=id;action=command.optString("action");weeklyReading=action.startsWith("weekly");uid=command.optString("uid");plan=command.optJSONObject("plan");if(plan==null)plan=new JSONObject();battery=action.equals("start")&&command.optBoolean("battery");reserve=plan.optBoolean("reserve",true);started=System.currentTimeMillis();history=null;availableBattery=-1;batteryAt=0;stageIndex=stageTotal=estimatedBattles=0;estimatedDuration=0;step="";completed=new JSONArray();spent=battles=reserveUsed=reconnects=weeklyClaims=0;weeklyRemaining=-1;manualStop=false;running=active=true;
+     try{if(command.optString("action").equals("start")&&uid.matches("[1-9][0-9]{7,11}")){history=DailyHistory.read(dir,uid);history.put("lastTriggeredAt",started).put("lastState","running");DailyHistory.save(dir,uid,history);}capture=new GameCapture(1920,1080);foreground=new GameCapture.Foreground();controller=new RoutineController(foreground);ocr=new OcrEngine();classifier=new HudClassifier(new String(Files.readAllBytes(new File(dir,"hud-templates.json").toPath()),"UTF-8"));task("Checking Your Session");awaitIdentity();final boolean incompleteErrands=action.equals("start")&&!plan.optBoolean("farmOnly")&&history!=null&&!DailyHistory.cycleComplete(history,started),recoverTemple=incompleteErrands&&plan.optBoolean("temple",true),recoverStore=incompleteErrands&&plan.optBoolean("store",true);DailyScreen f=waitFor("Your Linked City Session Or Pending Errand",s->{JSONObject identity=context.latest;long age=System.currentTimeMillis()-identity.optLong("at");return DailyPolicy.canStart(uid,identity.optString("uid"),identity.optBoolean("uidConfirmed"),s.phase,!s.touch,age)||DailyPolicy.canResumeErrand(uid,identity.optString("uid"),identity.optBoolean("uidConfirmed"),age,recoverTemple,s.templeTab>=0||s.templeRewardReceipt)||DailyPolicy.canResumeErrand(uid,identity.optString("uid"),identity.optBoolean("uidConfirmed"),age,recoverStore,s.storeOpeningConfirm)||WeeklyPolicy.exhaustedReturn(action.equals("weekly"),!s.touch,s.weekly!=null&&s.weekly.huntSetup,s.weekly==null?-1:s.weekly.remaining)&&DailyPolicy.canContinue(uid,identity.optString("uid"),identity.optBoolean("uidConfirmed"),age);},30000);
+      if(WeeklyPolicy.exhaustedReturn(action.equals("weekly"),!f.touch,f.weekly!=null&&f.weekly.huntSetup,f.weekly==null?-1:f.weekly.remaining)){task("Returning From Completed Weekly Hunts");closeToCity();}
+      if(action.startsWith("weekly")){new WeeklyAutomation(this).run(action.equals("weekly-scan"));}else if(action.equals("scan")){scanStages();}else {
        history=DailyHistory.read(dir,uid);errandsRun=!plan.optBoolean("farmOnly")&&!DailyHistory.cycleComplete(history,started);
        history.put("lastTriggeredAt",started).put("lastState","running");DailyHistory.save(dir,uid,history);
        stageIndex=0;stageTotal=2;for(String k:new String[]{"coffee","draw","store","temple"})if(errandsRun&&plan.optBoolean(k,true))stageTotal++;if(battery)stageTotal++;if(errandsRun)stageTotal++;
@@ -334,9 +363,9 @@ final class DailyAutomation implements Runnable {
        if(errandsRun){if(plan.optBoolean("coffee",true)){coffee();stageIndex++;}if(plan.optBoolean("draw",true)){dailyDraw();stageIndex++;}if(plan.optBoolean("store",true)){store();stageIndex++;}if(plan.optBoolean("temple",true)){temple();stageIndex++;}rewards();stageIndex++;saveErrandCompletion();}
        if(battery){farm();stageIndex++;}
        rewards();stageIndex++;saveErrandCompletion();
-      }running=active=false;publish("complete",action.equals("scan")?"Stage List Updated":"Routine Complete");
+      }running=active=false;publish("complete",action.equals("weekly-scan")?"Weekly Boss List Updated":action.equals("weekly")?"Weekly Routine Complete":action.equals("scan")?"Stage List Updated":"Routine Complete");
      }catch(InterruptedException stop){running=active=false;publish("stopped",stop.getMessage());}catch(Exception error){running=active=false;publish("attention",error.getMessage()==null?"Routine Needs Attention":error.getMessage());}
-     finally{active=false;running=false;if(controller!=null){controller.close();controller=null;}if(history!=null&&action.equals("start"))try{history.put("lastFinishedAt",System.currentTimeMillis()).put("lastDurationMs",System.currentTimeMillis()-started).put("lastState",read(new File(dir,"daily-status.json")).optString("state"));DailyHistory.save(dir,uid,history);}catch(Exception ignored){}if(ocr!=null){ocr.api.recycle();ocr=null;}}
+     finally{active=false;running=false;weeklyReading=false;if(controller!=null){controller.close();controller=null;}if(history!=null&&action.equals("start"))try{history.put("lastFinishedAt",System.currentTimeMillis()).put("lastDurationMs",System.currentTimeMillis()-started).put("lastState",read(new File(dir,"daily-status.json")).optString("state"));DailyHistory.save(dir,uid,history);}catch(Exception ignored){}if(history!=null&&action.startsWith("weekly"))try{history.put("lastFinishedAt",System.currentTimeMillis()).put("lastDurationMs",System.currentTimeMillis()-started).put("lastState",read(new File(dir,"daily-status.json")).optString("state"));WeeklyHistory.save(dir,uid,history);}catch(Exception ignored){}if(ocr!=null){ocr.api.recycle();ocr=null;}}
     }Thread.sleep(200);
    }
   }catch(Exception ignored){}finally{if(running)try{running=active=false;publish("interrupted","Routine Interrupted");}catch(Exception ignored){}}

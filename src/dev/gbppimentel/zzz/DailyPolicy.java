@@ -13,6 +13,12 @@ final class DailyPolicy {
  static boolean templeRewardReceipt(String title,String confirm,String currency){String item=clean(currency);return clean(title).equals("obtain rewards")&&clean(confirm).equals("confirm")&&(item.equals("omnicoin")||item.equals("cloud crest"));}
  static boolean canResumeErrand(String selected,String visible,boolean confirmed,long age,boolean requested,boolean knownScreen){return requested&&knownScreen&&canContinue(selected,visible,confirmed,age);}
  static boolean storeOpeningConfirmation(String message,String ending,String button){return clean(message).equals("wishing you a prosperous store opening may the dennies")&&clean(ending).equals("flow")&&clean(button).equals("confirm");}
+ // Sparse whole-screen OCR is only supporting evidence, never a service handoff gate.
+ static boolean storeOpeningPopup(String body,String button){
+  String text=clean(body).replace(" ",""),confirm=clean(button).replace(" ","");
+  return text.contains("prosperousstoreopening")&&text.contains("dennies")&&text.contains("flow")&&(confirm.equals("confirm")||confirm.equals("confirrn")||confirm.equals("confinn"));
+ }
+ static boolean templeArrived(int tab,boolean receipt,boolean claim){return tab>=0||receipt||claim;}
  enum TempleAction { WAIT,OPEN_AUTO,CLAIM,RECEIPT,START,RUNNING }
  static int templeTab(double businessOrange,double autoOrange){if(businessOrange>.35&&businessOrange-autoOrange>.15)return 0;if(autoOrange>.35&&autoOrange-businessOrange>.15)return 1;return -1;}
  static TempleAction templeAction(int tab,boolean receipt,boolean claim,boolean start,boolean running){if(receipt)return TempleAction.RECEIPT;if(tab==0)return TempleAction.OPEN_AUTO;if(tab!=1)return TempleAction.WAIT;if(claim)return TempleAction.CLAIM;if(start)return TempleAction.START;if(running)return TempleAction.RUNNING;return TempleAction.WAIT;}

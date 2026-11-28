@@ -1,5 +1,35 @@
 # changelog
 
+## 2.7.0 — 2026-11-28 development preview
+
+- Add Do Weeklies beside Do Dailies and on the Weekly Tasks card. Choose Claims Only or Claims + Bosses, with a paged list read from the game.
+- Add Ridu Weekly completed-task and point-milestone claims, plus Notorious Hunt Weekly Challenge claims, before and after the boss route. Claims remain repeatable as the week progresses.
+- Use the shared controller, session checks, Stop control and reserved progress deck. Track weekly history per account and reset the displayed quota Monday at 4 AM Asia.
+- Verify the free Notorious Hunt quota and selected boss before deployment, reject resource-cost screens, and require the quota to decrease before another attempt. No Battery or Backup extraction is part of this route.
+- Enforce Koleda → Rina → Claret for every boss; verify applied preset members and recheck the free quota after squad changes.
+- Enter staging through a matched waypoint ring and bounded controller-stick pulses, then hand over only after the boss health bar appears.
+- Handle wrapped bingo navigation, pulsing Claim colors, wrapped boss-list focus and the native boss-selection return menu.
+- Include menu travel, squad verification, staging and quota read-back in weekly ETA, refining it from completed boss cycles.
+- Smooth the staging-marker glyph before matching to tolerate subpixel antialiasing; require completed 1/1 result evidence and a readable Complete/Exit footer.
+- Recognize exhausted boss details despite the No Reward Mode footer; support safe Back-only recovery before claims. Accept the active yellow Hunt Claim All caption.
+- Thor testing earned all three free Butcher rewards, including two consecutive unattended clears with the staging fix. Quota read-back, result exit, zero-quota recovery, Hunt claim receipts and both closing reward checks passed. Final signed APK installed locally.
+
+## 2.6.6 — local development, not released
+
+- **Video Store:** recognise the opening confirmation from its fixed caption independently of sparse page OCR, accept supported split-text readings, and verify dismissal with bounded controller retries before returning to the Handbook.
+- **Suibian Temple:** use the verified tab/receipt state to finish travel and enter management; recognise Claim Revenue independently of generic whole-page text. Read two-line Cloud Crest receipt labels separately, then confirm actual running management.
+- **Combat:** start the no-input watchdog after arrival in combat, and reset it during loading. Long transitions no longer exhaust HUD-confirmation time before the first action.
+- **Swaps:** retry a swallowed R1 at most twice, only while fresh repeated portrait readings still show the original agent. Pause after a bounded failure.
+- **Defense:** add recovery dodges after held basic finishers and reactive dodges when the visible health indicator falls. Pause a failed combat check or persistently incomplete squad rather than leaving idle agents taking damage or cycling supports.
+
+## 2.6.5 — local development, not released
+
+- Replace the farming button loop with an observed-HUD rotation for Koleda, Rina and Claret. Supports use ready EX skills and swap; Claret gets basic combos, third-hit holds and alternating tap/held enhancements. Ready Ultimates take priority.
+- Recognize Claret’s red Sharpness-ready icon separately from the supports’ purple EX icon. Inputs require the expected squad and a repeatedly observed active portrait.
+- Prefer Claret in labelled controller chain choices; skip unrecognized options. Verify swaps through portraits rather than advancing an assumed agent counter.
+- Allow bounded EX/basic holds with Stop, physical-input, session and foreground checks throughout; always release the held button on interruption.
+- Built locally only. No live combat tests, installation or publication for this change.
+
 ## 2.6.4 — 2026-11-27
 
 - **Temple navigation:** detect the selected Business Log / Auto-Manage tab through verified header labels and active-tab color; use RB and verify Auto-Manage before acting.

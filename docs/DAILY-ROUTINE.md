@@ -2,6 +2,10 @@
 
 This is a development preview. The complete unattended route is not yet validated.
 
+Local v2.6.6 fixes service handoffs, split Cloud Crest receipts and the combat inactivity timer. Loading is excluded from HUD-confirmation time. Targeted live testing completed Temple claim/restart and a three-battle disc-farming run through the final reward check; the fresh-day Store opening remains unverified. See [v2.6.6 validation](validation-v2.6.6-local.json).
+
+v2.7.0 includes the [Koleda / Rina / Claret combat rotation](COMBAT-ROTATION.md) introduced in v2.6.5. Targeted v2.6.6 testing cleared three consecutive Disc battles, and weekly testing cleared the three free Butcher rewards across runs. Every farming target and chain overlay remain unverified.
+
 The plan selects errands, farming target and whether to use Backup Battery Charge once to complete the final batch. Daily errands use the Asia reset at 04:00 UTC+08; failed or stopped runs remain retryable. Available daily engagement rewards are banked before errands, again before farming, and after farming. Farm Only checks rewards before and after combat too. Errand-cycle completion is saved as soon as all four errands and the reward checkpoint are verified, so a later farming interruption cannot undo it. Task checkpoints are saved immediately from in-game progress or a verified service result. Max Engagement alone never marks a task complete. Old day-complete records without task evidence cannot lock out unfinished errands.
 
 Farming is available independently of that reset and reads the current game balance, including overflow above 240. Starting at 03:00 and again at 05:00 does not assume the Battery has refilled.
@@ -62,3 +66,8 @@ Completion reads **Done**. Video Store uses **Running**, **Collect**, **Closed**
 Disc pair names follow the existing local equipment catalog. Stage associations were cross-checked against the game’s Swiftspine reward screen and the [Area Patrol stage list](https://gamemarket.gg/news/zenless-zone-zero/which-zzz-area-patrol-stage-should-you-farm-for-double-rewards), with the newest pair confirmed in [HoYoverse’s Steam announcements](https://store.steampowered.com/news/posts/?enddate=1785245407&feed=steam_community_announcements). Artwork uses the already bundled game assets.
 
 Further Thor testing was stopped at the user’s request before the final v2.6.4 Handbook chord change was device-verified. The signed preview is saved for user testing; see [release validation](validation-v2.6.4.json).
+
+
+## Weekly Route
+
+v2.7.0 adds [Do Weeklies](WEEKLY-ROUTINE.md), with independent account history. It does not change daily eligibility or Battery farming settings. Three free Butcher rewards were earned across testing, including two consecutive unattended clears; zero-quota recovery, Hunt reward receipts and both final claim checks passed. Other bosses and one uninterrupted three-clear run with the final candidate remain unverified.

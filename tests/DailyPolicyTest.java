@@ -66,6 +66,11 @@ public final class DailyPolicyTest {
   check(!DailyPolicy.storeOpeningConfirmation(storeMessage,"flow!","Purchase"));
   check(!DailyPolicy.storeOpeningConfirmation("Wishing you a prosperous store opening","flow!","Confirm"));
   check(!DailyPolicy.storeOpeningConfirmation("Use Polychromes","flow!","Confirm"));
+  check(DailyPolicy.templeArrived(0,false,false));check(DailyPolicy.templeArrived(1,false,false));check(DailyPolicy.templeArrived(-1,true,false));check(!DailyPolicy.templeArrived(-1,false,false));
+  check(DailyPolicy.storeOpeningPopup("Prosperous store opening. May the Dennies flow!","Confirm"));
+  check(DailyPolicy.storeOpeningPopup("Wishing you a prosperous store opening May the Dennies flow","Confirrn"));
+  check(!DailyPolicy.storeOpeningPopup("Prosperous store opening. May the Dennies flow!","Cancel"));
+  check(!DailyPolicy.storeOpeningPopup("Confirm a purchase with Dennies","Confirm"));
   check(DailyPolicy.templeTab(.65,.03)==0);check(DailyPolicy.templeTab(.02,.62)==1);check(DailyPolicy.templeTab(.1,.1)==-1);check(DailyPolicy.templeTab(.6,.6)==-1);check(DailyPolicy.templeTab(.34,0)==-1);
   check(DailyPolicy.templeAction(0,false,false,false,false)==DailyPolicy.TempleAction.OPEN_AUTO);
   check(DailyPolicy.templeAction(1,false,false,true,false)==DailyPolicy.TempleAction.START);
